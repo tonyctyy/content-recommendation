@@ -18,3 +18,7 @@ This is a project studying about the content recommendation system
   - **Item-Item Collaborative Filtering:** This method only requires content data, making it suitable when user behavior data is unavailable.
 - **Synthetic User Behavior Data:**
   - **Generating Data:** Another approach is to generate synthetic user behavior data from available content data.
+
+## Logs
+### Tony
+- 17/6/2024: Studying the Yale Dataset
