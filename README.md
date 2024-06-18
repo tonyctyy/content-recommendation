@@ -21,4 +21,4 @@ This is a project studying about the content recommendation system
 
 ## Logs
 ### Tony
-- 17/6/2024: Studying the Yale Dataset
+- 17/6/2024: Studying the Yelp Dataset
