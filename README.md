@@ -22,3 +22,6 @@ This is a project studying about the content recommendation system
 ## Logs
 ### Tony
 - 17/6/2024: Studying the Yelp Dataset
+  - [Official Dataset Example on Github](https://github.com/Yelp/dataset-examples)
+  - [Official Dataset Documentation](https://www.yelp.com/dataset/documentation/main)
+  - [Kaggle Dataset](https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset) 
