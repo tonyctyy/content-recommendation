@@ -10,11 +10,6 @@ This is a project studying about the content recommendation system. Some dataset
     - [1st Meeting with Professor (July or August) ](#1st-meeting-with-professor-july-or-august-)
     - [After 1st Meeting ](#after-1st-meeting-)
   - [Additional Suggestions](#additional-suggestions)
-    - [Literature Review](#literature-review)
-    - [Data Preprocessing and Feature Engineering](#data-preprocessing-and-feature-engineering)
-    - [Progress Tracking and Meetings](#progress-tracking-and-meetings)
-    - [Testing, Evaluation, and Documentation](#testing-evaluation-and-documentation)
-    - [Final Deliverables](#final-deliverables)
   - [Insights](#insights)
     - [Popular Techniques](#popular-techniques)
     - [Alternative Approaches](#alternative-approaches)
@@ -75,28 +70,28 @@ This is a project studying about the content recommendation system. Some dataset
 
 
 ## Additional Suggestions
-### Literature Review 
+1. Literature Review 
 - [ ] Conduct a comprehensive literature review to study existing research and techniques in content recommendation systems.
 - [ ] Identify gaps, limitations, and potential areas for improvement or novelty.
 
 
-### Data Preprocessing and Feature Engineering
+2. Data Preprocessing and Feature Engineering
 - [ ] Include a phase for data preprocessing and feature engineering, if applicable.
 - [ ] Perform necessary data cleaning, transformation, and feature extraction steps.
 
 
-### Progress Tracking and Meetings 
+3. Progress Tracking and Meetings 
 - [ ] Plan for regular progress meetings or check-ins with the professor or team members.
 - [ ] Discuss challenges, progress, and next steps during these meetings.
 
 
-### Testing, Evaluation, and Documentation 
+4. Testing, Evaluation, and Documentation 
 - [ ] Allocate time for testing and evaluating the system or research findings.
 - [ ] Identify appropriate evaluation metrics and methodologies.
 - [ ] Document the system architecture, implementation details, and research findings.
 
 
-### Final Deliverables
+5. Final Deliverables
 - [ ] Include a phase for writing the research paper or preparing the final deliverables.
 - [ ] Allocate sufficient time for revisions, proofreading, and formatting.
 
