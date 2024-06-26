@@ -20,6 +20,7 @@ This is a project studying about the content recommendation system. Some dataset
       - [ScaNN (Scalable Nearest Neighbors)](#scann-scalable-nearest-neighbors)
       - [Tensorflow Lite](#tensorflow-lite)
       - [TensorFlow Recommenders Addons](#tensorflow-recommenders-addons)
+    - [26/6/2024：FunRec - ](#2662024funrec---)
 
 
 
@@ -137,6 +138,7 @@ Yelp is a platform for users to find, review, and recommend businesses in differ
 **Insights**: I haven't check the detail of the json data (the validity of the data in terms of the date, area, number of data, etc.). But I think it is useful that we can use the Collaborative Filtering Systems here since it also provide the user profile data. Still, We need to check if they are valid or not.
 
 
+
 ### 18/6/2024: Some Existing Products <a name="18622024-some-existing-products"></a>
 - [Recommendation System Intro from TensorFlow on YouTube](https://www.youtube.com/watch?v=BthUPVwA59s&list=PLQY2H8rRoyvy2MiyUBz5RWZr5MPFkV3qz&index=2)
 
@@ -158,3 +160,7 @@ It is a community-driven SIG group focused on large scale recommendation models.
 - How to deal with dynamic embedding
 It also includes useful tools such as **Dynamic Embedding** from Tencent and **Embedding Variable** from Alibaba.
 
+
+### 26/6/2024：FunRec - <a name="26622024funrec--"></a>
+- [FunRec](https://github.com/datawhalechina/fun-rec?tab=readme-ov-file)
+This is a Github repo for learning content recommendation. and it is a Chinese-based material
