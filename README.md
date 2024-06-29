@@ -1,5 +1,5 @@
 # Content Recommendation System
-This is a project studying about the content recommendation system. Some dataset is very large so don't upload to github.
+This is a project studying about the content recommendation system. Some dataset is very large so don't upload to github. Use the following link to download the archive file: https://github.com/tonyctyy/content-recommendation/archive/master.zip
 
 ## Table of Contents
 - [Content Recommendation System](#content-recommendation-system)
