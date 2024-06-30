@@ -5,14 +5,17 @@ This is a project studying about the content recommendation system. Some dataset
 - [Content Recommendation System](#content-recommendation-system)
   - [Table of Contents](#table-of-contents)
   - [Useful Links](#useful-links)
+  - [Summary (update on 30/6/2024)](#summary-update-on-3062024)
+    - [Content Recommendation System](#content-recommendation-system-1)
+    - [Popular Techniques](#popular-techniques)
+    - [Alternative Approaches](#alternative-approaches)
+    - [Measurements](#measurements)
+    - [Strategy Procedure](#strategy-procedure)
   - [Important Dates and Milestones](#important-dates-and-milestones)
     - [Before 1st Meeting ](#before-1st-meeting-)
     - [1st Meeting with Professor (July or August) ](#1st-meeting-with-professor-july-or-august-)
     - [After 1st Meeting ](#after-1st-meeting-)
   - [Additional Suggestions](#additional-suggestions)
-  - [Insights](#insights)
-    - [Popular Techniques](#popular-techniques)
-    - [Alternative Approaches](#alternative-approaches)
   - [Logs](#logs)
 
 
@@ -21,6 +24,67 @@ This is a project studying about the content recommendation system. Some dataset
 - [Perplexity](https://www.perplexity.ai/collections/Content-Recommendation-FYP-r8AxwOpsSAyDXFh7Np00lg): Perplexity is used for the research purpose and we have a group chat. We can ask questions here.
 - [Introduction of Content Recommendation System](https://slogix.in/phd-research-topics-in-recommender-systems-based-on-deep-learning/): This website provides an brief intro on different content recommendation techniques, potential research directions, etc. We can kick off the project here.
 - [Dataset for Content Recommendation System (Github)](https://github.com/RUCAIBox/RecSysDatasets): This Github repo contains many different datasets for content recommendation system. We can choose our dataset here.
+- [Tensorflow Official Tutorial](https://www.youtube.com/watch?v=BthUPVwA59s&list=PLQY2H8rRoyvy2MiyUBz5RWZr5MPFkV3qz&index=2): This series of videos provides an overview of the content recommendation system and how to build it using Tensorflow.
+- [FunRec](https://github.com/datawhalechina/fun-rec?tab=readme-ov-file): This Github repo is a Chinese study content for content recommendation system but I haven't checked the detail.
+- [Content Recommendation System Tutorial from Red Algorithm Engineer](https://youtu.be/5dTOPen28ts?si=qhYBTACSpeeFZXqk): This series of videos uses Red as the example to explain the content recommendation system. It is in Chinese and I use a lot information here to do the summary.
+
+
+
+## Summary (update on 30/6/2024)
+### Content Recommendation System
+The Content Recommendation System includes different stages:
+1. **Retrieval** (reduce results from trillions to thousands)
+   - It usually combines different methods (e.g. Collaborative Filtering, GNN)to retrieve results and add them up. 
+2. **Pre-Ranking** (reduce results from thousands to hundreds)
+   - This is where neural networks are used to do prediction in terms of the evaluation metrics (e.g. click-through rate, like rate). 
+3. **Ranking** (a more complex mechanism to rank results compare to pre-ranking)
+4. **Re-Ranking** (reduce results from hundreds to tens)
+   - It considers both scores and variety of the results. As a result, it sets up rules to re-distribute similar results.
+   - It uses different sampling methods (e.g. MMR, DPP) to reduce results. 
+   - It also adds advertisements and additional information to the results.
+
+
+### Popular Techniques 
+- **Collaborative Filtering:** These systems rely heavily on user behavior data to make recommendations.
+  - If a user is interested in an item, it is more likely that they will be interested in similar items.
+  - It holds two indexes:
+    - **User Index:** It stores the user behavior data (e.g. the past 100 clicks and other  interactions) to determine user preferences.
+    - **Item Index:** It stores the content data to determine if two items are similar. When the user groups are similar, the item groups are also considered similar. We usually use the Jaccard index or cosine similarity to determine if two items are similar.
+  - When it is used in retrieval:
+    1. Given a user id, it returns the **last-n** items that the user has interacted with through the **User Index**. (We assume they are interested in these items)
+    2. Using the **last-n** items, it returns the **top-k** similar item for each item through the **Item Index**.  
+    3. This method returns at most n*k results. It then predicts the interest score for each item.
+    4. Return the 100 results.
+  - **Challenge:** Acquiring user behavior data can be difficult.
+
+### Alternative Approaches
+- **Content-Based Techniques:** 
+  - **Item-Item Collaborative Filtering:** This method only requires content data, making it suitable when user behavior data is unavailable.
+
+- **Synthetic User Behavior Data:**
+  - **Generating Data:** Another approach is to generate synthetic user behavior data from available content data.
+
+
+### Measurements 
+**Case Study of Social Media (e.g. Red):**
+- **Key Performance Indicators:**
+  - Click Through Rate: Clicks/Impressions
+  - Like Rate: Likes/Clicks
+  - Share Rate: Shares/Clicks
+  - Comment Rate: Comments/Clicks
+  - Finish Rate: Scroll to the end/Clicks x f(length of the content)
+- **North Star Metric** (This is a more important metric.)**:**
+  - User Size: Daily Active Users (DAU), Monthly Active Users (MAU), etc.
+  - User Stat: Average Time Spent on Content (ATC), Average Number of Content Views (ANV), etc.
+  - Posting Stat: Average Number of Posts (AP), Post Penetration Rate (PPR), etc.
+
+
+### Strategy Procedure
+1. Offline Experiment 
+   - This is the focus of the project. We can use the dataset to test the model.
+2. AB Test
+   - We can't use the dataset to conduct AB test as AB Test is a simulation.
+3. Update Strategy
 
 
 
@@ -91,23 +155,7 @@ This is a project studying about the content recommendation system. Some dataset
 
 
 
-## Insights
-### Popular Techniques 
-- **Collaborative Filtering Systems:** These systems rely heavily on user behavior data to make recommendations.
-- **Challenge:** Acquiring user behavior data can be difficult.
-
-
-### Alternative Approaches 
-**Content-Based Techniques:**
-- **Item-Item Collaborative Filtering:** This method only requires content data, making it suitable when user behavior data is unavailable.
-
-**Synthetic User Behavior Data:**
-- **Generating Data:** Another approach is to generate synthetic user behavior data from available content data.
-
-
-
 ## Logs
 - [18/6/2024: Tensorflow Tutorial](logs/tensorflow_tutorial.md)
 - [18/6/2024: Yelp Dataset](logs/dataset/yelp.md)
-- [26/6/2024: FunRec (Chinese Study Content)](logs/funrec_tutorial.md)
 - [26/6/2024: Pre-Meeting Brainstorm](logs/pre-meeting_brainstorm.md)
