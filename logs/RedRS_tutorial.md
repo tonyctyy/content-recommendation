@@ -1,4 +1,4 @@
-[Back to Main Page] (../README.md)
+[Back to Main Page](../README.md)
 
 # 5/7/2024: Red Content Recommendation System Tutorial
 This is the summary of the ［tutorial series］（https://youtu.be/5dTOPen28ts2si=ghYBTACSpeeFZXgk） from the Red Algorithm Engineer.
