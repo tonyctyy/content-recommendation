@@ -8,7 +8,6 @@ This is a project studying about the content recommendation system. Some dataset
   - [Summary (update on 30/6/2024)](#summary-update-on-3062024)
     - [Content Recommendation System](#content-recommendation-system-1)
     - [Popular Techniques](#popular-techniques)
-    - [Alternative Approaches](#alternative-approaches)
     - [Measurements](#measurements)
     - [Strategy Procedure](#strategy-procedure)
   - [Important Dates and Milestones](#important-dates-and-milestones)
@@ -31,6 +30,7 @@ This is a project studying about the content recommendation system. Some dataset
 
 
 ## Summary (update on 30/6/2024)
+The following summary is based on the material from the [Red Content Reccomendation System Tutorial](logs/RedRS_Tutorial.md). You should check it for the big picture.
 ### Content Recommendation System
 The Content Recommendation System includes different stages:
 1. **Retrieval** (reduce results from trillions to thousands)
@@ -45,24 +45,14 @@ The Content Recommendation System includes different stages:
 
 
 ### Popular Techniques 
-- **Collaborative Filtering:** These systems rely heavily on user behavior data to make recommendations.
-  - If a user is interested in an item, it is more likely that they will be interested in similar items.
-  - It holds two indexes:
-    - **User Index:** It stores the user behavior data (e.g. the past 100 clicks and other  interactions) to determine user preferences.
-    - **Item Index:** It stores the content data to determine if two items are similar. When the user groups are similar, the item groups are also considered similar. We usually use the Jaccard index or cosine similarity to determine if two items are similar.
-  - When it is used in retrieval:
-    1. Given a user id, it returns the **last-n** items that the user has interacted with through the **User Index**. (We assume they are interested in these items)
-    2. Using the **last-n** items, it returns the **top-k** similar item for each item through the **Item Index**.  
-    3. This method returns at most n*k results. It then predicts the interest score for each item.
-    4. Return the 100 results.
-  - **Challenge:** Acquiring user behavior data can be difficult.
+- **Collaborative Filtering:**: This is a widely used technique in the retrieval stage. The general applications are **Item CF** and **User CF**. We can use CF to construct multiple tunels to retrieve related contont effectively.
 
-### Alternative Approaches
-- **Content-Based Techniques:** 
-  - **Item-Item Collaborative Filtering:** This method only requires content data, making it suitable when user behavior data is unavailable.
-
-- **Synthetic User Behavior Data:**
-  - **Generating Data:** Another approach is to generate synthetic user behavior data from available content data.
+**Challenges**
+  - It is difficult to find user behavior data in open-source dataset.
+    - Alternative Approaches
+    1. **Item-Item Collaborative Filtering:** This method only requires content data, making it suitable when user behavior data is unavailable.
+    2. **Synthetic User Behavior Data:** Another approach is to generate synthetic user behavior data from available content data (i.e. simulation data that keep the original properties).
+  - There will be many null data when considering millions of item and user (e.g. User Rating to Movies Matrix).
 
 
 ### Measurements 
@@ -159,3 +149,4 @@ The Content Recommendation System includes different stages:
 - [18/6/2024: Tensorflow Tutorial](logs/tensorflow_tutorial.md)
 - [18/6/2024: Yelp Dataset](logs/dataset/yelp.md)
 - [26/6/2024: Pre-Meeting Brainstorm](logs/pre-meeting_brainstorm.md)
+- [5/7/2024: Red Content Recommendation System Tutorial](logs/RedRS_tutorial.md)
