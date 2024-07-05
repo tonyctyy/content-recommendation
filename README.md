@@ -30,7 +30,7 @@ This is a project studying about the content recommendation system. Some dataset
 
 
 ## Summary (update on 30/6/2024)
-The following summary is based on the material from the [Red Content Reccomendation System Tutorial](logs/RedRS_Tutorial.md). You should check it for the big picture.
+The following summary is based on the material from the [Red Content Reccomendation System Tutorial](logs/RedRS_tutorial.md). You should check it for the big picture.
 ### Content Recommendation System
 The Content Recommendation System includes different stages:
 1. **Retrieval** (reduce results from trillions to thousands)
