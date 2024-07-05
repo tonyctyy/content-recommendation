@@ -48,7 +48,6 @@ The Content Recommendation System includes different stages:
 - **Collaborative Filtering:**: This is a widely used technique in the retrieval stage. The general applications are **Item CF** and **User CF**. We can use CF to construct multiple tunels to retrieve related contont effectively.
   - **Challenges**
     - It is difficult to find user behavior data in open-source dataset.
-      **Alternative Approaches**
       1. **Item-Item Collaborative Filtering:** This method only requires content data, making it suitable when user behavior data is unavailable.
       2. **Synthetic User Behavior Data:** Another approach is to generate synthetic user behavior data from available content data (i.e. simulation data that keep the original properties).
     - There will be many null data when considering millions of item and user (e.g. User Rating to Movies Matrix).
