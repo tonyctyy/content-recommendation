@@ -18,9 +18,7 @@ This is the summary of the [tutorial series](https://youtu.be/5dTOPen28ts2si=ghY
 
 ### Retrieval
 1. **Collaborative Filtering (CF):**
-
-This technique relies heavily on user behavior data to make recommendations but it might be difficult to collect user data.
-
+- This technique relies heavily on user behavior data to make recommendations but it might be difficult to collect user data.
     1. **Item CF:** If a user is interested in an item, it is more likely that they wi1l be interested in similar items.
         - **User Index:** It stores the user behavior data （e.g. the past 100 clicks and other interactions) to determine user preferences (i.e. like( user, item_j ) ).
         - **Item Index:** It stores the content data to determine if two items are similar. When the user groups are similar, the item groups are also considered similar. We usually use the Jaccard index or cosine similarity to determine if two items are similar or not.
