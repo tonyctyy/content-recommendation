@@ -27,4 +27,7 @@ This is the summary of the [tutorial series](https://youtu.be/5dTOPen28ts2si=ghY
             2. Using the **last-n** items, it returns the **top-k** similar items for each item through the **Item Index**.
             3. This method returns at most n*k similar results. It then predicts the interest score for each item.
             4. Returns the 100 results.
-        - 
+        - **Misclassification of Similar Item:** We may consider two items to be similar if they are interacted by a small group of users. It is possivle that the small group of users are friends or they share the same sources of informstion through social media or any community. Then, we may misclassify two irrelevant items to be similar.
+            - **Swing Model** is used to find users from the same group and lower their weightings when calculating the similarity of two items.
+
+    2. **User Cf:** 
