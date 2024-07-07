@@ -1,1 +1,2 @@
-data/
+data/raw_datasets/*
+data/processed_datasets/*
