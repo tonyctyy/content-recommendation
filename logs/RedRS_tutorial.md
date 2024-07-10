@@ -44,7 +44,7 @@ This is the summary of the [Red Content Recommendation System Tutorial](https://
    
 - **User-Item Index:** 
 
-   Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., \\(like(user, item_j)\\)).
+   Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., $like(user, item_j)$ ).
 
 - **Item-Item Index:** 
   
@@ -78,7 +78,7 @@ This is the summary of the [Red Content Recommendation System Tutorial](https://
 
 - **User-Item Index:**
 
-   Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., $like(user, item_j)$).
+   Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., $like(user, item_j)$ ).
 
 - **User-User Index:**
 
