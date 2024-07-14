@@ -1,6 +1,6 @@
 [Back to Main Page](../README.md)
 
-<h1>5/7/2024: Red Content Recommendation System Tutorial (Updated on 10/7/2024) </h1>
+<h1>5/7/2024: Red Content Recommendation System Tutorial (Updated on 14/7/2024) </h1>
 
 This is the summary of the [Red Content Recommendation System Tutorial](https://youtu.be/5dTOPen28ts?si=qhYBTACSpeeFZXqk). It shows an industrial approach to content recommendation.
 
@@ -10,7 +10,9 @@ This is the summary of the [Red Content Recommendation System Tutorial](https://
 - [Steps for Content Recommendation (CR) System](#steps-for-content-recommendation-cr-system)
 - [Retrieval](#retrieval)
   - [**Collaborative Filtering (CF):**](#collaborative-filtering-cf)
-  - [**Discrete Features**](#discrete-features)
+  - [Discrete Features](#discrete-features)
+  - [Matrix Completion](#matrix-completion)
+  - [**Deep Structured Semantic Model (DSSM)**](#deep-structured-semantic-model-dssm)
 
 
 
@@ -102,4 +104,24 @@ This is the summary of the [Red Content Recommendation System Tutorial](https://
 
 
 
-### **Discrete Features**
+### Discrete Features
+This section will mention how we handle different discrete features (e.g. country, item_id, etc.). Discrete features are discontinuous and have definite features boundaries (i.e. fixed values).
+
+1. **Dictionary:** One simple approach is to build a dictionary to map the features (e.g. China -> 1, US -> 2, India ->3)
+2. **One-hot Encoding:** Project features into high dimension vector (e.g. gender: from male/female to 0/1). It creates columns for each feature value. However, when it is used in features with many values, it will create a high dimension vector (e.g. word, id, etc.).
+3. **Embedding:** Project features into low dimension vector. It is trained on a large-scale dataset using a deep learning model.
+
+
+<h4> What is Embedding?</h4>
+
+![Embedding](./images/02_recall_04_DF_01.jpg)
+We can use machine learning algorithms to find the parameter matrix that best fits the data (different feature values). Then, we can use the parameter matrix to map the feature values (one-hot encoding) to the embedding vectors. The use case will be explained in the next section, [**Matrix Completion**](#matrix-completion), although it is not used in the industrial approach.
+
+
+
+### Matrix Completion
+Matrix completion is a technique used to fill in missing values in a matrix. For example, users may only interact with a small number of items (~3% of total items). Matrix completion can be used to fill in the missing values in the matrix. However, this approach is not used in the industry due to serval limitations. We can consider this method as the foundation of another powerful method, [**Deep Structured Semantic Model (DSSM)**](#deep-structured-semantic-model-dssm).
+
+
+
+### **Deep Structured Semantic Model (DSSM)**
