@@ -10,7 +10,7 @@ This is a project studying content recommendation systems. Some datasets are ver
   - [Content Recommendation System](#content-recommendation-system)
   - [Popular Techniques](#popular-techniques)
   - [Measurements](#measurements)
-  - [Strategy Procedure](#strategy-procedure)
+  - [Strategy Deployment](#strategy-deployment)
 - [Important Dates and Milestones](#important-dates-and-milestones)
   - [Before 1st Meeting](#before-1st-meeting)
   - [1st Meeting with Professor (July or August)](#1st-meeting-with-professor-july-or-august)
@@ -24,6 +24,7 @@ This is a project studying content recommendation systems. Some datasets are ver
 - [Perplexity](https://www.perplexity.ai/collections/Content-Recommendation-FYP-r8AxwOpsSAyDXFh7Np00lg): Perplexity is used for research purposes, and we have a group chat. We can ask questions here.
 - [Introduction to Content Recommendation Systems](https://slogix.in/phd-research-topics-in-recommender-systems-based-on-deep-learning/): This website provides a brief intro to different content recommendation techniques, potential research directions, etc. We can kick off the project here.
 - [Dataset for Content Recommendation System (GitHub)](https://github.com/RUCAIBox/RecSysDatasets): This GitHub repo contains many different datasets for content recommendation systems. We can choose our dataset here.
+- [Dataset used in the UCSD laboratory](https://cseweb.ucsd.edu/~jmcauley/datasets.html): This website contains some datasets used by the UCSD laboratory.
 - [TensorFlow Official Tutorial](https://www.youtube.com/watch?v=BthUPVwA59s&list=PLQY2H8rRoyvy2MiyUBz5RWZr5MPFkV3qz&index=2): This series of videos provides an overview of content recommendation systems and how to build them using TensorFlow.
 - [FunRec](https://github.com/datawhalechina/fun-rec?tab=readme-ov-file): This GitHub repo is a Chinese study resource for content recommendation systems, but I haven't checked the details yet.
 - [Content Recommendation System Tutorial from Red Algorithm Engineer](https://youtu.be/5dTOPen28ts?si=qhYBTACSpeeFZXqk): This series of videos uses Red as an example to explain content recommendation systems. It's in Chinese, and I've used a lot of information from here for the summary.
@@ -75,7 +76,7 @@ The Content Recommendation System includes different stages:
   - Posting Stats: Average Number of Posts (AP), Post Penetration Rate (PPR), etc.
 
 
-### Strategy Procedure
+### Strategy Deployment
 1. Offline Experiment
    - This is the focus of the project. We can use the dataset to test the model.
 
