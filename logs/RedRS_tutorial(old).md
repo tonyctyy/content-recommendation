@@ -1,4 +1,4 @@
-[Back to Main Page](../README.md)
+[Back to Log Page](./README.md) | [Back to Main Page](../../README.md)   
 
 <h1>5/7/2024: Red Content Recommendation System Tutorial (Updated on 14/7/2024) </h1>
 

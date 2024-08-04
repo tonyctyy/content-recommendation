@@ -1,4 +1,4 @@
-[Back to Main Page](../README.md)
+[Back to Log Page](./README.md) | [Back to Main Page](../../README.md)   
 
 <h1>18/6/2024: TensorFlow Tutorial</h1>
 

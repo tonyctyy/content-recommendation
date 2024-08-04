@@ -1,4 +1,4 @@
-[Back to Main Page](../README.md)
+[Back to Log Page](./README.md) | [Back to Main Page](../../README.md)   
 
 # 28/6/2024: Pre-Meeting Brainstorm
 Can we have multiple research directions and findings? (Or Should We?) The following directions are from Perplexity.
