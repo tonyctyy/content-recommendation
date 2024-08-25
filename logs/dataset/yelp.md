@@ -4,8 +4,12 @@
 Yelp is a platform for users to find, review, and recommend businesses in different categories (e.g. food, shopping, entertainment, etc.) across 8 metropolitan areas in the USA and Canada. This dataset is originally used for the Yelp Challenge and it is open for academic research.
 
 ## Insights
-- Variety of Attributes: There are many extra information that can be used as features (e.g. geographical location, business attributes, etc.)
-- Weighted Score: The importance of each review can be weighted using the user's review history.
+1. **Comprehensive User and Business Profiles**: The dataset allows for the creation of detailed user and business profiles, enriched by a variety of attributes such as geographical location and specific business characteristics. This comprehensive data enables more nuanced and context-aware recommendations tailored to individual user preferences and behaviors.
+2. **Sentiment Analysis**: Review texts can be analyzed to gauge user sentiment, improving recommendation relevance.
+3. **Collaborative Filtering**: Supports collaborative filtering techniques with extensive user-business interaction data.
+4. **Temporal Analysis**: Check-in data can be used to understand temporal patterns, enhancing time-sensitive recommendations.
+5. **Visual Content**: Photos can improve the user experience by providing visual recommendations.
+6. **Weighted Score**: The importance of each review can be weighted using the user's review history, potentially improving the accuracy of recommendations by considering the credibility and experience of reviewers.
 
 ## [Official Dataset Documentation](https://www.yelp.com/dataset/documentation/main)
 It has a total of six json files: ***business***, ***review***, ***user***, ***checkin***, ***tip***, ***photo***.

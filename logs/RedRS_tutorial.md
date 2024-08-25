@@ -28,6 +28,11 @@ This is a summary of the [Red Content Recommendation System Tutorial](https://yo
       - [Listwise](#listwise)
       - [Non-Retrieval DSSM](#non-retrieval-dssm)
     - [Positive \& Negative Sample](#positive--negative-sample)
+      - [Positive Sample](#positive-sample)
+      - [Negative Sample](#negative-sample)
+      - [1. All Items](#1-all-items)
+      - [2. Batch Negative Items](#2-batch-negative-items)
+      - [Training Negative Sample](#training-negative-sample)
 
 ## Steps for Content Recommendation (CR) System
 1. **Retrieval** (reduces results from trillions to thousands)
@@ -63,8 +68,8 @@ Item CF requires two indexes to store user and item data. These indexes are crea
 
 - **Retrieval Procedure:**
   ![Item CF Retrieval Procedure](./images/02_retrieval_01_itemCF_04.jpg)
-  1. Given a *user_id*, return the ***last-n*** items the user has interacted with through the ***User-Item Index*** (assuming interest in these items).
-  2. Using the ***last-n*** items, return the ***top-k*** similar items for each item through the ***Item-Item Index***.
+  1. Given a `user_id`, return the `last-n` items the user has interacted with through the `User-Item Index` (assuming interest in these items).
+  2. Using the `last-n` items, return the `top-k` similar items for each item through the `Item-Item Index`.
   3. This method returns at most $n \times k$ similar results. It then predicts the interest score for each item.
   4. Return the top 100 results.
 
@@ -91,8 +96,8 @@ Similar to Item CF, User CF requires two indexes to store user and item data. Th
 
 - **Retrieval Procedure:**
   ![User CF Retrieval Procedure](./images/02_retrieval_03_userCF_04.jpg)
-  1. Given a *user_id*, return the ***top-k*** similar users through the ***User-User Index***.
-  2. Using the ***top-k*** users, return the ***last-n*** items that each user has interacted with through the ***User-Item Index***.
+  1. Given a *user_id*, return the `top-k` similar users through the `User-User Index`.
+  2. Using the `top-k` users, return the `last-n` items that each user has interacted with through the `User-Item Index`.
   3. This method returns at most $n \times k$ similar results. It then predicts the interest score for each item.
   4. Return the top 100 results.
 
@@ -155,10 +160,10 @@ Depending on the method we choose, we will have different shapes of areas for th
 ![How to handle user features](./images/02_retrieval_06_DSSM_01.png)
 
 ![How to handle item features](./images/02_retrieval_06_DSSM_02.png)
-1. ***user_id*** -> Embedding Layer -> ***user_id_vector***
-2. ***user_discrete_feature*** -> Embedding Layer (one layer for each feature; for features that have few values, we can use one-hot encoding) -> ***user_df_vector***
-3. ***user_continuous_feature*** -> Standardization (mean = 0, standard deviation = 1)/Log Transformation/Bucketing -> ***user_cf_vector***
-4. Concatenate ***user_id_vector***, ***user_df_vector***, ***user_cf_vector*** -> Neural Network -> ***user_vector*** (user characterization)
+1. `user_id` -> Embedding Layer -> `user_id_vector`
+2. `user_discrete_feature` -> Embedding Layer (one layer for each feature; for features that have few values, we can use one-hot encoding) -> `user_df_vector`
+3. `user_continuous_feature` -> Standardization (mean = 0, standard deviation = 1)/Log Transformation/Bucketing -> `user_cf_vector`
+4. Concatenate `user_id_vector`, `user_df_vector`, `user_cf_vector` -> Neural Network -> `user_vector` (user characterization)
 
 ![DSSM](./images/02_retrieval_06_DSSM_03.png)
 After the user vector and the item vector are generated, we can calculate the inner product of the two vectors to get the interest score of the user in the item.
@@ -198,5 +203,66 @@ We aim to maximize the similarity of +ve samples and minimize the similarity of 
 #### Non-Retrieval DSSM
 First, conduct the feature embedding and then calculate the inner product of the two vectors to get the interest score of the user in the item. If the model concatenates the user vector and the item vector first and passes it through the neural network, it is a **Ranking** model instead.
 
-
 ### Positive & Negative Sample
+The purpose of the Retrieval Stage is to classify items into those that the user may be interested in and those that they are not interested in, without the need to rank them. Improving the selection of positive and negative samples is crucial for the effectiveness of this stage.
+
+#### Positive Sample
+
+**Problem: Pareto Principle** (20% of items can cover 80% of needs)
+
+Including too many popular items in the positive sample can lead to a self-reinforcing cycle. Popular items will become even more prominent, suppressing other items and harming the system's ability to surface diverse or lesser-known content.
+
+**Solution**:
+- **Up-sampling**: Duplicate less-popular items.
+- **Down-sampling**: Discard some popular items, with the probability of discarding an item being positively correlated with its popularity.
+
+#### Negative Sample
+
+**Easy Sample** (Items that are not Retrieved)
+
+#### 1. All Items
+
+Since only thousands of items are retrieved from millions, we can assume users are not interested in the vast majority of items. We can perform negative sampling across all items.
+
+![Easy Sample](./images/02_retrieval_07_sampling_01.png)
+
+**Problem**: Sampling all items equally weighted is unfair because most items are unpopular. This imbalance causes most positive items to be popular and negative items to be unpopular, leading to the same self-reinforcing cycle.
+
+**Solution**: Weight the selection probability of an item based on its popularity.
+$$
+p \propto (\text{click-rate})^{0.75}
+$$
+
+#### 2. Batch Negative Items
+
+We can also consider negative samples in different batches. For example, if a user clicks `item_A`, we can create a batch from `item_B` to `item_N`. For $N$ items and $N$ users, this results in $n(n-1)$ negative items.
+
+![Batch Negative Items](./images/02_retrieval_07_sampling_02.png)
+
+**Problem**: 
+$$
+p \not\propto (\text{click-rate}^{0.75})
+$$
+Instead,
+$$
+p \propto \text{click-rate}
+$$
+The probability of selecting a popular item as a negative sample is too high, affecting model performance.
+
+![Problem](./images/02_retrieval_07_sampling_03.png)
+
+**Solution**: According to a [previous paper]((https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/)) by **YouTube**, we can add $-\log p$ to the formula of user interest.
+
+**Hard Sample** (Items that are retrieved but discarded by the **Pre-Rank Stage**/**Ranking Stage**)
+
+The Retrieval Stage aims to classify items the user may be interested in or not. However, it is challenging to classify items discarded in the **Pre-Rank Stage**, and even harder for those lower ranked in the **Ranking Stage**. Therefore, hard samples should also be considered in the negative sample.
+
+**Exposed but Not-Clicked Items**
+
+![Exposed but Not-Clicked Items](./images/02_retrieval_07_sampling_04.png)
+
+While it makes sense to include exposed but not-clicked items as negative samples, it can harm the model's effectiveness. Remember, the purpose of the **Retrieval Stage** is not to rank items; this method is used in the **Ranking Stage**.
+
+#### Training Negative Sample
+
+Different negative samples should be included in training. A common approach is to use 50% easy samples (All Items) and 50% hard samples (Items that are retrieved but discarded by the **Pre-Rank Stage**/**Ranking Stage**).
