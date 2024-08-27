@@ -33,6 +33,9 @@ This is a summary of the [Red Content Recommendation System Tutorial](https://yo
       - [1. All Items](#1-all-items)
       - [2. Batch Negative Items](#2-batch-negative-items)
       - [Training Negative Sample](#training-negative-sample)
+    - [Production Environment](#production-environment)
+      - [Using the DSSM Model in a Production Environment:](#using-the-dssm-model-in-a-production-environment)
+      - [Model Updates](#model-updates)
 
 ## Steps for Content Recommendation (CR) System
 1. **Retrieval** (reduces results from trillions to thousands)
@@ -266,3 +269,38 @@ While it makes sense to include exposed but not-clicked items as negative sample
 #### Training Negative Sample
 
 Different negative samples should be included in training. A common approach is to use 50% easy samples (All Items) and 50% hard samples (Items that are retrieved but discarded by the **Pre-Rank Stage**/**Ranking Stage**).
+
+
+### Production Environment
+
+#### Using the DSSM Model in a Production Environment:
+
+- **Item Index:**  
+  Store the `item_id` and corresponding `item_vector` in an index table. Real-time calculation is too computationally expensive, so in production, use Approximate Nearest Neighbor (ANN) Search to return the $n$ nearest results for a given `user_vector` or `query_vector`.
+
+  *Note: You can use vector databases such as Milvus, Faiss, or HNSWlib.*
+
+- **User Index:**  
+  Calculate the `user_vector` in real-time since it changes frequently, and the most recent interaction records are typically more significant for accurate measurement.
+
+#### Model Updates
+
+- **Regular Update:**  
+  Perform incremental training on top of the existing model (rather than reinitializing all parameters) using the previous day's data as one epoch (daily data is used only once). After training, update the `item_vector` index and user index tables.
+
+  **Training Time:** Midnight (Batch Update)
+
+- **Dynamic Update:**  
+  Train the model in a real-time environment to better adapt to user interests. This process involves generating TFRecord files for training, then updating only the model’s `ID Embedding` parameters (without retraining other parts of the neural network). Finally, update the new user `ID Embedding` for real-time application.
+
+  **Limitation:** There may be latency issues when updating records.
+
+  **Training Time:** Real-Time Update
+
+- **Industrial Approach:**  
+  Combine both **Regular Update** and **Dynamic Update**. At the end of each day, discard the results of the **Dynamic Update** and perform the **Regular Update**.
+
+- **Why Not Use Only the Dynamic Update?**  
+  While the computational cost of relying solely on **Dynamic Update** is lower, performance is generally worse compared to the hybrid approach. This is due to several factors:
+    1. **Time Interval Differences (Hour/Minute):** User interests can vary significantly between different times of the day, such as morning versus night.
+    2. **Data Shuffling:** **Regular Update** shuffles the daily data randomly for 1-epoch training, leading to better performance. In contrast, **Dynamic Update** trains in a sequence that follows the timeliness of the data, which may result in less effective learning.
