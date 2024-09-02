@@ -10,8 +10,6 @@ This project focuses on studying content recommendation systems. Some datasets a
   - [Summary (updated on 30/6/2024)](#summary-updated-on-3062024)
     - [Content Recommendation System](#content-recommendation-system-1)
     - [Popular Techniques](#popular-techniques)
-    - [Measurements](#measurements)
-    - [Strategy Deployment](#strategy-deployment)
 
 ## Logs
 All logs related to the project (e.g., dataset information, tutorials, etc.) are stored in the [logs](./logs/README.md) folder. Check the logs for more details.
@@ -24,7 +22,7 @@ All logs related to the project (e.g., dataset information, tutorials, etc.) are
 - [Dataset used in the UCSD laboratory](https://cseweb.ucsd.edu/~jmcauley/datasets.html): This website contains some datasets used by the UCSD laboratory.
 
 ## Summary (updated on 30/6/2024)
-The following summary is based on material from the [Red Content Recommendation System Tutorial](logs/RedRS_tutorial.md). Check it for a comprehensive overview.
+The following summary is based on material from the [Red Content Recommendation System Tutorial](logs/RedRS_tutorial/RedRS_tutorial.md). Check it for a comprehensive overview.
 
 ### Content Recommendation System
 The Content Recommendation System includes several stages:
@@ -49,25 +47,3 @@ The Content Recommendation System includes several stages:
       2. **Synthetic User Behavior Data:** Another approach is to generate synthetic user behavior data from available content data (i.e., simulation data that maintains the original properties).
     - Many null data points exist when considering millions of items and users (e.g., User Rating to Movies Matrix).
 
-### Measurements
-**Case Study of Social Media (e.g., Red):**
-- **Key Performance Indicators:**
-  - Click-Through Rate: Clicks / Impressions
-  - Like Rate: Likes / Clicks
-  - Share Rate: Shares / Clicks
-  - Comment Rate: Comments / Clicks
-  - Finish Rate: (Scroll to the end / Clicks) × f(length of the content)
-
-- **North Star Metric:** (An important metric)
-  - User Size: Daily Active Users (DAU), Monthly Active Users (MAU), etc.
-  - User Stats: Average Time Spent on Content (ATC), Average Number of Content Views (ANV), etc.
-  - Posting Stats: Average Number of Posts (AP), Post Penetration Rate (PPR), etc.
-
-### Strategy Deployment
-1. **Offline Experiment:**
-   - The focus of the project. We can use the dataset to test the model.
-
-2. **AB Test:**
-   - We can't use the dataset to conduct AB tests as AB Testing requires a live environment for simulation.
-
-3. **Update Strategy**

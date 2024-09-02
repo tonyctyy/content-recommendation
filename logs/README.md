@@ -25,7 +25,7 @@ This series of videos provides an overview of content recommendation systems and
 ### [Content Recommendation System Tutorial from Red Algorithm Engineer](https://youtu.be/5dTOPen28ts?si=qhYBTACSpeeFZXqk)
 This series of videos uses Red as an example to explain content recommendation systems. It's in Chinese, and I've used a lot of information from here for the summary.
 
-**Summary**: [5/7/2024: Red Content Recommendation System Tutorial](./RedRS_tutorial.md)
+**Summary**: [5/7/2024: Red Content Recommendation System Tutorial](./RedRS_tutorial/RedRS_tutorial.md)
 
 ### [FunRec](https://github.com/datawhalechina/fun-rec?tab=readme-ov-file)
 This GitHub repo is a Chinese study resource for content recommendation systems. I haven't checked the details yet.

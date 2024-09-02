@@ -1,25 +1,21 @@
-[Back to Log Page](./README.md) | [Back to Main Page](../../README.md)
+[Back to RedRS_Tutorial Page](./RedRS_Tutorial.md) | [Back to Main Page](../../../README.md)
 
-# 5/7/2024: Red Content Recommendation System Tutorial (Updated on 17/7/2024)
+<h1> Retrieval Stage</h1>
 
-This is a summary of the [Red Content Recommendation System Tutorial](https://youtu.be/5dTOPen28ts?si=qhYBTACSpeeFZXqk). It showcases an industrial approach to content recommendation.
-
-## Table of Contents
-- [5/7/2024: Red Content Recommendation System Tutorial (Updated on 17/7/2024)](#572024-red-content-recommendation-system-tutorial-updated-on-1772024)
-  - [Table of Contents](#table-of-contents)
-  - [Steps for Content Recommendation (CR) System](#steps-for-content-recommendation-cr-system)
-  - [Retrieval](#retrieval)
-    - [Collaborative Filtering (CF)](#collaborative-filtering-cf)
-      - [Item CF](#item-cf)
-      - [User CF](#user-cf)
-    - [Discrete Features](#discrete-features)
-      - [What is Embedding?](#what-is-embedding)
-    - [Matrix Completion \& Approximate Nearest Neighbor (ANN) Search](#matrix-completion--approximate-nearest-neighbor-ann-search)
-      - [Steps for Matrix Completion:](#steps-for-matrix-completion)
-      - [Limitations:](#limitations)
-      - [How to use the model:](#how-to-use-the-model)
-      - [Approximate Nearest Neighbor (ANN) Search](#approximate-nearest-neighbor-ann-search)
-    - [Deep Structured Semantic Model (DSSM)](#deep-structured-semantic-model-dssm)
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+  - [Collaborative Filtering (CF)](#collaborative-filtering-cf)
+    - [Item CF](#item-cf)
+    - [User CF](#user-cf)
+  - [Discrete Features](#discrete-features)
+    - [What is Embedding?](#what-is-embedding)
+  - [Matrix Completion \& Approximate Nearest Neighbor (ANN) Search](#matrix-completion--approximate-nearest-neighbor-ann-search)
+    - [Steps for Matrix Completion:](#steps-for-matrix-completion)
+    - [Limitations:](#limitations)
+    - [How to use the model:](#how-to-use-the-model)
+    - [Approximate Nearest Neighbor (ANN) Search](#approximate-nearest-neighbor-ann-search)
+  - [Deep Structured Semantic Model (DSSM)](#deep-structured-semantic-model-dssm)
+    - [Overview](#overview)
       - [How to handle user/item features:](#how-to-handle-useritem-features)
       - [Training DSSM:](#training-dssm)
       - [How to select the sample items:](#how-to-select-the-sample-items)
@@ -36,26 +32,18 @@ This is a summary of the [Red Content Recommendation System Tutorial](https://yo
     - [Production Environment](#production-environment)
       - [Using the DSSM Model in a Production Environment:](#using-the-dssm-model-in-a-production-environment)
       - [Model Updates](#model-updates)
+    - [Self-Supervised Learning](#self-supervised-learning)
+      - [Listwise Training \& Cross-Entropy Loss Function](#listwise-training--cross-entropy-loss-function)
+      - [Applying Self-Supervised Learning in Item Tower:](#applying-self-supervised-learning-in-item-tower)
+      - [Feature Transformation](#feature-transformation)
+      - [Training the Item Tower](#training-the-item-tower)
+      - [Combining with the DSSM Model](#combining-with-the-dssm-model)
 
-## Steps for Content Recommendation (CR) System
-1. **Retrieval** (reduces results from trillions to thousands)
-   - Typically combines different methods (e.g., Collaborative Filtering, GNN) to retrieve results and aggregate them.
 
-2. **Pre-Ranking** (reduces results from thousands to hundreds)
-   - Neural networks are used here to predict evaluation metrics (e.g., click-through rate, like rate).
-
-3. **Ranking** (a more complex mechanism for ranking results compared to pre-ranking)
-
-4. **Re-Ranking** (reduces results from hundreds to tens)
-   - Considers both scores and variety of the results, setting rules to redistribute similar results.
-   - Uses different sampling methods (e.g., MMR, DPP) to reduce results.
-   - Adds advertisements and additional information to the results.
-
-## Retrieval
-### Collaborative Filtering (CF)
+## Collaborative Filtering (CF)
 - This technique relies heavily on user behavior data to make recommendations, which can be difficult to collect.
 
-#### Item CF
+### Item CF
 ![Item CF Retrieval Overview](./images/02_retrieval_01_itemCF_01.jpg)
 If a user is interested in an item, they are more likely to be interested in similar items.
 
@@ -83,7 +71,7 @@ Item CF requires two indexes to store user and item data. These indexes are crea
   ![Item CF Swing Model](./images/02_retrieval_02_swing_02.jpg)
   The **Swing Model** is used to identify users from the same group and lower their weightings when calculating the similarity of two items.
 
-#### User CF
+### User CF
 ![User CF Retrieval Overview](./images/02_retrieval_03_userCF_01.jpg)
 If users are in the same group, they are more likely to be interested in similar items.
 
@@ -110,21 +98,21 @@ Similar to Item CF, User CF requires two indexes to store user and item data. Th
   ![Adjusted User Similarity](./images/02_retrieval_03_userCF_05.jpg)
   To reduce the effect of popular items on user similarity, we need to lower their weighting.
 
-### Discrete Features
+## Discrete Features
 This section discusses how to handle different discrete features (e.g., country, item_id, etc.). Discrete features are discontinuous and have definite feature boundaries (i.e., fixed values).
 
 1. **Dictionary:** One simple approach is to build a dictionary to map the features (e.g., China -> 1, US -> 2, India -> 3).
 2. **One-hot Encoding:** Project features into high-dimensional vectors (e.g., gender: from male/female to 0/1). It creates columns for each feature value. However, when used with features that have many values, it will create a high-dimensional vector (e.g., word, id, etc.).
 3. **Embedding:** Project features into low-dimensional vectors. It is trained on a large-scale dataset using a deep learning model.
 
-#### What is Embedding?
+### What is Embedding?
 ![Embedding](./images/02_retrieval_04_DF_01.jpg)
 We can use machine learning algorithms to find the parameter matrix that best fits the data (different feature values). Then, we can use the parameter matrix to map the feature values (one-hot encoding) to the embedding vectors. The use case will be explained in the next section, [Matrix Completion](#matrix-completion--approximate-nearest-neighbor-ann-search), although it is not used in the industrial approach.
 
-### Matrix Completion & Approximate Nearest Neighbor (ANN) Search
+## Matrix Completion & Approximate Nearest Neighbor (ANN) Search
 Matrix completion is a technique used to fill in missing values in a matrix. For example, users may only interact with a small number of items (~3% of total items). Matrix completion can be used to fill in the missing values in the matrix. However, this approach is not used in the industry due to several limitations. We can consider this method as the foundation of another powerful method, [Deep Structured Semantic Model (DSSM)](#deep-structured-semantic-model-dssm).
 
-#### Steps for Matrix Completion:
+### Steps for Matrix Completion:
 ![Matrix Completion](./images/02_retrieval_05_MC_01.png)
 We train the embedding layers for user_id and item_id respectively. Then, we can get the inner product of the two vectors.
 
@@ -134,7 +122,7 @@ We solve the minimization problem to get the optimized vectors A and B.
 ![Matrix Completion Result](./images/02_retrieval_05_MC_03.png)
 The final matrix can show user interest in different items.
 
-#### Limitations:
+### Limitations:
 ![Limitations](./images/02_retrieval_05_MC_04.png)
 - The model doesn’t consider other important features (e.g., item property, user attributes, etc.).
 - The model doesn’t have a good negative samples mechanism. It counts towards no interaction, which is an indirect source of information.
@@ -142,12 +130,12 @@ The final matrix can show user interest in different items.
 ![Limitations](./images/02_retrieval_05_MC_05.png)
 - The model uses inner product while cosine similarity is the widely-used calculation method. Also, it uses Mean Square Error (MSE) instead of Cross Entropy as the loss function in the minimization problem. Cross Entropy is a better function for discrete or categorical features, while Mean Square Error is more suitable for continuous features.
 
-#### How to use the model:
+### How to use the model:
 ![How to use the model](./images/02_retrieval_05_MC_06.png)
 We store the optimized vectors A and B in the index table. Then, we can use the user_id as the key to retrieve the optimized vectors. Finally, we can get the inner product of the two vectors to get the interest score of the user in the item.
    - However, if we calculate the interest score of all users in the item, it will be too slow. We should use the **Approximate Nearest Neighbor (ANN) Search** to accelerate the calculation.
 
-#### Approximate Nearest Neighbor (ANN) Search
+### Approximate Nearest Neighbor (ANN) Search
 Systems that support ANN: Milvus, Faiss, HnswLib, etc.
 
 Methods to find the nearest neighbors:
@@ -158,7 +146,8 @@ Methods to find the nearest neighbors:
 ![ANN Search](./images/02_retrieval_05_MC_07.png)
 Depending on the method we choose, we will have different shapes of areas for the vector results (e.g., Cosine Similarity -> Sector) when we pre-process the data. We can calculate the inner product of the two vectors to get the interest score of the user in the item. We can then find the nearest neighbors vector and get all the results through an index table.
 
-### Deep Structured Semantic Model (DSSM)
+## Deep Structured Semantic Model (DSSM)
+### Overview
 #### How to handle user/item features:
 ![How to handle user features](./images/02_retrieval_06_DSSM_01.png)
 
@@ -304,3 +293,57 @@ Different negative samples should be included in training. A common approach is 
   While the computational cost of relying solely on **Dynamic Update** is lower, performance is generally worse compared to the hybrid approach. This is due to several factors:
     1. **Time Interval Differences (Hour/Minute):** User interests can vary significantly between different times of the day, such as morning versus night.
     2. **Data Shuffling:** **Regular Update** shuffles the daily data randomly for 1-epoch training, leading to better performance. In contrast, **Dynamic Update** trains in a sequence that follows the timeliness of the data, which may result in less effective learning.
+
+### Self-Supervised Learning
+Self-supervised learning aims to enhance the training performance of the item tower, especially for less popular items, by addressing the [Pareto Principle](#positive-sample) problem through data augmentation. This principle often results in poor performance for unpopular items. For more details, refer to **Google**'s paper: [Self-supervised Learning for Large-scale Item Recommendations](https://dl.acm.org/doi/abs/10.1145/3459637.3481952).
+
+#### Listwise Training & Cross-Entropy Loss Function
+The following section reviews the use of the [Listwise](#training-dssm) method for training DSSM and the associated [Cross-Entropy Loss Function](#listwise).
+
+![Listwise Training](images/02_retrieval_09_SSL_01.png)
+![Cross-Entropy Loss](images/02_retrieval_09_SSL_02.png)
+
+Listwise training can be viewed as [Batch Negative Items](#2-batch-negative-items), which can disproportionately penalize popular items, negatively affecting overall performance. To address this, it's essential to adjust the equation accordingly:
+
+![Batch Negative Items](images/02_retrieval_09_SSL_03.png)
+
+#### Applying Self-Supervised Learning in Item Tower:
+For each item, we can create different `item_vectors` by extracting various features or applying random masking. The goal is to reward or penalize based on specific scenarios.
+
+![Reward Similar Item Vector](images/02_retrieval_09_SSL_04.png)
+
+The diagram above shows that we should reward similar `item_vectors` derived from the same item, while also rewarding dissimilar `item_vectors` generated from different items.
+
+#### Feature Transformation
+- **Random Mask:** Randomly mask some discrete features of an item (e.g., `{digital, photograph}` becomes `{default}`).
+- **Dropout:** Applicable only to multi-valued features; randomly masks **50%** of the features (e.g., `{cosmetic, photograph}` becomes `{cosmetic}`).
+- **Complementary:** Masks specific features and generates a new `item_vector` accordingly.
+  ![Complementary](images/02_retrieval_09_SSL_05.png)
+- **Cover Related Feature Sets:** Masks some related feature sets:
+  - Sexual Features: $U = \lbrace male, female, other \rbrace$
+  - Categories: $V = \lbrace cosmetic, digital, football, tech, ... \rbrace$
+
+  ![Mutual information](images/02_retrieval_09_SSL_06.png)
+
+  When there are $k$ feature sets, calculate the **Mutual Information (MI)** between each set to get a $k \times k$ MI matrix. Randomly select a base feature set (e.g., Category) and identify the top $k/2$ most related feature sets. Finally, mask both the base feature set and these $k/2$ related feature sets.
+
+  - **Advantages:** Yields the best performance among all methods.
+  - **Disadvantages:** Complicated to compute and challenging to maintain. (Do we need to consider maintainability?)
+
+#### Training the Item Tower
+1. Randomly sample $m$ items (with equal probability, independent of `user-item` pairs) to form a batch.
+2. Perform Feature Transformation to generate 2 `item_vectors`.
+3. Compute the loss function.
+
+![Loss Function for Item Tower](images/02_retrieval_09_SSL_07.png)
+
+For each item, there is one positive sample (same item but different `item_vectors` due to Feature Transformation, with a probability $s_{(i,i)} \approx 1$) and $m-1$ negative samples. The aim is for the `s_vector` (training result) to be close to the `y_vector` (target vector). We take the average loss for the $m$ items and use **Gradient Descent** to solve the minimization problem.
+
+#### Combining with the DSSM Model
+1. Randomly sample $n$ `user-item` pairs to form a batch.
+2. Randomly sample $m$ items (with equal probability) to form a batch.
+3. Apply **Gradient Descent** to minimize the combined loss function (the second part is from Self-Supervised Learning):
+
+$$
+{1 \over n} \sum^n_{i=1} L_{main}[i] + \alpha \times {1 \over m} \sum^m_{j=1} L_{self}[j]
+$$
