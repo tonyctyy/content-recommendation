@@ -51,7 +51,7 @@ If a user is interested in an item, they are more likely to be interested in sim
 Item CF requires two indexes to store user and item data. These indexes are created and updated offline.
 
 - **User-Item Index:**
-  Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., `$like(user, item_j)$`).
+  Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., `like(user, item_j)`).
 
 - **Item-Item Index:**
   ![Item CF Similarity](./images/02_retrieval_01_itemCF_03.jpg)
@@ -79,7 +79,7 @@ If users are in the same group, they are more likely to be interested in similar
 Similar to Item CF, User CF requires two indexes to store user and item data. These indexes are created and updated offline.
 
 - **User-Item Index:**
-  Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., $like(user, item_j)$).
+  Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., `like(user, item_j)`).
 
 - **User-User Index:**
   ![User CF Similarity](./images/02_retrieval_03_userCF_03.jpg)
