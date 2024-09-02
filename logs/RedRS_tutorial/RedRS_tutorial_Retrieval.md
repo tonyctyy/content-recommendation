@@ -51,7 +51,7 @@ If a user is interested in an item, they are more likely to be interested in sim
 Item CF requires two indexes to store user and item data. These indexes are created and updated offline.
 
 - **User-Item Index:**
-  Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., $like(user, item_j)$).
+  Stores user behavior data (e.g., the past 100 clicks and other interactions) to determine user preferences (i.e., $like (user, item_j)$).
 
 - **Item-Item Index:**
   ![Item CF Similarity](./images/02_retrieval_01_itemCF_03.jpg)
@@ -221,6 +221,7 @@ Since only thousands of items are retrieved from millions, we can assume users a
 **Problem**: Sampling all items equally weighted is unfair because most items are unpopular. This imbalance causes most positive items to be popular and negative items to be unpopular, leading to the same self-reinforcing cycle.
 
 **Solution**: Weight the selection probability of an item based on its popularity.
+
 $$
 p \propto (\text{click-rate})^{0.75}
 $$
@@ -232,13 +233,17 @@ We can also consider negative samples in different batches. For example, if a us
 ![Batch Negative Items](./images/02_retrieval_07_sampling_02.png)
 
 **Problem**: 
+
 $$
 p \not\propto (\text{click-rate}^{0.75})
 $$
+
 Instead,
+
 $$
 p \propto \text{click-rate}
 $$
+
 The probability of selecting a popular item as a negative sample is too high, affecting model performance.
 
 ![Problem](./images/02_retrieval_07_sampling_03.png)
