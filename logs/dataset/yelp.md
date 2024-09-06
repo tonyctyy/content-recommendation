@@ -102,5 +102,3 @@ It has a total of six json files: ***business***, ***review***, ***user***, ***c
 
 ## [Kaggle Dataset](https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset)
 - I can't access the dataset on the official website so I find this archive version on Kaggle. However, it doesn't have the photo files since it is originally separated. We can also check how other people use this dataset on Kaggle.
-
-

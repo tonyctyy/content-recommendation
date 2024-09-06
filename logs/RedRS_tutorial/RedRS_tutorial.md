@@ -1,11 +1,11 @@
 [Back to Log Page](../README.md) | [Back to Main Page](../../../README.md)
 
-# 5/7/2024: Red Content Recommendation System Tutorial (Updated on 2/9/2024)
+# 5/7/2024: Red Content Recommendation System Tutorial
 
 This is a summary of the [Red Content Recommendation System Tutorial](https://youtu.be/5dTOPen28ts?si=qhYBTACSpeeFZXqk). It showcases an industrial approach to content recommendation.
 
 ## Table of Contents
-- [5/7/2024: Red Content Recommendation System Tutorial (Updated on 2/9/2024)](#572024-red-content-recommendation-system-tutorial-updated-on-292024)
+- [5/7/2024: Red Content Recommendation System Tutorial](#572024-red-content-recommendation-system-tutorial)
   - [Table of Contents](#table-of-contents)
   - [Steps for Content Recommendation (CR) System](#steps-for-content-recommendation-cr-system)
   - [Measurements](#measurements)

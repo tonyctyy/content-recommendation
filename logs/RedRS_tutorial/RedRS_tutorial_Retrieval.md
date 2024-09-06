@@ -1,6 +1,6 @@
 [Back to RedRS_Tutorial Page](./RedRS_Tutorial.md) | [Back to Main Page](../../../README.md)
 
-<h1> Retrieval Stage</h1>
+<h1> Retrieval Stage (Updated on 2/9/2024)</h1>
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
