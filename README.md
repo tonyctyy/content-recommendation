@@ -13,6 +13,9 @@ This project focuses on studying content recommendation systems. Some datasets a
   - [Instructions](#instructions)
     - [Local Setup](#local-setup)
     - [Dedicated Server](#dedicated-server)
+      - [JupyterHub Server Setup](#jupyterhub-server-setup)
+      - [Python Environment Setup](#python-environment-setup)
+      - [Git Repository](#git-repository)
   - [Technology Stack](#technology-stack)
   - [Summary (updated on 6/9/2024)](#summary-updated-on-692024)
     - [Content Recommendation System](#content-recommendation-system-1)
@@ -54,11 +57,14 @@ It includes the source code for the project. The `src` folder will be further di
     ```bash
     pipenv install
     ```
-
-<h4> Tip: When you want to read a large files, you can use the `chunksize` parameter in `pandas.read_csv()` or `pandas.read_json()` to read the file in chunks. This can help you avoid memory issues. </h4>
+3. Then, you can run python code using the kernel provided by `pipenv`. Or you can run the following command to enter the virtual environment and run the python code (`.py` files):
+    ```bash
+    pipenv shell
+    ```
 
 ### Dedicated Server
-We use the desktop of the dedicated server to run the JupyterHub server. The server is accessible via the following steps:
+#### JupyterHub Server Setup
+We host a JupyterHub server using Linux machine from the school. It is useful when you need run model-processing that takes a long time. Also, we can access the datasets on the server. It is accessible via the following steps:
 1. Connect to the HKUST VPN (refer to the following links).
    - [HKUST VPN Installation](https://itsc.hkust.edu.hk/services/cyber-security/vpn/client-installation?check_logged_in=1)
    - [HKUST VPN Connection](https://itsc.hkust.edu.hk/services/cyber-security/vpn/connection-establishment)
@@ -68,10 +74,40 @@ We use the desktop of the dedicated server to run the JupyterHub server. The ser
     ssh -L 8000:localhost:8000 iefyp2024@iez177.ieda.ust.hk
     ```
     with the password: `FYPoct2024`
-4. TBC
+4. Access the JupyterHub server by opening a browser and entering the following URL:
     ```bash
-    sudo -u iefyp2024 ~/miniconda3/bin/jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
+    http://127.0.0.1:8000/user/iefyp2024/lab
     ```
+    with the account: `iefyp2024` and the password: `FYPoct2024` (may consider adding new users in the future).
+
+#### Python Environment Setup
+If you need to check the packages installed in the JupyterHub server, you can run the following command in the Jupyter notebook: `!pip list`.
+
+If you need to install new packages, you can simply use the `!pip install package_name` command in the Jupyter notebook. If you need to install new packages globally, please refer to the [JupyterHub Guidebook](docs/jupyterhub_guidebook.md).
+
+#### Git Repository
+The project is stored in the following directory:
+```bash
+/home/iefyp2024/content-recommendation
+```
+or 
+```bash
+~/content-recommendation
+```
+
+You can pull the latest changes from the GitHub repository using the following command:
+```bash
+cd ~/content-recommendation
+git pull
+```
+
+To push your changes to the GitHub repository, use the following commands:
+```bash
+cd ~/content-recommendation
+git add .
+git commit -m "Your commit message"
+git push
+```
 
 ## Technology Stack
 - **Frontend**: React.js (Alternative: Tailwind CSS)
