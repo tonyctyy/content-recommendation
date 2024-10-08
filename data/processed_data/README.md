@@ -1,0 +1,1 @@
+This is the default directory for the processed datasets (both pre-processed and indexed datasets). Haven't decided to upload the datasets to GitHub yet, but we can keep a records of them here.

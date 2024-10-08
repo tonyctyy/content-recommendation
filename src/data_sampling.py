@@ -1,3 +1,7 @@
+"""
+The following code is used to sample the dataset (to reduce the data size) and save the sampled files to the disk.
+"""
+
 import pandas as pd
 
 def sample_ids(file_lists, prefix_path, sample_fraction, chunk_size=10000):
@@ -82,6 +86,9 @@ def load_dataset(file_lists, prefix_path, chunk_size=10000):
     return df_dict
 
 if __name__ == "__main__":
+# if you want to sample the dataset, set data_sampling to True
+    data_sampling = False
+
     folder_path = '../data/'
     transit_bucket = 'raw_datasets/'
     target_bucket = 'yelp/'
@@ -98,26 +105,19 @@ if __name__ == "__main__":
         "yelp_academic_dataset_user.json",
     ]
 
+    if data_sampling:
+        sample_fraction = 0.03
+        user_id, business_id = sample_ids(file_list, prefix_path, sample_fraction)
 
+        print(f"Total number of unique user_ids: {len(user_id)}")
+        print(f"Total number of unique business_ids: {len(business_id)}")
 
-    """
-    The following code is used to sample the dataset (to reduce the data size) and save the sampled files to the disk.
+        keep_fraction = 0.4
+        df_dict = sample_files(file_list, prefix_path, user_id, business_id, keep_fraction)
 
-
-    ----------------------------------------
-    sample_fraction = 0.03
-    user_id, business_id = sample_ids(file_list, prefix_path, sample_fraction)
-
-    print(f"Total number of unique user_ids: {len(user_id)}")
-    print(f"Total number of unique business_ids: {len(business_id)}")
-
-    keep_fraction = 0.4
-    df_dict = sample_files(file_list, prefix_path, user_id, business_id, keep_fraction)
-
-    for key, df in df_dict.items():
-        df.to_json(prefix_path + "sampled_" + key, orient='records', lines=True)
-        print(f"Sampled file {key} saved successfully.")
-    """
+        for key, df in df_dict.items():
+            df.to_json(prefix_path + "sampled_" + key, orient='records', lines=True)
+            print(f"Sampled file {key} saved successfully.")
 
     df = load_dataset(file_list, prefix_path)
 

@@ -8,8 +8,11 @@ numpy = "*"
 pandas = "*"
 matplotlib = "*"
 seaborn = "*"
+scikit-learn = "*"
+sparse-dot-topn = "*"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.11"

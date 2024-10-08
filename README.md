@@ -11,6 +11,8 @@ This project focuses on studying content recommendation systems. Some datasets a
     - [logs](#logs)
     - [src](#src)
   - [Instructions](#instructions)
+    - [Local Setup](#local-setup)
+    - [Dedicated Server](#dedicated-server)
   - [Technology Stack](#technology-stack)
   - [Summary (updated on 6/9/2024)](#summary-updated-on-692024)
     - [Content Recommendation System](#content-recommendation-system-1)
@@ -26,7 +28,7 @@ This project focuses on studying content recommendation systems. Some datasets a
 
 ## Folder Structure
 ### data
-It includes 3 folders (`processed_datasets`, `raw_datasets`, and `zipped_datasets`) to store different types of datasets. 
+It includes `processed_datasets` and `raw_datasets` to store different datasets. 
 
 ### docs
 It includes all the documentations and required information for the project.
@@ -40,19 +42,36 @@ It includes the source code for the project. The `src` folder will be further di
  - `modeling`: Contains scripts for building and training models.
  - `backend`: Contains scripts for the backend server.
  - `frontend`: Contains scripts for the frontend application.
+ - `archive`: Contains old scripts that are no longer in use.
 
 ## Instructions
-We will use the `pipenv` package manager to manage dependencies. To install `pipenv`, run the following command:
-```bash
-pip install pipenv
-```
-
-To install the dependencies, run the following command (make sure you are in the project directory where the `Pipfile` is located):
-```bash
-pipenv install
-```
+### Local Setup
+1. We will use the `pipenv` package manager to manage dependencies. To install `pipenv`, run the following command:
+    ```bash
+    pip install pipenv
+    ```
+2. To install the dependencies, run the following command (make sure you are in the project directory where the `Pipfile` is located):
+    ```bash
+    pipenv install
+    ```
 
 <h4> Tip: When you want to read a large files, you can use the `chunksize` parameter in `pandas.read_csv()` or `pandas.read_json()` to read the file in chunks. This can help you avoid memory issues. </h4>
+
+### Dedicated Server
+We use the desktop of the dedicated server to run the JupyterHub server. The server is accessible via the following steps:
+1. Connect to the HKUST VPN (refer to the following links).
+   - [HKUST VPN Installation](https://itsc.hkust.edu.hk/services/cyber-security/vpn/client-installation?check_logged_in=1)
+   - [HKUST VPN Connection](https://itsc.hkust.edu.hk/services/cyber-security/vpn/connection-establishment)
+2. Open the terminal in administrator mode. (i.e., `cmd` -> right-click -> Run as administrator)
+3. Run the following command to connect to the server:
+    ```bash
+    ssh -L 8000:localhost:8000 iefyp2024@iez177.ieda.ust.hk
+    ```
+    with the password: `FYPoct2024`
+4. TBC
+    ```bash
+    sudo -u iefyp2024 ~/miniconda3/bin/jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
+    ```
 
 ## Technology Stack
 - **Frontend**: React.js (Alternative: Tailwind CSS)
