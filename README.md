@@ -12,9 +12,11 @@ This project focuses on studying content recommendation systems. Some datasets a
     - [src](#src)
   - [Instructions](#instructions)
     - [Local Setup](#local-setup)
+      - [Python Environment Setup](#python-environment-setup)
+      - [Backend Server Setup](#backend-server-setup)
     - [Dedicated Server](#dedicated-server)
       - [JupyterHub Server Setup](#jupyterhub-server-setup)
-      - [Python Environment Setup](#python-environment-setup)
+      - [Python Environment Setup](#python-environment-setup-1)
       - [Git Repository](#git-repository)
   - [Technology Stack](#technology-stack)
   - [Summary (updated on 6/9/2024)](#summary-updated-on-692024)
@@ -42,17 +44,23 @@ It includes all logs related to the project (e.g., dataset information, tutorial
 ### src
 It includes the source code for the project. The `src` folder will be further divided into the following subfolders:
  - `data_ processing`: Contains scripts for data processing.
- - `modeling`: Contains scripts for building and training models.
+ <!-- - `modeling`: Contains scripts for building and training models. -->
  - `backend`: Contains scripts for the backend server.
- - `frontend`: Contains scripts for the frontend application.
+   - `models`: Contains the models used in the backend server.
+   - `templates`: Contains the HTML templates for the temporary frontend application.
+   - `app.py`: Contains the main script for the backend server.
+ <!-- - `frontend`: Contains scripts for the frontend application. -->
  - `archive`: Contains old scripts that are no longer in use.
 
 ## Instructions
 ### Local Setup
+#### Python Environment Setup
 1. We will use the `pipenv` package manager to manage dependencies. To install `pipenv`, run the following command:
     ```bash
     pip install pipenv
     ```
+    Notice that the package `pipenv` only needs to be installed once. You can skip this step if you have already installed it.
+
 2. To install the dependencies, run the following command (make sure you are in the project directory where the `Pipfile` is located):
     ```bash
     pipenv install
@@ -61,6 +69,17 @@ It includes the source code for the project. The `src` folder will be further di
     ```bash
     pipenv shell
     ```
+    When you are in the pipenv shell, you can run the python code as usual.
+
+#### Backend Server Setup
+We will use Flask to build the backend server. To run the backend server (make sure you are in the pipenv shell), you can use the following command:
+```bash
+cd src/backend
+pipenv shell
+python app.py
+```
+
+The backend server will be running on `http://127.0.0.1:5000/`. You can access the server using this URL.
 
 ### Dedicated Server
 #### JupyterHub Server Setup

@@ -89,7 +89,7 @@ if __name__ == "__main__":
 # if you want to sample the dataset, set data_sampling to True
     data_sampling = False
 
-    folder_path = '../data/'
+    folder_path = '../../data/'
     transit_bucket = 'raw_datasets/'
     target_bucket = 'yelp/'
     prefix_path = folder_path + transit_bucket + target_bucket
