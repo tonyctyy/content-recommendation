@@ -10,6 +10,7 @@ matplotlib = "*"
 seaborn = "*"
 scikit-learn = "*"
 sparse-dot-topn = "*"
+flask = "*"
 
 [dev-packages]
 ipykernel = "*"
