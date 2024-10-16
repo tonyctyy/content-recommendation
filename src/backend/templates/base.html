@@ -1,0 +1,38 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Business Recommendations{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css"> <!-- Shared CSS -->
+</head>
+<body>
+
+    <header>
+        <!--
+        <h1>Content Recommendation System</h1>
+        -->
+        <!-- redirect to home page -->
+        <a href="/">Home</a>
+         
+    </header>
+
+    <div class="content">
+        {% block content %}
+        <!-- Content from other templates will be injected here -->
+        {% endblock %}
+    </div>
+
+    <!--
+    <footer>
+        <p>&copy; 2024 Content Recommendation System</p>
+    </footer>
+    -->
+
+    <!-- Shared JS files -->
+    <!--
+    <script src="/static/js/common.js"></script>
+    -->
+</body>
+</html>

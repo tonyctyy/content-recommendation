@@ -22,6 +22,10 @@ This project focuses on studying content recommendation systems. Some datasets a
   - [Summary (updated on 6/9/2024)](#summary-updated-on-692024)
     - [Content Recommendation System](#content-recommendation-system-1)
     - [Popular Techniques](#popular-techniques)
+  - [Future Improvements](#future-improvements)
+    - [React Implementation](#react-implementation)
+      - [1. Handle large business\_id requests:](#1-handle-large-business_id-requests)
+      - [2. Display businesses in tabs:](#2-display-businesses-in-tabs)
 
 ## Useful Links
 - [Trello](https://trello.com/b/5JG6Hmrf/milestones-tasks): Trello board for project management.
@@ -161,3 +165,15 @@ The Content Recommendation System includes several stages:
     - Many null data points exist when considering millions of items and users (e.g., User Rating to Movies Matrix).
 
 - **Deep Structured Semantic Model (DSSM):** Another widely used model in the retrieval stage. DSSM is a neural network model that uses a pairwise loss function to learn the similarity between two items.
+
+## Future Improvements
+### React Implementation
+#### 1. Handle large business_id requests:
+- Current Situation: Currently sending all business IDs in one request for 10 results.
+- Future Improvement: When working with 100 or 1000 results, implement chunking (splitting the requests) or another strategy to optimize the number of requests.
+- React: Handle large data chunks more efficiently in the React version by batching requests or using pagination.
+
+#### 2. Display businesses in tabs:
+- Current Situation: All businesses are displayed in one shot.
+- Future Improvement: Implement a feature to limit the number of businesses displayed per tab (e.g., 10, 20, 50 results). Add navigation between tabs.
+- React: Develop pagination and tab navigation for business results in the React frontend.

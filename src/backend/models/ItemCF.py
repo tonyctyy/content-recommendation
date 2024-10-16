@@ -10,11 +10,11 @@ def get_db_connection():
 # Retrieve user-business mappings
 def retrieve_user_business_mapping(conn):
     cursor = conn.cursor()
-    cursor.execute('''SELECT user_id, user_idx FROM user_mapping''')
-    user_mapping = {row[0]: row[1] for row in cursor.fetchall()}
+    # cursor.execute('''SELECT user_id, user_idx FROM user_mapping''')
+    # user_mapping = {row[0]: row[1] for row in cursor.fetchall()}
     cursor.execute('''SELECT business_id, business_idx FROM business_mapping''')
     business_mapping = {row[0]: row[1] for row in cursor.fetchall()}
-    return user_mapping, business_mapping
+    return business_mapping
 
 # Get businesses a user interacted with
 def get_user_businesses(user_id, conn):
@@ -38,8 +38,9 @@ def get_top_k_similar_businesses(business_id, k, conn, business_mapping):
     return similar_businesses
 
 # Predict user interests
-def predict_user_interests(user_id, k, conn):
-    user_mapping, business_mapping = retrieve_user_business_mapping(conn)
+def ItemCF_predict_user_interests(user_id, k):
+    conn = get_db_connection()
+    business_mapping = retrieve_user_business_mapping(conn)
     user_businesses = get_user_businesses(user_id, conn)
 
     recommended_businesses = {}
@@ -53,4 +54,5 @@ def predict_user_interests(user_id, k, conn):
                 recommended_businesses[similar_business_id] = score
 
     recommended_businesses = sorted(recommended_businesses.items(), key=lambda x: -x[1])
+    conn.close()
     return recommended_businesses[:k]
