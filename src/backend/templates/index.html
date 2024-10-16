@@ -1,73 +1,13 @@
-<!-- templates/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Recommendations</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-        }
-        label {
-            font-weight: bold;
-        }
-        input, button {
-            margin-top: 10px;
-            display: block;
-        }
-        #results {
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <h1>Business Recommendations</h1>
+{% block title %}
+    FYP Testing Page
+{% endblock %}
 
-    <form id="recommendationForm">
-        <label for="businessId">Enter Business ID:</label>
-        <input type="text" id="businessId" name="business_id" required>
-
-        <button type="submit">Get Recommendations</button>
-    </form>
-
-    <div id="results"></div>
-
-    <script>
-        document.getElementById('recommendationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Get the business ID from the form
-            const businessId = document.getElementById('businessId').value;
-
-            // Make a request to the server to get recommendations
-            fetch(`/recommendations?user_id=${businessId}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Display the recommendations in the #results div
-                    const resultsDiv = document.getElementById('results');
-                    resultsDiv.innerHTML = `<h3>Recommendations for Business ID: ${businessId}</h3>`;
-
-                    if (data.recommendations && data.recommendations.length > 0) {
-                        const list = document.createElement('ul');
-                        data.recommendations.forEach(item => {
-                            const listItem = document.createElement('li');
-                            listItem.textContent = `Business ID: ${item[0]}, Score: ${item[1]}`;
-                            list.appendChild(listItem);
-                        });
-                        resultsDiv.appendChild(list);
-                    } else {
-                        resultsDiv.innerHTML += `<p>No recommendations found.</p>`;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
-    </script>
-
-</body>
-</html>
+{% block content %}
+    <h1>Select a Recommendation Model</h1>
+    <div class="buttons">
+        <button onclick="window.location.href='/item_cf'">Item-based Collaborative Filtering (ItemCF)</button>
+        
+    </div>
+{% endblock %}
