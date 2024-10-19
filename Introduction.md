@@ -295,8 +295,8 @@ This section describes the table structures of the processed dataset stored in t
 ### Backend Server Setup
 We use Flask to build the backend server. To run the server, make sure you are inside the `pipenv` shell, then use the following command:
 ```bash
-cd src/backend
 pipenv shell
+cd src/backend
 python app.py
 ```
 The backend server will run at `http://127.0.0.1:5000/`, and you can access it through this URL.
