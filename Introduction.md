@@ -306,7 +306,7 @@ Although the primary focus is on running the backend using Python, some frontend
 
 | File Type | Description |
 | --- | --- |
-| `hyml` |	Defines the structure of the web pages |
+| `html` |	Defines the structure of the web pages |
 | `JavaScript` | Adds interactivity and dynamic content (e.g., button actions)|
 | `css` | Stylesheets for the web pages |
 
