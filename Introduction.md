@@ -20,106 +20,102 @@
     - [Review Data](#review-data)
     - [Tip Data](#tip-data)
 - [Flask Backend Server](#flask-backend-server)
+  - [Backend Server Setup](#backend-server-setup)
+  - [Flask File Structure](#flask-file-structure)
 
 ## Introduction
-The following sections will use the [Yelp Dataset](./logs/dataset/yelp.md) as an example to demonstrate the system flow and database setup using the **Item-based Collaborative Filtering Model** from [Red Recommendation System Tutorial](./logs/RedRS_tutorial/RedRS_tutorial_Retrieval.md). There are stages you need to go through to undertand the system flow and database setup.
+The following sections use the [Yelp Dataset](./logs/dataset/yelp.md) to demonstrate the system flow and database setup using the **Item-based Collaborative Filtering Model** from the [Red Recommendation System Tutorial](./logs/RedRS_tutorial/RedRS_tutorial_Retrieval.md). These stages guide you through understanding the system flow and database setup.
 
 ### 1. Local Setup vs Remote Server (UST)
-It is recommended to do the whole development using local setup. It is easier to maintain and debug. The reasons to use UST server are:
-- In case your local machine does not have enough resources (mainly RAM) to run the model processing/training and indexing functions.
-- To access the datasets stored in the UST server. We store the raw and processed datasets in the UST server that can be accessed via the JupyterHub server.
+It's recommended to develop using a local setup, as it's easier to maintain and debug. The UST server can be used in cases where:
+- Your local machine lacks sufficient resources (mainly RAM) for model processing/training and indexing.
+- You need to access datasets stored on the UST server, including raw and processed datasets accessible via the JupyterHub server.
 
-**Local Setup**: You may check the detail setup in this [section](#local-setup). 
-1. We will use the `pipenv` package manager to manage dependencies. To install `pipenv`, run the following command:
+**Local Setup**: 
+1. Use `pipenv` for dependency (packages) management. To install `pipenv`, run the following:
     ```bash
     pip install pipenv
     ```
-    Notice that the package `pipenv` only needs to be installed once. You can skip this step if you have already installed it.
+    ***Note***: You only need to install `pipenv` once.
 
-2. To install the dependencies, run the following command (make sure you are in the project directory where the `Pipfile` is located, usually in `C:{custom_path}\content-recommendation`):
+2. To install the dependencies, run:
     ```bash
     pipenv install
     ```
-3. Then, you can run python code using the kernel provided by `pipenv`. Or you can run the following command to enter the virtual environment and run the python code (`.py` files):
+    This will install the required packages specified in the `Pipfile`. If you want to add new packages, you can install them using `pipenv install <package_name>`.
+3. To execute Python code in the virtual environment, run:
     ```bash
     pipenv shell
     ```
-    When you are in the pipenv shell, you can run the python code as usual.
+    After entering the pipenv shell, you can run Python code as usual (e.g. `python src/data_processing/data_sampling.py`). For Jupyter Notebook, you can choose the kernel `content-recommendation` in the Jupyter Notebook.
 
-The tutorial for the `Flask` backend server is provided in the [Flask Guidebook](./logs/flask_guidebook.md).
+The detail for the `Flask` backend server is provided in the section, [Flask Backend Server](#flask-backend-server).
 
 **Remote Server Setup**: You may check the detail setup in [Jupyterhub Guidebook](./logs/jupyterhub_guidebook.md).
 
 ### 2. Development and Testing
-The development and testing of the recommendation system can be done in the local environment. The system flow includes the following stages:
-1. **Data Sampling**: The Yelp dataset is sampled to reduce the size of the dataset for faster processing and testing of the recommendation system.
-2. **Model Testing**: Use `Jupyter Notebook` to test the calculation and prediction results.
-3. **Index Tables**: Create the index tables to store the trained model results for prediction in `SQLite`. If you are using new datasets, it is also suggested to think about the database structure for the UI. (see [Processed Dataset Table Structures](#processed-dataset-table-structures))
-4. **Backend Server**: Transfer the model results to the backend server for testing the model results with an UI. (Function -> API Functions in `Flask`)
-5. **Frontend**: Develop the frontend to interact with the backend server for the recommendation results. We are now using `Flask` to simply display the results. (Will be migrated to `React.js`)
-
-Now, we can focus on steps 1 to 3 to understand and study different datasets and content recommendation models first.
+Development and testing of the recommendation system can be done locally. The stages of the system flow include:
+1. **Data Sampling**: A reduced version of the Yelp dataset is used for faster processing and testing.
+2. **Model Testing**: Jupyter Notebooks are used to test calculations and predictions.
+3. **Index Tables**: Store trained model results for prediction in `SQLite`. When using new datasets, consider the database structure for the UI. (See [Processed Dataset Table Structures](#processed-dataset-table-structures)).
+4. **Backend Server**: Transfer model results to the backend server for API testing with a UI.
+5. **Frontend**: Use `Flask` for a simple display of results. The frontend will eventually be migrated to `React.js`.
+We'll first focus on steps 1 to 3 to understand and test different datasets and content recommendation models.
 
 ## Folder Structure
 The project folder structure is organized as follows:
 
 ```bash
 content-recommendation/
-│
 ├── data/
 │   ├── processed_data/
-│   │   ├── yelp_data/ (Frontend Database)
+│   │   ├── yelp_data/             # Frontend Database
 │   │   │   ├── yelp_business_data.db
 │   │   │   ├── yelp_user_data.db
 │   │   │   ├── yelp_review_data.db
 │   │   │   └── yelp_tip_data.db
-|   |   └── yelp_ItemCF.db (Index Table for Item CF)
-│   │
+│   │   └── yelp_ItemCF.db         # Index Table for Item Collaborative Filtering (CF)
 │   ├── raw_datasets/
-│   │   └── yelp/
+│   │   └── yelp/                  # Raw Dataset Samples
 │   │       ├── sampled_yelp_academic_dataset_business.json
-|   |       ├── sampled_yelp_academic_dataset_review.json
-│   │       └── (other raw and sampled datasets)
-│   │
+│   │       └── sampled_yelp_academic_dataset_review.json
+│
 ├── logs/
 │   ├── dataset/
-│   │   └── yelp.md (original dataset description)
+│   │   └── yelp.md                # Original dataset description
 │   ├── flask_guidebook.md 
 │   ├── jupyterhub_guidebook.md
 │   └── RedRS_tutorial/
-│      └── RedRS_tutorial_Retrieval.md (Item-based CF model Reference)
+│       └── RedRS_tutorial_Retrieval.md  # Item-based CF model Reference
+│
 ├── src/
-│   ├── backend/ (Flask Backend Server, refer to Flask Guidebook)
-│   │   ├── (other Flask files)
-│   │   └── app.py
-│   │
-│   ├── data_processing/
-|   |   ├── data_index.ipynb (store the Processed tables for Frontend )
-│   │   └── data_sampling.py (Data Sampling Script)
-│   │
-│   ├── ItemCF_Index.ipynb (Item-based CF Indexing)
-│   └── ItemCF_Retrieval.ipynb (Item-based CF Retrieval)
-├── README.md (Main Page)
-├── Introduction.md (Current File)
-└── Pipfile (Package Management)
+│   ├── backend/                   # Flask Backend Server
+│   │   ├── app.py
+│   └── data_processing/
+│       ├── data_index.ipynb        # Store Processed Tables for Frontend
+│       └── data_sampling.py        # Data Sampling Script
+│   ├── ItemCF_Index.ipynb          # Item-based CF Indexing
+│   └── ItemCF_Retrieval.ipynb      # Item-based CF Retrieval
+├── README.md                       # Main Page
+├── Introduction.md                 # Current File
+└── Pipfile                         # Package Management
+
 ```
 
 ## Data Sampling
-The Yelp dataset is sampled to create a smaller subset for faster processing and testing of the recommendation system. The script data_sampling.py provides the following key functionalities:
+The Yelp dataset is sampled to create a smaller subset for faster processing and testing of the recommendation system. The script `data_sampling.py` provides the following functionalities:
 
-- **Random Sampling**: The script allows you to randomly sample a specific percentage of records from the large dataset (e.g., reviews, businesses, or users). This is particularly useful for testing without needing to process the entire dataset.
+- **Random Sampling**: Allows random sampling of a percentage of records from large datasets (e.g., reviews, businesses, or users) for testing purposes.
+- **Condition-Based Sampling**: Filters businesses or users with specific conditions before sampling, like selecting businesses with more reviews or users with multiple interactions.
+- **Configurable Parameters**: Enables easy adjustment of sampling rates and conditions to suit different test scenarios.
 
-- **Sampling Based on Conditions**: In addition to random sampling, the script supports conditional sampling. For instance, you can filter businesses with a certain number of reviews or users who have interacted with multiple businesses before applying sampling.
-
-- **Configurable Parameters**: You can adjust the sampling rate, target dataset, and conditions by modifying the parameters in the script. This flexibility allows you to adapt the sampling process to different scenarios, such as focusing on highly-rated businesses or active users.
-
-After all sampling process, it will loop the dataset again to ensure all related records are selected. For more details, refer to [data_sampling.py](./src/data_%20processing/data_sampling.py) script.
+The sampling process also ensures related records are included. For more details, refer to the script: [data_sampling.py](./src/data_%20processing/data_sampling.py).
 
 ## Item Collaborative Filtering Model (Testing Stage)
 For detail code, please refer to: [Item_CF_Index.ipynb](./src/ItemCF_Index.ipynb) and [Item_CF_Retrieval.ipynb](./src/ItemCF_Retrieval.ipynb).
 
 ### Data Loading
-The dataset used in this project is the sampled Yelp academic dataset, which includes business and review information.
+The project uses the sampled Yelp academic dataset. Below is a sample of how the data is loaded:
 
 ```python
 folder_path = './data/'
@@ -137,7 +133,7 @@ df_review = df["sampled_yelp_academic_dataset_review.json"]
 ```
 
 ### Sparse Cosine Similarity Calculation
-The system calculates the cosine similarity between items based on user ratings. We use Sparse Matrix Multiplication to compute the similarity matrix efficiently (avoid calculating the similarity between all pairs of items).
+The system calculates cosine similarity between items based on user ratings using Sparse Matrix Multiplication:
 
 ``` python
 def sparse_cosine_similarity_topn(A, top_n, threshold=0):
@@ -146,19 +142,18 @@ def sparse_cosine_similarity_topn(A, top_n, threshold=0):
 ```
 
 ### Index Table for Results Prediction
-After calculating the similarity matrix, we create index tables to store:
-  1. the user-item interactions
-  2. item-item similarity vectors
-  3. business mapping for numerical indexing
-
-These tables are used for predicting recommendations. You can refer to the section on [Database Setup](#database-setup) for more details on setting up the database.
+After calculating the similarity matrix, index tables are created to store:
+- **User-item interactions**
+- **Item-item similarity vectors**
+- **Business mappings for numerical indexing**
+These tables facilitate recommendation predictions. For more details, refer to the section on [Database Setup](#database-setup).
 
 ### Predicting Recommendations
-The system will take a user ID as input and predict the top N recommendations for that user based on the item-item similarity matrix. It can be further optimized by sorting the date of the review or the mechanism of considering score 1/2 as negative feedback.
+The system accepts a user ID as input and predicts the top N recommendations using the item-item similarity matrix.
 
 
 ## Database Setup
-The project uses SQLite to store user-item interactions and item-item similarities. The following code sets up the database and creates necessary tables.
+We use SQLite to store user-item interactions and item-item similarities. Below is the setup:
 
 ``` python
 db_path = './data/processed_data/yelp_ItemCF.db'
@@ -169,12 +164,7 @@ cursor = conn.cursor()
 ### Indexed Tables
 The following indexed tables are created to facilitate efficient queries:
 
-1. **user_item_index**: Stores user-item interactions with the following schema:
-   - `user_id` (TEXT): Unique identifier for the user.
-   - `business_id` (TEXT): Unique identifier for the business.
-   - `stars_review` (REAL): Rating given by the user to the business.
-   - **Primary Key**: (user_id, business_id)
-
+1. **user_item_index**: Stores user-item interactions:
     ``` sql
    CREATE TABLE IF NOT EXISTS user_item_index (
        user_id TEXT,
@@ -184,11 +174,7 @@ The following indexed tables are created to facilitate efficient queries:
    )
     ```
 
-2. **item_item_similarity**: Stores the similarity vectors between items with the following schema:
-   - `item_id` (TEXT): Unique identifier for the item (business).
-   - `similarity_vector` (BLOB): Serialized similarity vector for the item.
-   - **Primary Key**: item_id
-
+2. **item_item_similarity**: Stores similarity vectors between items:
     ``` sql
    CREATE TABLE IF NOT EXISTS item_item_similarity (
        item_id TEXT PRIMARY KEY,
@@ -196,11 +182,7 @@ The following indexed tables are created to facilitate efficient queries:
    )
     ```
 
-3. **business_mapping**: Maps business IDs to numerical indices with the following schema (for vectorized operations):
-   - `business_id` (TEXT): Unique identifier for the business.
-   - `business_idx` (INTEGER): Numerical index for the business.
-   - **Primary Key**: business_id
-
+3. **business_mapping**: Maps business IDs to numerical indices:
     ``` sql
    CREATE TABLE IF NOT EXISTS business_mapping (
        business_id TEXT PRIMARY KEY,
@@ -309,4 +291,52 @@ This section describes the table structures of the processed dataset stored in t
 | compliment_count     | INTEGER   | Number of compliments received for the tip     |
 
 ## Flask Backend Server
-To go through the Flask backend server setup, you can refer to the [Flask Guidebook](./logs/flask_guidebook.md). The Flask server will be used to interact with the front-end application for displaying the recommendation results.
+### Backend Server Setup
+We use Flask to build the backend server. To run the server, make sure you are inside the `pipenv` shell, then use the following command:
+```bash
+cd src/backend
+pipenv shell
+python app.py
+```
+The backend server will run at `http://127.0.0.1:5000/`, and you can access it through this URL.
+
+### Flask File Structure
+Although the primary focus is on running the backend using Python, some frontend files are also present. Here's a breakdown of the structure:
+
+| File Type | Description |
+| --- | --- |
+| `hyml` |	Defines the structure of the web pages |
+| `JavaScript` | Adds interactivity and dynamic content (e.g., button actions)|
+| `css` | Stylesheets for the web pages |
+
+
+The backend server is organized as follows:
+```bash
+content-recommendation/src/backend/
+├── /models
+│   └── ItemCF.py              # Item-based CF model
+├── /templates                 # Stores HTML frontend files
+|   ├── base.html              # Base template (includes header, footer, etc.)
+|   └── index.html             # Main page
+|   └── item_cf.html           # Item-based CF results page
+├── /static
+|   ├── /css                   # Stores CSS files
+|   |   └── style.css          # Main stylesheet
+|   └── /js                    # Stores JavaScript files
+|       └── fetch_itemCF_results.js   # Handles fetching Item-based CF results
+|       └── display_user_info.js      # Displays user information in cards
+|       └── display_business_info.js  # Displays business information in cards
+├── app.py                     # Main Flask file (optional to review)
+├── routes.py                  # Flask server routing
+├── api.py                     # API functions for the Flask server
+└── retrieve_info.py            # Retrieves information from the database
+```
+| Folder/File | Description |
+| --- | --- |
+| `/models` | Contains the code for different models, working as regular functions (similar to model testing) |
+| `/templates` | Stores the frontend files (HTML), with each page usually having its own file (includes various JavaScript components) |
+| `item_cf.html` | Page for Item CF, contains an input form for `user_id` and interacts with `fetch_itemCF_results.js` |
+| `fetch_ItemCF_results.js` | Handles the Item CF page; calls the API (defined in `api.py`) and passes results to `display_user_info.js` and `display_business_info.js` to generate output cards |
+| `routes.py` | Defines the routes (URLs) for the Flask server and calls appropriate API functions |
+| `api.py` | Called via URLs; consolidates results by using functions from `/models` and `retrieve_info.py`, and returns the response to the frontend JavaScript handlers |
+| `retrieve_info.py` | 	Handles data retrieval from the database |
