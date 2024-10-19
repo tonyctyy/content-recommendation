@@ -60,6 +60,7 @@ Development and testing of the recommendation system can be done locally. The st
 3. **Index Tables**: Store trained model results for prediction in `SQLite`. When using new datasets, consider the database structure for the UI. (See [Processed Dataset Table Structures](#processed-dataset-table-structures)).
 4. **Backend Server**: Transfer model results to the backend server for API testing with a UI.
 5. **Frontend**: Use `Flask` for a simple display of results. The frontend will eventually be migrated to `React.js`.
+
 We'll first focus on steps 1 to 3 to understand and test different datasets and content recommendation models.
 
 ## Folder Structure
@@ -294,8 +295,8 @@ This section describes the table structures of the processed dataset stored in t
 ### Backend Server Setup
 We use Flask to build the backend server. To run the server, make sure you are inside the `pipenv` shell, then use the following command:
 ```bash
-cd src/backend
 pipenv shell
+cd src/backend
 python app.py
 ```
 The backend server will run at `http://127.0.0.1:5000/`, and you can access it through this URL.
@@ -305,7 +306,7 @@ Although the primary focus is on running the backend using Python, some frontend
 
 | File Type | Description |
 | --- | --- |
-| `hyml` |	Defines the structure of the web pages |
+| `html` |	Defines the structure of the web pages |
 | `JavaScript` | Adds interactivity and dynamic content (e.g., button actions)|
 | `css` | Stylesheets for the web pages |
 
