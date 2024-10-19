@@ -60,6 +60,7 @@ Development and testing of the recommendation system can be done locally. The st
 3. **Index Tables**: Store trained model results for prediction in `SQLite`. When using new datasets, consider the database structure for the UI. (See [Processed Dataset Table Structures](#processed-dataset-table-structures)).
 4. **Backend Server**: Transfer model results to the backend server for API testing with a UI.
 5. **Frontend**: Use `Flask` for a simple display of results. The frontend will eventually be migrated to `React.js`.
+
 We'll first focus on steps 1 to 3 to understand and test different datasets and content recommendation models.
 
 ## Folder Structure
