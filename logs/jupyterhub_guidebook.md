@@ -42,6 +42,13 @@ cd ~/content-recommendation
 git pull
 ```
 
+Hard Pull:
+```bash
+git fetch --all
+git branch backup-main
+git reset --hard origin/main
+```
+
 To push your changes to the GitHub repository, use the following commands:
 ```bash
 cd ~/content-recommendation
