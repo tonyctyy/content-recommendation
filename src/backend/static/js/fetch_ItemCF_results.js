@@ -1,4 +1,5 @@
-import { displayBusinessInfo } from './display.js'; 
+import { displayBusinessInfo } from './display_business_info.js'; 
+import { displayUserInfo } from './display_user_info.js';
 
 document.getElementById('ItemCF_recommendationForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -8,14 +9,27 @@ document.getElementById('ItemCF_recommendationForm').addEventListener('submit', 
         .then(response => response.json())
         .then(data => {
             const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = `<h3>Recommendations for User ID: ${userId}</h3>`;
 
+            // Create separate divs for user and business info
+            const userDiv = document.createElement('div');
+            const businessDiv = document.createElement('div');
+
+            // Display user info
+            if (data.users) {
+                const user = data.users[userId];
+                const userInfo = displayUserInfo(user);
+                userDiv.appendChild(userInfo);
+            } else {
+                userDiv.innerHTML = `<p>User ID ${userId} not found.</p>`;
+            }
+
+            // Display business recommendations
             if (data.recommendations && data.recommendations.length > 0) {
                 const businessIds = data.recommendations.map(item => item[0]);
                 const businessIdQuery = businessIds.join(',');
 
-                // add a line to show the total number of recommendations
-                resultsDiv.innerHTML += `<p>Total number of recommendations: ${data.recommendations.length}</p>`;
+                // Add a line to show the total number of recommendations
+                businessDiv.innerHTML += `<p>Total number of recommendations: ${data.recommendations.length}</p>`;
 
                 // Fetch business info for all recommended business IDs in one request
                 fetch(`/business_info?business_ids=${businessIdQuery}`)
@@ -28,20 +42,24 @@ document.getElementById('ItemCF_recommendationForm').addEventListener('submit', 
                             const score = item[1];
 
                             const businessInfo = businessData[businessId];
-                            console.log(businessInfo);
                             // Call displayBusinessInfo for each business
                             const listItem = displayBusinessInfo(businessInfo, score);
                             list.appendChild(listItem); // Append the formatted item to the list
                         });
 
-                        resultsDiv.appendChild(list); // Add the list to the results div
+                        businessDiv.appendChild(list); // Add the list to the business div
                     })
                     .catch(error => {
                         console.error('Error fetching business info:', error);
+                        businessDiv.innerHTML += `<p>Error fetching business information.</p>`;
                     });
             } else {
-                resultsDiv.innerHTML += `<p>No recommendations found.</p>`;
+                businessDiv.innerHTML += `<p>No recommendations found.</p>`;
             }
+
+            // Append both user and business divs to the results div
+            resultsDiv.appendChild(userDiv);
+            resultsDiv.appendChild(businessDiv);
         })
         .catch(error => {
             console.error('Error fetching recommendations:', error);

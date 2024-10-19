@@ -5,20 +5,9 @@ This project focuses on studying content recommendation systems. Some datasets a
 - [Content Recommendation System](#content-recommendation-system)
   - [Table of Contents](#table-of-contents)
   - [Useful Links](#useful-links)
-  - [Folder Structure](#folder-structure)
-    - [data](#data)
-    - [docs](#docs)
-    - [logs](#logs)
-    - [src](#src)
   - [Instructions](#instructions)
     - [Local Setup](#local-setup)
-      - [Python Environment Setup](#python-environment-setup)
-      - [Backend Server Setup](#backend-server-setup)
-    - [Dedicated Server](#dedicated-server)
-      - [JupyterHub Server Setup](#jupyterhub-server-setup)
-      - [Python Environment Setup](#python-environment-setup-1)
-      - [Git Repository](#git-repository)
-  - [Technology Stack](#technology-stack)
+    - [Remote Server (UST)](#remote-server-ust)
   - [Summary (updated on 6/9/2024)](#summary-updated-on-692024)
     - [Content Recommendation System](#content-recommendation-system-1)
     - [Popular Techniques](#popular-techniques)
@@ -35,108 +24,31 @@ This project focuses on studying content recommendation systems. Some datasets a
 - [Dataset for Content Recommendation System (GitHub)](https://github.com/RUCAIBox/RecSysDatasets): This GitHub repository contains various datasets for content recommendation systems.
 - [Dataset used in the UCSD laboratory](https://cseweb.ucsd.edu/~jmcauley/datasets.html): This website contains some datasets used by the UCSD laboratory.
 
-## Folder Structure
-### data
-It includes `processed_datasets` and `raw_datasets` to store different datasets. 
-
-### docs
-It includes all the documentations and required information for the project.
-
-### logs
-It includes all logs related to the project (e.g., dataset information, tutorials, etc.) are stored in the [logs](./logs/README.md) folder. Check the logs for more details.
-
-### src
-It includes the source code for the project. The `src` folder will be further divided into the following subfolders:
- - `data_ processing`: Contains scripts for data processing.
- <!-- - `modeling`: Contains scripts for building and training models. -->
- - `backend`: Contains scripts for the backend server.
-   - `models`: Contains the models used in the backend server.
-   - `templates`: Contains the HTML templates for the temporary frontend application.
-   - `app.py`: Contains the main script for the backend server.
- <!-- - `frontend`: Contains scripts for the frontend application. -->
- - `archive`: Contains old scripts that are no longer in use.
-
 ## Instructions
 ### Local Setup
-#### Python Environment Setup
-1. We will use the `pipenv` package manager to manage dependencies. To install `pipenv`, run the following command:
-    ```bash
-    pip install pipenv
-    ```
-    Notice that the package `pipenv` only needs to be installed once. You can skip this step if you have already installed it.
+If it is the first time setting up the project, check the detail in the [Introduction](#introduction) section.
 
-2. To install the dependencies, run the following command (make sure you are in the project directory where the `Pipfile` is located):
-    ```bash
-    pipenv install
-    ```
-3. Then, you can run python code using the kernel provided by `pipenv`. Or you can run the following command to enter the virtual environment and run the python code (`.py` files):
-    ```bash
-    pipenv shell
-    ```
-    When you are in the pipenv shell, you can run the python code as usual.
+Here are the frequently used commands:
+  ```bash
+  pipenv shell
+  ```
+To Start the Flask server:
+  ```bash
+  cd src/backend
+  python app.py
+  ```
+Then, access the url `http://127.0.0.1:5000/` to check the Flask server.
+  
 
-#### Backend Server Setup
-We will use Flask to build the backend server. To run the backend server (make sure you are in the pipenv shell), you can use the following command:
-```bash
-cd src/backend
-pipenv shell
-python app.py
-```
+### Remote Server (UST)
+We will use the UST server to store and share the datasets. It can also reduce the load on you local machine (e.g., RAM usage). To access the UST server, you can refer to the [JupyterHub Guidebook](docs/jupyterhub_guidebook.md).
 
-The backend server will be running on `http://127.0.0.1:5000/`. You can access the server using this URL.
-
-### Dedicated Server
-#### JupyterHub Server Setup
-We host a JupyterHub server using Linux machine from the school. It is useful when you need run model-processing that takes a long time. Also, we can access the datasets on the server. It is accessible via the following steps:
-1. Connect to the HKUST VPN (refer to the following links).
-   - [HKUST VPN Installation](https://itsc.hkust.edu.hk/services/cyber-security/vpn/client-installation?check_logged_in=1)
-   - [HKUST VPN Connection](https://itsc.hkust.edu.hk/services/cyber-security/vpn/connection-establishment)
-2. Open the terminal in administrator mode. (i.e., `cmd` -> right-click -> Run as administrator)
-3. Run the following command to connect to the server:
-    ```bash
-    ssh -L 8000:localhost:8000 iefyp2024@iez177.ieda.ust.hk
-    ```
-    with the password: `FYPoct2024`
-4. Access the JupyterHub server by opening a browser and entering the following URL:
-    ```bash
-    http://127.0.0.1:8000/user/iefyp2024/lab
-    ```
-    with the account: `iefyp2024` and the password: `FYPoct2024` (may consider adding new users in the future).
-
-#### Python Environment Setup
-If you need to check the packages installed in the JupyterHub server, you can run the following command in the Jupyter notebook: `!pip list`.
-
-If you need to install new packages, you can simply use the `!pip install package_name` command in the Jupyter notebook. If you need to install new packages globally, please refer to the [JupyterHub Guidebook](docs/jupyterhub_guidebook.md).
-
-#### Git Repository
-The project is stored in the following directory:
-```bash
-/home/iefyp2024/content-recommendation
-```
-or 
-```bash
-~/content-recommendation
-```
-
-You can pull the latest changes from the GitHub repository using the following command:
-```bash
-cd ~/content-recommendation
-git pull
-```
-
-To push your changes to the GitHub repository, use the following commands:
-```bash
-cd ~/content-recommendation
-git add .
-git commit -m "Your commit message"
-git push
-```
-
-## Technology Stack
-- **Frontend**: React.js (Alternative: Tailwind CSS)
-- **Backend**: Flask.py (Algorithm Implementation: Sklearn, TensorFlow, PyTorch)
-- **Database**: TBC
-- **Deployment**: AWS/Azure (TBC)
+Here is the command to access the UST server:
+  ```bash
+  ssh -L 8000:localhost:8000 iefyp2024@iez177.ieda.ust.hk
+  ```
+  with the password: `FYPoct2024`
+Then, access the url `http://127.0.0.1:8000/user/iefyp2024/lab` with the account `iefyp2024` and the password `FYPoct2024`.
 
 ## Summary (updated on 6/9/2024)
 The following summary is based on material from the [Red Content Recommendation System Tutorial](logs/RedRS_tutorial/RedRS_tutorial.md). Check it for a comprehensive overview.
