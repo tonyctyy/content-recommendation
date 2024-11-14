@@ -1,6 +1,6 @@
 [Back to RedRS_Tutorial Page](./RedRS_Tutorial.md) | [Back to Main Page](../../../README.md)
 
-<h1> Retrieval Stage (Updated on 2/9/2024)</h1>
+<h1> Retrieval Stage (Updated on 14/11/2024)</h1>
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -38,6 +38,23 @@
       - [Feature Transformation](#feature-transformation)
       - [Training the Item Tower](#training-the-item-tower)
       - [Combining with the DSSM Model](#combining-with-the-dssm-model)
+  - [Deep Retrieval (DR)](#deep-retrieval-dr)
+    - [Indexing](#indexing)
+      - [Path-to-Item Index Table](#path-to-item-index-table)
+      - [Item-to-Path Index Table](#item-to-path-index-table)
+    - [Predictive Model](#predictive-model)
+      - [Predicting User Interest](#predicting-user-interest)
+      - [Neural Network Practice](#neural-network-practice)
+    - [Retrieval Procedure](#retrieval-procedure)
+      - [Beam Search](#beam-search)
+    - [Training](#training)
+      - [Training the Neural Network](#training-the-neural-network)
+      - [Training Item Features](#training-item-features)
+  - [Bloom Filter](#bloom-filter)
+    - [Steps](#steps)
+      - [How It Works:](#how-it-works)
+    - [Adjusting the Value of $k$](#adjusting-the-value-of-k)
+    - [Disadvantages of Using a Bloom Filter](#disadvantages-of-using-a-bloom-filter)
 
 
 ## Collaborative Filtering (CF)
@@ -352,3 +369,131 @@ For each item, there is one positive sample (same item but different `item_vecto
 $$
 {1 \over n} \sum^n_{i=1} L_{main}[i] + \alpha \times {1 \over m} \sum^m_{j=1} L_{self}[j]
 $$
+
+## Deep Retrieval (DR)
+Unlike DSSM, which vectorizes users and items to find the **Nearest Neighbor (NN)**, Deep Retrieval identifies the most relevant paths for a user and retrieves all items within those paths. It functions similarly to [Tree-based Deep Models (TDM)](https://arxiv.org/pdf/1801.02294) from Alibaba Group.
+
+### Indexing
+#### Path-to-Item Index Table
+![Path-to-Item Index Table](./images/02_retrieval_10_DR_01.png)
+
+A single path can represent a list of items (Path -> List\<Item>), and this index table is used during retrieval.  
+Example: `depth = 3`, `width = K`, `item 1: {[2, 4, 1], [4, 1, 1]}`.
+
+#### Item-to-Path Index Table
+An item can belong to multiple paths (Item -> List\<Path>), and this index table is used during neural network training.
+
+### Predictive Model
+A neural network model predicts user interest across different paths.
+
+#### Predicting User Interest
+For a model with `depth = 3`, there are three layers $[a, b, c]$ in each path:
+
+1. Given user feature $x$, predict interest at point $a$, $p_1(a|x)$.
+2. Given $x$ and point $a$, predict interest at point $b$, $p_2(b|a; x)$.
+3. Continue to the last layer, $p_3(c|a, b; x)$.
+4. Combine probabilities to predict interest in the path $[a, b, c]$:  
+   $$p(a, b, c|x) = p_1(a|x) \times p_2(b|a; x) \times p_3(c|a, b; x)$$
+
+#### Neural Network Practice
+![Neural Network](./images/02_retrieval_10_DR_02.png)
+
+### Retrieval Procedure
+1. Given user features, use **beam search** (a greedy algorithm) to retrieve some paths.
+2. Use the Path-to-Item Index Table to fetch items for the selected paths.
+3. Rank the items and select a subset to return to the user.
+
+#### Beam Search
+For `depth = 3` and `width = K`, there are $K^3$ paths. Calculating all paths is infeasible, so we use a beam size `n` to select the top `n` paths at each step.
+
+![Beam Search](./images/02_retrieval_10_DR_03.png)
+
+In each layer, retain the `top-n` paths based on user interest. For example, with `n = 4`, select 4 points in the first layer, calculate interest for the next point across $4 \times K$ paths, and retain the `top-4` paths. Repeat until the last layer.
+
+Total Computation: $n + (n \times K) \times (depth - 1)$.
+
+*Note: when n = 1, Beam Search is equivalent to the Greedy Algorithm.*
+
+### Training
+Both (1) `neural network parameters` and (2) `item features (paths)` can be trained simultaneously to improve the Deep Retrieval (DR) model.
+
+- **User Interest to Path**: $p(path|x)$  
+  Train the neural network parameters using (1) the item-to-path index and (2) user interactions.
+  
+- **Item and Path Relationship**: `Item <- User -> Path`  
+  Create mappings between items and paths (Item -> List<Path> of length $J$). Balance the number of items per path.
+
+#### Training the Neural Network
+1. Represent item features as $J$ paths: $[a_1, b_1, c_1], [a_2, b_2, c_2], ..., [a_J, b_J, c_J]$.
+2. User interest for path $[a, b, c]$:  
+   $$p(a, b, c|x) = p(a|x) \times p(b|a; x) \times p(c|a, b; x)$$
+3. If a user interacts with an item, it implies interest in the item’s $J$ paths.
+4. Maximize user interest in these paths:  
+   $$\max \sum^J_{j=1} p(a_j, b_j, c_j|x)$$
+5. **Loss Function**:  
+   $$
+   \text{loss} = -\log \sum^J_{j=1} p(a_j, b_j, c_j|x)
+   $$
+   *Assumes user interaction indicates interest in the item, increasing predicted probability for $J$ paths.*
+
+#### Training Item Features
+1. User interest in a path $[a, b, c]$:  
+   $$p(a, b, c|\text{user}) = p(a, b, c|x)$$
+2. Item-path relationship:  
+   $$
+   \text{score(item, path)} = \sum_{\text{user}} p(\text{path}|\text{user}) \times \text{click(user, item)}
+   $$  
+   where $p(\text{path}|\text{user})$ represents user interest in the path, and $\text{click(user, item)}$ is user interaction with the item (values {0, 1}).
+3. Calculate $score(item, path)$ and select $J$ paths as item features, $\Pi = \lbrace \text{path}_1, ..., \text{path}_J \rbrace$.
+4. Maximize item feature quality:  
+   $$\max \sum^J_{j=1} \text{score(item, path}_j)$$
+5. **Loss Function**:
+   $$
+   \text{loss} = -\log \sum^J_{j=1} \text{score(item, path}_j)
+   $$
+6. **Regularization** (to avoid excess items per path):  
+   $$
+   \text{reg(path}_j) = (\text{number of items on path}_j)^4
+   $$
+7. **Greedy Algorithm**:  
+   For each update, fix ${\lbrace \text{path}_i \rbrace}_{i\neq l}$, and from unselected paths, choose the path $\text{path}_l$:
+   $$
+   \text{path}_l = \arg \min_{\text{path}_l} \text{loss(item, } \Pi\text{) + } \lambda \times \text{reg(path}_l\text{)}
+   $$
+   *This ensures $\text{path}_l$ has a high $score(item, path)$ while balancing item distribution.*
+
+## Bloom Filter
+The Bloom Filter plays a crucial role in content recommendation. When a user has read specific content, that content should be excluded from future feature retrieval results. Additionally, content that has been exposed but not interacted with should also be taken into account. However, directly comparing all items is computationally expensive. If a user has read $n$ items and there are $r$ retrieved items, the complexity would be $O(n \times r)$.
+
+*Note: Some content recommendation systems, such as YouTube, may still occasionally suggest previously seen content to a user.*
+
+### Steps
+A Bloom Filter can efficiently determine if an `item_id` is part of an exposed item collection:
+- If the result is `False`, the item is not in the collection.
+- If the result is `True`, the item may be in the collection (with a small chance of error).
+
+#### How It Works:
+1. The filter treats the item features collection as an **m-dimensional binary vector**.
+2. Each user has a vector that records the history of exposed items.
+3. The Bloom Filter uses $k$ hash functions. Each function maps `item_id` to a fixed range from $0$ to $m-1$.
+
+![Bloom Filter](./images/02_retrieval_12_BF_01.png)
+
+### Adjusting the Value of $k$
+Increasing $k$ (the number of hash functions) assigns more bits in the binary vector per `item_id`. For example, if `k=3`, each item will set three bits in the vector to 1. This helps reduce the **error rate** since an item is confirmed as "possibly in the collection" only if all bits set by the $k$ hash functions are 1.
+
+**Error Rate** (collection size = $n$):
+$$
+\delta \approx (1 - e^{-kn/m})^k
+$$
+
+Optimal values for $k$ and $m$:
+- **Optimal $k$**: 
+  $$ k^* = 1.44 \times \ln \left(\frac{1}{\delta}\right) $$
+- **Optimal $m$**:
+  $$ m^* = 2n \times \ln\left(\frac{1}{\delta}\right) $$
+
+### Disadvantages of Using a Bloom Filter
+**One-Way Operation**: Bloom Filters only support adding items to the collection by setting bits according to the $k$ hash functions. Removing an item does not reset the bits, meaning it can only expand the collection, not shrink it.
+
+*If a time constraint applies to items (e.g., a 1-month validity period), expired items can be removed to reduce the error rate. This, however, requires recalculating the vectors to ensure accuracy.*
