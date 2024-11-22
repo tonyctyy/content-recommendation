@@ -11,6 +11,8 @@ seaborn = "*"
 scikit-learn = "*"
 sparse-dot-topn = "*"
 flask = "*"
+tensorflow = "*"
+tensorflow-datasets = "*"
 
 [dev-packages]
 ipykernel = "*"

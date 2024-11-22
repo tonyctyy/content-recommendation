@@ -1,7 +1,7 @@
 [Back to Log Page](../README.md) | [Back to Main Page](../../README.md)   
 
 # 18/6/2024: the Yelp Dataset (updated on 31/7/2024)
-Yelp is a platform for users to find, review, and recommend businesses in different categories (e.g. food, shopping, entertainment, etc.) across 8 metropolitan areas in the USA and Canada. This dataset is originally used for the Yelp Challenge and it is open for academic research.
+Yelp is a platform for users to find, review, and recommend businesses in different categories (e.g. food, shopping, entertainment, etc.) across 8 metropolitan areas in the USA and Canada. This [dataset](https://www.yelp.com/dataset) is originally used for the Yelp Challenge and it is open for academic research.
 
 ## Insights
 1. **Comprehensive User and Business Profiles**: The dataset allows for the creation of detailed user and business profiles, enriched by a variety of attributes such as geographical location and specific business characteristics. This comprehensive data enables more nuanced and context-aware recommendations tailored to individual user preferences and behaviors.
@@ -100,5 +100,8 @@ It has a total of six json files: ***business***, ***review***, ***user***, ***c
   - Local: if you have access to your own hadoop cluster, check out the mrjob docs for instructions on how to set this up
   - Cloud: Amazon EMR
 
+## [Yelp Dataset Download](https://www.yelp.com/dataset/download)
+- The dataset is available for download in JSON format. The photos are also available for download in a separate file.
+
 ## [Kaggle Dataset](https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset)
-- I can't access the dataset on the official website so I find this archive version on Kaggle. However, it doesn't have the photo files since it is originally separated. We can also check how other people use this dataset on Kaggle.
+- We can also check how other people use this dataset on Kaggle.
