@@ -1,4 +1,4 @@
-export function displayBusinessInfo(business, score) {
+export function displayBusinessInfo(business, score, model) {
     // Create a list item for each business
     const listItem = document.createElement('li');
     listItem.classList.add('card-display'); // Add a class for styling
@@ -11,7 +11,7 @@ export function displayBusinessInfo(business, score) {
     const businessInfoText = document.createElement('span'); // Use span to hold text
     businessInfoText.innerHTML = `
     <strong>Name:</strong> ${business.name} (${business.business_id})<br>
-    <strong>Interest Score:</strong> ${score}<br>
+    <strong>${model === 'ItemCF' ? 'Interest' : 'Similarity'} Score:</strong> ${score}<br>
     <strong>Categories:</strong> ${business.categories && business.categories.length > 0 ? business.categories.join(', ') : 'N/A'}<br>
     <strong>Stars:</strong> ${'★'.repeat(Math.floor(business.stars))}${'☆'.repeat(5 - Math.floor(business.stars))} (${business.review_count} reviews)
     `;
