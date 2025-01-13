@@ -15,9 +15,9 @@ This project focuses on studying content recommendation systems. Some datasets a
 ## Useful Links
 - [Trello](https://trello.com/b/5JG6Hmrf/milestones-tasks): Trello board for project management.
 - [Miro](https://miro.com/app/board/uXjVKgJsXMs=/): Miro board for brainstorming, planning and visualization.
+- [Google Drive](https://drive.google.com/drive/folders/1z4Vid9NfHBhHb9hb7fLza9E-zdlkhOt6?usp=drive_link): Google Drive for storing datasets.
 - [Perplexity](https://www.perplexity.ai/collections/Content-Recommendation-FYP-r8AxwOpsSAyDXFh7Np00lg): Perplexity is used for research purposes. We have a group chat here for asking questions.
 - [Introduction to Content Recommendation Systems](https://slogix.in/phd-research-topics-in-recommender-systems-based-on-deep-learning/): This website provides a brief introduction to different content recommendation techniques and potential research directions. It’s a good starting point for the project.
-- 
 - [Dataset for Content Recommendation System (GitHub)](https://github.com/RUCAIBox/RecSysDatasets): This GitHub repository contains various datasets for content recommendation systems.
 - [Dataset used in the UCSD laboratory](https://cseweb.ucsd.edu/~jmcauley/datasets.html): This website contains some datasets used by the UCSD laboratory.
 
@@ -32,7 +32,7 @@ Here are the frequently used commands:
 To Start the Flask server:
   ```bash
   cd src/backend
-  python app.py
+  pipenv run python app.py
   ```
 Then, access the url `http://127.0.0.1:5000/` to check the Flask server.
   
