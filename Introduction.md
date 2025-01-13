@@ -297,7 +297,7 @@ We use Flask to build the backend server. To run the server, make sure you are i
 ```bash
 pipenv shell
 cd src/backend
-python app.py
+pipenv run python app.py
 ```
 The backend server will run at `http://127.0.0.1:5000/`, and you can access it through this URL.
 

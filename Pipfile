@@ -13,6 +13,7 @@ sparse-dot-topn = "*"
 tensorflow = "*"
 tensorflow-datasets = "*"
 faiss-cpu = "*"
+flask = "*"
 
 [dev-packages]
 ipykernel = "*"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5140d994f59f8aa7ac95126de629a41efde49642c382daf1c2c2be0984271dde"
+            "sha256": "994c77dde2317decb588b5832c5f3cb772281b0fb74d2bedf4f1faab2494c19f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -30,6 +30,14 @@
                 "sha256:c2652417f2c8b5bb325c885ae329bdf3f86424075c4fd1a128674bc6fba4b8e8"
             ],
             "version": "==1.6.3"
+        },
+        "blinker": {
+            "hashes": [
+                "sha256:b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf",
+                "sha256:ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc"
+            ],
+            "markers": "python_version >= '3.9'",
+            "version": "==1.9.0"
         },
         "certifi": {
             "hashes": [
@@ -327,6 +335,14 @@
             "index": "pypi",
             "version": "==1.9.0.post1"
         },
+        "flask": {
+            "hashes": [
+                "sha256:5f873c5184c897c8d9d1b05df1e3d01b14910ce69607a117bd3277098a5836ac",
+                "sha256:d667207822eb83f1c4b50949b1623c8fc8d51f2341d65f72e1a1815397551136"
+            ],
+            "index": "pypi",
+            "version": "==3.1.0"
+        },
         "flatbuffers": {
             "hashes": [
                 "sha256:2910b0bc6ae9b6db78dd2b18d0b7a0709ba240fb5585f286a3a2b30785c22dac",
@@ -536,6 +552,22 @@
                 "sha256:789cfdc3ed28c78b67a06acb8126751ced69a3d5f79c095a98298cd8a760ccec"
             ],
             "version": "==6.5.2"
+        },
+        "itsdangerous": {
+            "hashes": [
+                "sha256:c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef",
+                "sha256:e0050c0b7da1eea53ffaf149c0cfbb5c6e2e2b69c4bef22c81fa6eb73e5f6173"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==2.2.0"
+        },
+        "jinja2": {
+            "hashes": [
+                "sha256:8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb",
+                "sha256:aba0f4dc9ed8013c424088f68a5c226f7d6097ed89b246d7749c2ec4175c6adb"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==3.1.5"
         },
         "joblib": {
             "hashes": [

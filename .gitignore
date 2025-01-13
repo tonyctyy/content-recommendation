@@ -1,4 +1,3 @@
 data/raw_datasets/*
 data/processed_data/*
-!data/raw_datasets/READEME.md
-!data/processed_data/READEME.md
+data.zip
