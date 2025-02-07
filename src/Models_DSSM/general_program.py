@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import LabelEncoder, StandardScaler, normalize
 from sklearn.metrics import roc_auc_score, precision_score, recall_score, confusion_matrix
 
 import tensorflow as tf
@@ -186,4 +186,13 @@ def load_saved_models(save_folder_path='Saved_Triplet_Hinge_Loss/'):
     with open(save_folder_path + 'business_scaler.pkl', 'rb') as f:
         business_scaler = pickle.load(f)
 
-    return user_model, item_model, user_id_encoder, business_id_encoder, categories_encoder, user_scaler, business_scaler
+    # Load the saved user and business continuous features (temporal)
+    # with open(save_folder_path + 'user_continuous_features_scaled.pkl', 'rb') as f:
+    #     user_continuous_features_scaled = pickle.load(f)
+    
+    # with open(save_folder_path + 'business_continuous_features_scaled.pkl', 'rb') as f:
+    #     business_continuous_features_scaled = pickle.load(f)
+        
+
+    return user_model, item_model, user_id_encoder, business_id_encoder, categories_encoder, user_scaler, business_scaler, 
+# user_continuous_features_scaled, business_continuous_features_scaled
