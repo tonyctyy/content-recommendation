@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler, normalize
 from sklearn.metrics import roc_auc_score, precision_score, recall_score, confusion_matrix
+from sklearn.utils import shuffle
 
 import tensorflow as tf
 from tensorflow.keras import layers, Model
@@ -99,57 +100,61 @@ categories_df = yelp_data['business_categories']
 # Flatten all categories into a single list to fit the encoder
 unique_categories = set([cat for sublist in categories_df['category'] for cat in sublist])    
 
-def prepare_data(user_df, business_df, review_df, categories_df, user_id_encoder, business_id_encoder, categories_encoder, user_scaler, business_scaler, use_stage='train'):
-    if use_stage != 'train':
-        # Filter out unseen categories
-        categories_df = categories_df[categories_df['category'].isin(categories_encoder.classes_)]
-        # Filter out unseen user_id
-        user_df = user_df[user_df['user_id'].isin(user_id_encoder.classes_)]
-        # Filter out unseen business_id
-        business_df = business_df[business_df['business_id'].isin(business_id_encoder.classes_)]
+def assign_default_ids(user_df, business_df, default_user_id, default_business_id, user_fraction=0.05, business_fraction=0.05, random_state=42):
+    """
+    Randomly masks some user and business IDs as default values.
+    """
+    np.random.seed(random_state)
+    
+    # Randomly select a fraction of users and businesses to replace with default
+    masked_users = np.random.choice(user_df['user_id'], size=int(user_fraction * len(user_df)), replace=False)
+    # masked_businesses = np.random.choice(business_df['business_id'], size=int(business_fraction * len(business_df)), replace=False)
+    
+    user_df.loc[user_df['user_id'].isin(masked_users), 'user_id'] = default_user_id
+    # business_df.loc[business_df['business_id'].isin(masked_businesses), 'business_id'] = default_business_id
+    
+    # return user_df, business_df
+    return user_df
+
+def prepare_data(user_df, business_df, review_df, categories_df, user_id_encoder, business_id_encoder, categories_encoder, user_scaler, business_scaler, use_stage='train', default_user_id='default_user', default_business_id='default_business'):
+    if use_stage == 'train':
+        # user_df, business_df = assign_default_ids(user_df, business_df, default_user_id, default_business_id)
+        user_df = assign_default_ids(user_df, business_df, default_user_id, default_business_id)
+
+        all_user_ids = pd.concat([user_df["user_id"], review_df["user_id"]]).unique()
+        user_id_encoder.fit(all_user_ids.reshape(-1, 1))
+        all_business_ids = pd.concat([business_df["business_id"], review_df["business_id"]]).unique()
+        business_id_encoder.fit(all_business_ids.reshape(-1, 1))
+
 
     categories_df['category_encoded'] = categories_encoder.transform(categories_df['category'])
     categories_df = categories_df.groupby('business_id')['category_encoded'].apply(list).reset_index()
-    # Merge the categories with the business data, name the column 'category_encoded'
     business_df = business_df.merge(categories_df, on='business_id', how='left')
-    
-    # Count the number of reviews and average review for each business
-    business_review_count = review_df.groupby('business_id').size()
+    business_df['category_encoded'] = business_df['category_encoded'].apply(lambda x: x if isinstance(x, list) else [])
+
     business_avg_review = review_df.groupby('business_id')['stars'].mean()
-    business_df['review_count'] = business_review_count
-    business_df['avg_review'] = business_avg_review # similar to stars, but this is adjusted for the number of reviews extracted
+    business_df = business_df.merge(business_avg_review.rename('avg_review'), on='business_id', how='left').fillna({'avg_review': 0})
+    
+    if use_stage == 'train':
+        user_df['user_id_encoded'] = user_id_encoder.transform(user_df['user_id'])
+        business_df['business_id_encoded'] = business_id_encoder.transform(business_df['business_id'])
+        num_users = user_df['user_id_encoded'].max() + 1
+        num_businesses = business_df['business_id_encoded'].max() + 1
+    else:
+        # user_df['user_id_encoded'] = user_id_encoder.transform(user_df['user_id'])
+        business_df['business_id_encoded'] = business_id_encoder.transform(business_df['business_id'])
+        num_users = len(user_id_encoder.classes_)
+        num_businesses = len(business_id_encoder.classes_)
 
-    user_df['user_id_encoded'] = user_id_encoder.fit_transform(user_df['user_id'])
-    business_df['business_id_encoded'] = business_id_encoder.fit_transform(business_df['business_id'])
-
-    # Standardize user continuous features
-    user_continuous_features = user_df[user_con_feature_lst].fillna(0)
-    user_continuous_features_scaled = user_scaler.fit_transform(user_continuous_features)
-
-    # Standardize business continuous features
-    business_continuous_features = business_df[business_con_feature_lst].fillna(0)
-    business_continuous_features_scaled = business_scaler.fit_transform(business_continuous_features)
-
-    # Ensure continuous features are pandas DataFrames
-    user_continuous_features_scaled = pd.DataFrame(user_continuous_features_scaled, index=user_df['user_id_encoded'])
-    business_continuous_features_scaled = pd.DataFrame(business_continuous_features_scaled, index=business_df['business_id_encoded'])
-
-
-    # Save number of unique users and businesses for embedding input_dim
-    num_users = user_df['user_id_encoded'].max() + 1
-    num_businesses = business_df['business_id_encoded'].max() + 1
-    # Define the number of unique categories
     num_categories = len(categories_encoder.classes_)
 
+    user_continuous_features_scaled = pd.DataFrame(user_scaler.fit_transform(user_df[user_con_feature_lst].fillna(user_df[user_con_feature_lst].median())), index=user_df.index)
+    business_continuous_features_scaled = pd.DataFrame(business_scaler.fit_transform(business_df[business_con_feature_lst].fillna(business_df[business_con_feature_lst].median())), index=business_df.index)
 
-    # Filter out unseen user_id and business_id
-    review_df = review_df[
-        (review_df['user_id'].isin(user_id_encoder.classes_)) & 
-        (review_df['business_id'].isin(business_id_encoder.classes_))
-    ]
-
-    # Encode user_id and business_id
-    review_df['user_id_encoded'] = user_id_encoder.transform(review_df['user_id'])
+    # Filter out reviews for businesses that are not in the training set
+    review_df = review_df[review_df['business_id'].isin(business_id_encoder.classes_)]
+    if use_stage == 'train':
+        review_df['user_id_encoded'] = user_id_encoder.transform(review_df['user_id'])
     review_df['business_id_encoded'] = business_id_encoder.transform(review_df['business_id'])
 
     return user_df, business_df, review_df, user_continuous_features_scaled, business_continuous_features_scaled, num_users, num_businesses, num_categories
