@@ -1,6 +1,4 @@
 data/raw_datasets/*
 data/processed_data/yelp_data/*
-data/processed_data/yelp_ItemCF.db
 data.zip
-src/Models_CF/yelp_ItemCF.db
 *.db
