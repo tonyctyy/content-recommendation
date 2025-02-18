@@ -119,7 +119,10 @@ def assign_default_ids(user_df, business_df, default_user_id, default_business_i
 def prepare_data(user_df, business_df, review_df, categories_df, user_id_encoder, business_id_encoder, categories_encoder, user_scaler, business_scaler, use_stage='train', default_user_id='default_user', default_business_id='default_business'):
     if use_stage == 'train':
         # user_df, business_df = assign_default_ids(user_df, business_df, default_user_id, default_business_id)
-        user_df = assign_default_ids(user_df, business_df, default_user_id, default_business_id)
+        
+
+
+        # user_df = assign_default_ids(user_df, business_df, default_user_id, default_business_id)
 
         all_user_ids = pd.concat([user_df["user_id"], review_df["user_id"]]).unique()
         user_id_encoder.fit(all_user_ids.reshape(-1, 1))
