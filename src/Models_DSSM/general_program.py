@@ -70,7 +70,7 @@ business_con_feature_lst = [
                         'review_count', 
                         'avg_review',
                         'latitude', 
-                        'longitude'   
+                        'longitude'  
                         ]
 
 # add user features that start with 'compliment_'
@@ -85,23 +85,11 @@ user_df['yelping_since'] = pd.to_datetime(user_df['yelping_since'])
 # Preprocess business data
 business_df = yelp_data['business_details']
 business_df['is_open'] = business_df['is_open'].fillna(0).astype(int)
-# 1. Popularity-Quality Interaction
-# For each business: Interaction = review_count * stars
-business_df['popularity_quality'] = business_df['review_count'] * business_df['stars']
-# 2. Log-Transform on Review Counts
-# Apply log1p to handle zero counts gracefully (log1p(x) = log(1 + x))
-business_df['log_review_count'] = np.log1p(business_df['review_count'])
 
 # Preprocess review data
 review_df = yelp_data['review']
 # Create labels for review data
 review_df['label'] = (review_df['stars'] >= 4).astype(int)
-# 3. Recency of Review
-# Convert 'date' to datetime and compute the difference from today in days
-review_df['date'] = pd.to_datetime(review_df['date'])
-current_date = pd.Timestamp.today()
-review_df['recency_days'] = (current_date - review_df['date']).dt.days
-
 
 # Preprocess tip data
 tip_df = yelp_data['tip']
