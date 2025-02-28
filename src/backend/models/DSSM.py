@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import pickle
 import faiss
 from tensorflow.keras.models import load_model

@@ -1,0 +1,25 @@
+<!-- templates/dssm.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+    Retrieval Stage Recommendations
+{% endblock %}
+
+{% block content %}
+    <h2>Retrieval Stage Business Recommendations</h2>
+
+    <form id="recommendationForm">
+        <select id="model" name="model" required>
+            <option value="ItemCF">Item-based Collaborative Filtering (ItemCF)</option>
+            <option value="DSSM">Deep Structured Semantic Model (DSSM)</option>
+            <option value="DeepFM">Deep Factorized Machines (DeepFM)</option>
+        <label for="userId">Enter User ID:</label>
+        <input type="text" id="userId" name="user_id" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    <div id="results"></div>
+
+    <!-- Import external JavaScript for fetching recommendations -->
+    <script type="module" src="../static/js/fetch_retrieval_results.js"></script>
+{% endblock %}
