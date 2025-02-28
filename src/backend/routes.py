@@ -1,5 +1,5 @@
 from flask import render_template
-from api import get_ItemCF_recommendations, get_DSSM_recommendations, get_business_info
+from api import get_ItemCF_recommendations, get_DSSM_recommendations, get_DeepFM_recommendations, get_business_info
 
 def create_routes(app):
     """
@@ -10,9 +10,9 @@ def create_routes(app):
     def index():
         return render_template('index.html')
     
-    @app.route('/retrieval_models')
-    def retrieval_models():
-        return render_template('retrieval_models.html')
+    @app.route('/models_testing')
+    def models_testing():
+        return render_template('models_testing.html')
 
     """
     API routes
@@ -25,6 +25,10 @@ def create_routes(app):
     @app.route('/DSSM_recommendations', methods=['GET'])
     def DSSM_recommendations():
         return get_DSSM_recommendations()
+    
+    @app.route('/DeepFM_recommendations', methods=['GET'])
+    def DeepFM_recommendations():
+        return get_DeepFM_recommendations()
 
     @app.route('/business_info', methods=['GET'])
     def business_info():
