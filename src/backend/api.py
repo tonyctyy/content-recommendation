@@ -5,9 +5,9 @@ from models.DeepFM import *
 from retrieve_info import retrieve_business_info, retrieve_user_info
 
 def get_ItemCF_recommendations():
-    user_id = request.args.get('user_id')
-
-    k = request.args.get('k', 10)
+    data = request.get_json()
+    user_id = data.get('user_id')
+    k = data.get('k', 10)
 
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400

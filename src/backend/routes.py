@@ -18,7 +18,7 @@ def create_routes(app):
     API routes
     ----------------
     """
-    @app.route('/ItemCF_recommendations', methods=['GET'])
+    @app.route('/ItemCF_recommendations', methods=['POST'])
     def ItemCF_recommendations():
         return get_ItemCF_recommendations()
     

@@ -14,6 +14,8 @@ tensorflow = "*"
 tensorflow-datasets = "*"
 faiss-cpu = "*"
 flask = "*"
+flask-cors = "*"
+python-geohash = "*"
 
 [dev-packages]
 ipykernel = "*"
