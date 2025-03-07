@@ -70,7 +70,7 @@ business_con_feature_lst = [
                         'review_count', 
                         'avg_review',
                         'latitude', 
-                        'longitude'   
+                        'longitude'  
                         ]
 
 # add user features that start with 'compliment_'
