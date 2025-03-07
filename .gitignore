@@ -3,3 +3,4 @@ data/processed_data/yelp_data/*
 data.zip
 *.db
 *.csv
+frontend/*
