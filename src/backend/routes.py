@@ -22,14 +22,14 @@ def create_routes(app):
     def ItemCF_recommendations():
         return get_ItemCF_recommendations()
     
-    @app.route('/DSSM_recommendations', methods=['GET'])
+    @app.route('/DSSM_recommendations', methods=['POST'])
     def DSSM_recommendations():
         return get_DSSM_recommendations()
     
-    @app.route('/DeepFM_recommendations', methods=['GET'])
+    @app.route('/DeepFM_recommendations', methods=['POST'])
     def DeepFM_recommendations():
         return get_DeepFM_recommendations()
 
-    @app.route('/business_info', methods=['GET'])
+    @app.route('/business_info', methods=['POST'])
     def business_info():
         return get_business_info()

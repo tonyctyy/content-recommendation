@@ -20,9 +20,10 @@ def get_ItemCF_recommendations():
         return jsonify({"error": str(e)}), 500
 
 def get_DSSM_recommendations():
-    user_id = request.args.get('user_id')
-    k = request.args.get('k', 100)
-
+    data = request.get_json()
+    user_id = data.get('user_id')
+    k = data.get('k', 10)
+    
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
     
@@ -34,7 +35,8 @@ def get_DSSM_recommendations():
         return jsonify({"error": str(e)}), 500
 
 def get_DeepFM_recommendations():
-    user_id = request.args.get('user_id')
+    data = request.get_json()
+    user_id = data.get('user_id')
     
     # get results from ItemCF
     ItemCF_k = 300
@@ -59,7 +61,8 @@ def get_DeepFM_recommendations():
         return jsonify({"error": str(e)}), 500
 
 def get_business_info():
-    business_ids = request.args.get('business_ids')
+    data = request.get_json()
+    business_ids = data.get('business_ids')
 
     if not business_ids:
         return jsonify({"error": "No business IDs provided"}), 400
