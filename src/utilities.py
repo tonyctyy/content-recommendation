@@ -303,19 +303,17 @@ def predict_recommendations(test_data, test_data_grouped,business_mapping, conn,
     return predicted_labels, actual_labels, positive_count, negative_count, null_count, unrated_count
 
 
-
-def compute_prediction_evaluation(actual_labels, predicted_labels,  prediction_lst=[], beta=2):
-    tn, fp, fn, tp = confusion_matrix(actual_labels, predicted_labels).ravel()        
-    evaluation_metric, confusion, background_stats = compute_evaluation_metric(tp, tn, fp, fn, len(actual_labels), tp + fn, None)
-    if len(prediction_lst) > 0:
-        evaluation_metric['Recall'] = evaluation_metric['Recall']*background_stats['Total Positive']/prediction_lst[0] if prediction_lst[0] > 0 else 0
-        background_stats['Total Positive'] = prediction_lst[0]
-        background_stats['Total Negative'] = prediction_lst[1]
-        background_stats['Total'] = prediction_lst[0] + prediction_lst[1]
-        background_stats['Ratio'] = prediction_lst[0] / float(prediction_lst[0] + prediction_lst[1]) if prediction_lst[0] + prediction_lst[1] > 0 else 0
+def compute_prediction_evaluation(actual_labels, predicted_labels):
+    if len(predicted_labels) > 0:
         
+        tn, fp, fn, tp = confusion_matrix(actual_labels, predicted_labels).ravel()
+        unrated_count = len(predicted_labels) - (tp + tn + fp + fn)
+
+        evaluation_metric, confusion, background_stats = compute_evaluation_metric(tp, tn, fp, fn, len(actual_labels), tp + fn, None)
+
         # add unrated count percentage to evaluation metric 
-        evaluation_metric['Unrated Count'] = prediction_lst[2] / background_stats['Total']
-        evaluation_metric['F1 Score'] = 2 * (evaluation_metric['Precision'] * evaluation_metric['Recall']) / (evaluation_metric['Precision'] + evaluation_metric['Recall'])
-        evaluation_metric['F-beta Score'] = (1 + beta**2) * (evaluation_metric['Precision'] * evaluation_metric['Recall']) / (beta**2 * evaluation_metric['Precision'] + evaluation_metric['Recall']) 
-    return evaluation_metric, confusion, background_stats
+        evaluation_metric['Unrated Count'] = unrated_count / len(predicted_labels)
+
+        return evaluation_metric, confusion, background_stats
+    else:
+        return None, None, None
