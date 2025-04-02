@@ -16,6 +16,8 @@ faiss-cpu = "*"
 flask = "*"
 flask-cors = "*"
 python-geohash = "*"
+joblib = "*"
+vadersentiment = "*"
 
 [dev-packages]
 ipykernel = "*"
