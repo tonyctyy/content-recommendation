@@ -5,7 +5,6 @@ import Container from '@mui/material/Container';
 import AppTheme from './shared-theme/AppTheme';
 import AppAppBar from './components/AppAppBar';
 import RecommendationForm from './components/RecommendationForm';
-import RecommendationResults from './components/RecommendationResults';
 import Footer from './components/Footer';
 
 
@@ -30,7 +29,6 @@ export default function HomePage() {
         }}
         >
         <RecommendationForm setResults={setResults} setLoading={setLoading} />
-        <RecommendationResults results={results} loading={loading} />
       </Container>
       <Footer />
     </AppTheme>

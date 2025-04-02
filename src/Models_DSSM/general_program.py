@@ -20,7 +20,7 @@ MAX_CATEGORY_LENGTH = 5
 db_folder = '../../data/processed_data/yelp_data/'
 
 # Connect to the databases and load data
-def load_data_from_db(db_files = ['yelp_business_data.db', 'yelp_review_data.db', 'yelp_user_data.db', 'yelp_tip_data.db']):
+def load_data_from_db(db_files = ['yelp_business_data.db', 'yelp_review_data_new.db', 'yelp_user_data.db', 'yelp_tip_data.db']):
     db_paths = [db_folder + db_file for db_file in db_files]
     # Load data from the databases
     data = {}
@@ -33,7 +33,7 @@ def load_data_from_db(db_files = ['yelp_business_data.db', 'yelp_review_data.db'
             data['business_details'] = pd.read_sql_query("SELECT * FROM business_details", conns[conns_count])
             data['business_categories'] = pd.read_sql_query("SELECT * FROM business_categories", conns[conns_count])
             conns_count += 1
-        if 'yelp_review_data.db' in db_files:
+        if 'yelp_review_data_new.db' in db_files:
             data['review'] = pd.read_sql_query("SELECT * FROM review_data", conns[conns_count])
             conns_count += 1
         if 'yelp_user_data.db' in db_files:
@@ -100,7 +100,7 @@ tip_df = yelp_data['tip']
 categories_df = yelp_data['business_categories']
 
 # Flatten all categories into a single list to fit the encoder
-unique_categories = set([cat for sublist in categories_df['category'] for cat in sublist])    
+unique_categories = categories_df['category'].unique()
 
 def assign_default_ids(user_df, business_df, default_user_id, default_business_id, user_fraction=0.05, business_fraction=0.05, random_state=42):
     """
@@ -121,51 +121,42 @@ def assign_default_ids(user_df, business_df, default_user_id, default_business_i
 def prepare_data(user_df, business_df, review_df, categories_df, user_id_encoder, business_id_encoder, categories_encoder, business_geohash_encoder, user_scaler, business_scaler, use_stage='train', default_user_id='default_user', default_business_id='default_business'):
     if use_stage == 'train':
         # user_df, business_df = assign_default_ids(user_df, business_df, default_user_id, default_business_id)
-        
-
-
         # user_df = assign_default_ids(user_df, business_df, default_user_id, default_business_id)
-
         all_user_ids = pd.concat([user_df["user_id"], review_df["user_id"]]).unique()
         user_id_encoder.fit(all_user_ids.reshape(-1, 1))
         all_business_ids = pd.concat([business_df["business_id"], review_df["business_id"]]).unique()
         business_id_encoder.fit(all_business_ids.reshape(-1, 1))
-
         categories_encoder.fit(list(unique_categories))
         business_geohash_encoder.fit(business_df['geohash'])
 
+    user_df['user_id_encoded'] = user_id_encoder.transform(user_df['user_id'])
+    user_df['average_stars'] = user_df['average_stars'].fillna(user_df['average_stars'].median())
+
     categories_df['category_encoded'] = categories_encoder.transform(categories_df['category'])
     categories_df = categories_df.groupby('business_id')['category_encoded'].apply(list).reset_index()
+
     business_df = business_df.merge(categories_df, on='business_id', how='left')
     business_df['category_encoded'] = business_df['category_encoded'].apply(lambda x: x if isinstance(x, list) else [])
 
     business_avg_review = review_df.groupby('business_id')['stars'].mean()
     business_df = business_df.merge(business_avg_review.rename('avg_review'), on='business_id', how='left').fillna({'avg_review': 0})
     
-    
     business_df['business_id_encoded'] = business_id_encoder.transform(business_df['business_id'])
     business_df['geohash_encoded'] = business_geohash_encoder.transform(business_df['geohash'])
 
-    if use_stage == 'train':
-        user_df['user_id_encoded'] = user_id_encoder.transform(user_df['user_id'])
-        num_users = user_df['user_id_encoded'].max() + 1
-        num_businesses = business_df['business_id_encoded'].max() + 1
-    else:
-        # user_df['user_id_encoded'] = user_id_encoder.transform(user_df['user_id'])
-        num_users = len(user_id_encoder.classes_)
-        num_businesses = len(business_id_encoder.classes_)
+    review_df = review_df[review_df['user_id'].isin(user_df['user_id'])]
+    review_df = review_df[review_df['business_id'].isin(business_df['business_id'])]
 
+    review_df['user_id_encoded'] = user_id_encoder.transform(review_df['user_id'])
+    review_df['business_id_encoded'] = business_id_encoder.transform(review_df['business_id'])
+
+    num_users = len(user_id_encoder.classes_)
+    num_businesses = len(business_id_encoder.classes_)
     num_categories = len(categories_encoder.classes_)
     num_geohashes = len(business_geohash_encoder.classes_)
 
     user_continuous_features_scaled = pd.DataFrame(user_scaler.fit_transform(user_df[user_con_feature_lst].fillna(user_df[user_con_feature_lst].median())), index=user_df.index)
     business_continuous_features_scaled = pd.DataFrame(business_scaler.fit_transform(business_df[business_con_feature_lst].fillna(business_df[business_con_feature_lst].median())), index=business_df.index)
-
-    # Filter out reviews for businesses that are not in the training set
-    review_df = review_df[review_df['business_id'].isin(business_id_encoder.classes_)]
-    if use_stage == 'train':
-        review_df['user_id_encoded'] = user_id_encoder.transform(review_df['user_id'])
-    review_df['business_id_encoded'] = business_id_encoder.transform(review_df['business_id'])
 
     return user_df, business_df, review_df, user_continuous_features_scaled, business_continuous_features_scaled, num_users, num_businesses, num_categories, num_geohashes
 
