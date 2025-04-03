@@ -4,3 +4,4 @@ data.zip
 *.db
 *.csv
 src/__pycache__/*
+*.xlsx

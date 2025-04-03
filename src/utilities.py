@@ -7,6 +7,9 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
+def check_py_version():
+    print("this utilities.py updated on 3.30.22:43")
+
 # Connect to the databases and load data
 def load_data_from_db(db_folder, data_files):
     db_files = {}
@@ -124,6 +127,9 @@ def predict_user_interests(user_id, business_mapping, conn, k=100):       # k is
     return recommended_businesses[:k]
 
 
+
+
+
 # Function to predict user interest in a specific business
 def get_business_interest(user_id, business_id, business_mapping, conn, k=100):
     user_businesses = get_user_businesses(user_id, conn)
@@ -154,6 +160,7 @@ def get_business_interest(user_id, business_id, business_mapping, conn, k=100):
         # return user_avg_rating
         return -1
     return user_avg_rating + (weighted_sum / similarity_sum)
+
 
 
 def simulate_recommendations(test_data_grouped, user_mapping, business_mapping, conn, k=300, num_users=10):
