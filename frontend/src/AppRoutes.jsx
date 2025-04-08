@@ -9,7 +9,7 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/model_testing" element={<ModelTesting />} />
+        <Route path= "/model_testing" element={<ModelTesting />} />
       </Routes>
     </BrowserRouter>
   );

@@ -2,21 +2,16 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import RecommendationForm from './RecommendationForm';
-// import { UserInfoCard, BusinessCard } from './RecommendationResults'; // Export these from RecommendationResults if needed
-import { BusinessCard } from './RecommendationResults';
 import UserInfoCard from './UserInfoCard';
 import SearchSummary from './SearchSummary';
+import BusinessCardList from './BusinessCardList';
 
 export default function TestLayout({ results, setResults, setLoading, loading }) {
   const { user, recommendations, businesses, model } = results || {};
 
   return (
     <Box sx={{ mt: 4 }}>
-      {/* <Typography variant="h2" gutterBottom align="center">
-        Retrieval Stage Recommendations
-      </Typography> */}
       <Box sx={{ display: 'flex', gap: 2 }}>
         {/* Left Column (Query Bar & User Profile) */}
         <Box
@@ -46,18 +41,11 @@ export default function TestLayout({ results, setResults, setLoading, loading })
           {loading ? (
             <Typography variant="body1">Loading recommendations...</Typography>
           ) : recommendations && recommendations.length > 0 ? (
-            <Grid container spacing={3}>
-              {recommendations.map((item) => {
-                const businessId = item[0];
-                const score = item[1];
-                const business = businesses[businessId];
-                return (
-                  <Grid item xs={12} md={6} lg={4} key={businessId}>
-                    <BusinessCard business={business} score={score} model={model} />
-                  </Grid>
-                );
-              })}
-            </Grid>
+            <BusinessCardList 
+              recommendations={recommendations} 
+              businesses={businesses} 
+              model={model} 
+            />
           ) : (
             <Typography variant="body1">No recommendations found.</Typography>
           )}
