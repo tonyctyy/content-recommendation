@@ -17,6 +17,8 @@ def load_data_from_db(db_folder, data_files):
         db_files['business'] = 'yelp_business_data.db'
     if "review" in data_files:
         db_files['review'] = 'yelp_review_data.db'
+    if "user" in data_files:
+        db_files['user'] = 'yelp_user_data.db'
 
     conns = {}
     for key, value in db_files.items():
@@ -31,6 +33,8 @@ def load_data_from_db(db_folder, data_files):
             data['categories'] = pd.read_sql_query("SELECT * FROM business_categories", conns['business'])
         if "review" in data_files:
             data['review'] = pd.read_sql_query("SELECT * FROM review_data", conns['review'])
+        if "user" in data_files:
+            data['user'] = pd.read_sql_query("SELECT * FROM user_data", conns['user'])
     except Exception as e:
         print("Error loading data from database: ", e)
     finally:
