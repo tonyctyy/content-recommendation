@@ -17,8 +17,6 @@ def load_data_from_db(db_folder, data_files):
         db_files['business'] = 'yelp_business_data.db'
     if "review" in data_files:
         db_files['review'] = 'yelp_review_data.db'
-    if "user" in data_files:
-        db_files['user'] = 'yelp_user_data.db'
 
     conns = {}
     for key, value in db_files.items():
@@ -33,8 +31,6 @@ def load_data_from_db(db_folder, data_files):
             data['categories'] = pd.read_sql_query("SELECT * FROM business_categories", conns['business'])
         if "review" in data_files:
             data['review'] = pd.read_sql_query("SELECT * FROM review_data", conns['review'])
-        if "user" in data_files:
-            data['user'] = pd.read_sql_query("SELECT * FROM user_data", conns['user'])
     except Exception as e:
         print("Error loading data from database: ", e)
     finally:
@@ -82,6 +78,35 @@ def balance_test_data(test_data, pos=4):
     print(f"Ratio of positive to negative reviews: {len(positive_reviews) / len(negative_reviews):.2f}")
     return balanced_test_data
 
+def precompute_weights(df_review, user_to_cluster):
+    # Add cluster_id to review data
+    df_review['cluster_id'] = df_review['user_id'].map(user_to_cluster)
+    
+    # Compute average rating per business per cluster
+    cluster_ratings = df_review.groupby(['business_id', 'cluster_id'])['stars'].mean().reset_index()
+    
+    # Compute global average rating as fallback
+    global_avg = df_review['stars'].mean()
+    
+    # Create weight dictionary
+    weight_dict = {}
+    for _, row in cluster_ratings.iterrows():
+        biz = row['business_id']
+        cluster = row['cluster_id']
+        avg_rating = row['stars']
+        # Normalize to 0-1 scale (ratings 1-5)
+        weight = (avg_rating - 1) / 4
+        weight_dict[(biz, cluster)] = weight
+    
+    # Store global average as fallback
+    global_weight = (global_avg - 1) / 4
+    return weight_dict, global_weight
+
+def get_cluster_id(user_id, user_to_cluster):
+    return user_to_cluster.get(user_id, None)  # Return None if user not found
+
+def get_weight(business_id, cluster_id, weight_dict, global_weight):
+    return weight_dict.get((business_id, cluster_id), global_weight)
 
 # Function to get businesses a user interacted with
 def get_user_businesses(user_id, conn):
@@ -111,24 +136,34 @@ def get_top_k_similar_businesses(business_id, business_mapping, conn, k=100):
     return similar_businesses
 
 
-# Function to predict user interests based on similar businesses
-def predict_user_interests(user_id, business_mapping, conn, k=100):       # k is the number of recommendations to make
+def predict_user_interests(user_id, business_mapping, conn, user_to_cluster, weight_dict, global_weight, k=100):
     user_businesses = get_user_businesses(user_id, conn)
-
+    
     recommended_businesses = {}
     for business_id, _ in user_businesses:
         similar_businesses = get_top_k_similar_businesses(business_id, business_mapping, conn, k)
-
         for similar_business_id, score in similar_businesses:
             if similar_business_id in recommended_businesses:
                 recommended_businesses[similar_business_id] += score
             else:
                 recommended_businesses[similar_business_id] = score
-
-    # Sort recommendations by score
-    recommended_businesses = sorted(recommended_businesses.items(), key=lambda x: -x[1])
-
-    return recommended_businesses[:k]
+    
+    # Get user's cluster
+    cluster_id = get_cluster_id(user_id, user_to_cluster)
+    if cluster_id is None:
+        # Fallback: return unadjusted recommendations if cluster unknown
+        recommended_businesses = sorted(recommended_businesses.items(), key=lambda x: -x[1])
+        return recommended_businesses[:k]
+    
+    # Adjust scores with cluster weights
+    adjusted_recommendations = [
+        (biz, score * get_weight(biz, cluster_id, weight_dict, global_weight))
+        for biz, score in recommended_businesses.items()
+    ]
+    
+    # Sort by adjusted score and return top-k
+    adjusted_recommendations.sort(key=lambda x: -x[1])
+    return adjusted_recommendations[:k]
 
 
 
@@ -165,22 +200,17 @@ def get_business_interest(user_id, business_id, business_mapping, conn, k=100):
         return -1
     return user_avg_rating + (weighted_sum / similarity_sum)
 
-
-
-def simulate_recommendations(test_data_grouped, user_mapping, business_mapping, conn, k=300, num_users=10):
-    # get the recommendations for each user in the test data
+def simulate_recommendations(test_data_grouped, user_mapping, business_mapping, conn, user_to_cluster, weight_dict, global_weight, k=300, num_users=10):
     recommendations = {}
-
     i = 0
     for user_id in test_data_grouped['user_id']:
-        recommendation = predict_user_interests(user_id,business_mapping, conn, k)
+        recommendation = predict_user_interests(user_id, business_mapping, conn, user_to_cluster, weight_dict, global_weight, k)
         business_ids, scores = [], []
         for business_id, score in recommendation:
             business_ids.append(business_id)
             scores.append(score)
-        recommendations[user_id] = (business_ids, scores) 
+        recommendations[user_id] = (business_ids, scores)
         i += 1
-        # i is used to limit the number of recommendations to display
         if i == num_users:
             break
     return recommendations
