@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
 def check_py_version():
-    print("this utilities.py updated on 3.30.22:43")
+    print("this utilities.py updated on 4.6.1306")
 
 # Connect to the databases and load data
 def load_data_from_db(db_folder, data_files):
@@ -17,8 +17,6 @@ def load_data_from_db(db_folder, data_files):
         db_files['business'] = 'yelp_business_data.db'
     if "review" in data_files:
         db_files['review'] = 'yelp_review_data.db'
-    if "user" in data_files:
-        db_files['user'] = 'yelp_user_data.db'
 
     conns = {}
     for key, value in db_files.items():
@@ -33,8 +31,6 @@ def load_data_from_db(db_folder, data_files):
             data['categories'] = pd.read_sql_query("SELECT * FROM business_categories", conns['business'])
         if "review" in data_files:
             data['review'] = pd.read_sql_query("SELECT * FROM review_data", conns['review'])
-        if "user" in data_files:
-            data['user'] = pd.read_sql_query("SELECT * FROM user_data", conns['user'])
     except Exception as e:
         print("Error loading data from database: ", e)
     finally:
@@ -83,20 +79,25 @@ def balance_test_data(test_data, pos=4):
     return balanced_test_data
 
 
-# Function to get businesses a user interacted with
-def get_user_businesses(user_id, conn):
+def get_user_clusters(user_ids, conn):
     cursor = conn.cursor()
-    cursor.execute('''SELECT business_id, stars_review FROM user_item_index WHERE user_id = ?''', (user_id,))
+    placeholders = ', '.join('?' for _ in user_ids)
+    query = f'''SELECT user_id, cluster FROM user_cluster_mapping WHERE user_id IN ({placeholders})'''
+    cursor.execute(query, list(user_ids))
     return cursor.fetchall()
 
+def get_cluster_businesses(cluster, conn):
+    cursor = conn.cursor()
+    cursor.execute('''SELECT business_id, stars_review FROM cluster_item_index WHERE cluster = ?''', (cluster,))
+    return cursor.fetchall()
 
-# Function to get top-k similar businesses for a given business
 def get_top_k_similar_businesses(business_id, business_mapping, conn, k=100):
     cursor = conn.cursor()
     cursor.execute('''SELECT similarity_vector FROM item_item_similarity WHERE item_id = ?''', (business_id,))
     result = cursor.fetchone()
-
+    
     if result is None:
+        # print(f"No similarity vector found for business {business_id}.")
         return []
 
     similarity_vector = pickle.loads(result[0])
@@ -111,26 +112,25 @@ def get_top_k_similar_businesses(business_id, business_mapping, conn, k=100):
     return similar_businesses
 
 
-# Function to predict user interests based on similar businesses
-def predict_user_interests(user_id, business_mapping, conn, k=100):       # k is the number of recommendations to make
-    user_businesses = get_user_businesses(user_id, conn)
-
+def predict_cluster_interests(cluster, business_mapping, conn, k=100):
+    cluster_businesses = get_cluster_businesses(cluster, conn)
+    # print(f"Cluster {cluster} has {len(cluster_businesses)} businesses.")
+    cluster_businesses = sorted(cluster_businesses, key=lambda x: -x[1])[: k]
+    # print(f"Top {k} businesses in cluster {cluster}: {len(cluster_businesses)}")
     recommended_businesses = {}
-    for business_id, _ in user_businesses:
+    for business_id, _ in cluster_businesses:
         similar_businesses = get_top_k_similar_businesses(business_id, business_mapping, conn, k)
-
+        # print(f"Business {business_id} has {len(similar_businesses)} similar businesses.")
         for similar_business_id, score in similar_businesses:
             if similar_business_id in recommended_businesses:
                 recommended_businesses[similar_business_id] += score
             else:
                 recommended_businesses[similar_business_id] = score
-
+    
     # Sort recommendations by score
     recommended_businesses = sorted(recommended_businesses.items(), key=lambda x: -x[1])
-
+    
     return recommended_businesses[:k]
-
-
 
 
 
@@ -168,21 +168,38 @@ def get_business_interest(user_id, business_id, business_mapping, conn, k=100):
 
 
 def simulate_recommendations(test_data_grouped, user_mapping, business_mapping, conn, k=300, num_users=10):
-    # get the recommendations for each user in the test data
     recommendations = {}
-
-    i = 0
-    for user_id in test_data_grouped['user_id']:
-        recommendation = predict_user_interests(user_id,business_mapping, conn, k)
+    
+    # Get unique user_ids from test_data_grouped (assuming it's a DataFrame)
+    user_ids = test_data_grouped['user_id'].unique()[:num_users]
+    
+    # Get user-cluster mappings for all selected users in one query
+    user_cluster_list = get_user_clusters(user_ids, conn)
+    
+    # Create a dictionary mapping user_id to cluster
+    user_cluster_dict = {user_id: cluster for user_id, cluster in user_cluster_list}
+    
+    # Get unique clusters from the selected users
+    unique_clusters = set(user_cluster_dict.values())
+    
+    # Compute recommendations for each unique cluster
+    cluster_recommendations = {}
+    for cluster in unique_clusters:
+        recommendation = predict_cluster_interests(cluster, business_mapping, conn, k)
         business_ids, scores = [], []
         for business_id, score in recommendation:
             business_ids.append(business_id)
             scores.append(score)
-        recommendations[user_id] = (business_ids, scores) 
-        i += 1
-        # i is used to limit the number of recommendations to display
-        if i == num_users:
-            break
+        cluster_recommendations[cluster] = (business_ids, scores)
+    
+    # Assign recommendations to each user based on their cluster
+    for user_id in user_ids:
+        cluster = user_cluster_dict.get(user_id)
+        if cluster in cluster_recommendations:
+            recommendations[user_id] = cluster_recommendations[cluster]
+        else:
+            recommendations[user_id] = ([], [])  # No recommendations if cluster not found
+    
     return recommendations
 
 
