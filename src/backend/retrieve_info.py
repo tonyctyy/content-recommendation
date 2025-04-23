@@ -1,12 +1,12 @@
 import sqlite3
 
-def retrieve_business_info(business_ids):
-    # Paths to database files
-    db_path_business = '../../data/processed_data/yelp_data/yelp_business_data.db'
-    db_path_review = '../../data/processed_data/yelp_data/yelp_review_data.db'
-    db_path_user = '../../data/processed_data/yelp_data/yelp_user_data.db'
-    db_path_tip = '../../data/processed_data/yelp_data/yelp_tip_data.db'
+yelp_data_path = '../../data/processed_data/yelp_data/'
+db_path_business = yelp_data_path + 'yelp_business_data.db'
+db_path_review = yelp_data_path + 'yelp_review_data.db'
+db_path_user = yelp_data_path + 'yelp_user_data.db'
+db_path_tip = yelp_data_path + 'yelp_tip_data.db'
 
+def retrieve_business_info(business_ids, db_path_business=db_path_business, db_path_review=db_path_review, db_path_user=db_path_user, db_path_tip=db_path_tip):
     # Connect to databases
     conn_business = sqlite3.connect(db_path_business)
     conn_review = sqlite3.connect(db_path_review)
@@ -129,10 +129,7 @@ def retrieve_business_info(business_ids):
     return business_info
 
 
-def retrieve_user_info(user_ids):
-    # Path to the user database
-    db_path_user = '../../data/processed_data/yelp_data/yelp_user_data.db'
-
+def retrieve_user_info(user_ids, db_path_user=db_path_user):
     # Connect to the database
     conn_user = sqlite3.connect(db_path_user)
     user_info = {}
@@ -148,7 +145,7 @@ def retrieve_user_info(user_ids):
                average_stars, friends, elite, compliment_hot, compliment_more,
                compliment_profile, compliment_cute, compliment_list, compliment_note,
                compliment_plain, compliment_cool, compliment_funny,
-               compliment_writer, compliment_photos
+               compliment_writer, compliment_photos, categories
         FROM user_data
         WHERE user_id IN ({','.join(['?' for _ in user_ids])})
         """
@@ -188,7 +185,9 @@ def retrieve_user_info(user_ids):
                 user_info[user_id]["friends"] = user[9].split(',')
             if user[10]:
                 user_info[user_id]["elite"] = user[10].split(',')
-
+            if user[22]:
+                categories_lst = user[22].replace("[", "").replace("]", "").replace("\"", "").split(",")
+                user_info[user_id]["categories"] = [category.strip() for category in categories_lst]
     except Exception as e:
         print(f"Error retrieving user info: {str(e)}")
 

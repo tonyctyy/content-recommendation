@@ -1,0 +1,4950 @@
+[
+    {
+        "category": "Nightlife",
+        "frequency": "247762"
+    },
+    {
+        "category": "Bars",
+        "frequency": "234812"
+    },
+    {
+        "category": "American (Traditional)",
+        "frequency": "157952"
+    },
+    {
+        "category": "American (New)",
+        "frequency": "156821"
+    },
+    {
+        "category": "Breakfast & Brunch",
+        "frequency": "130938"
+    },
+    {
+        "category": "Sandwiches",
+        "frequency": "105273"
+    },
+    {
+        "category": "Seafood",
+        "frequency": "87171"
+    },
+    {
+        "category": "Event Planning & Services",
+        "frequency": "79017"
+    },
+    {
+        "category": "Pizza",
+        "frequency": "72327"
+    },
+    {
+        "category": "Coffee & Tea",
+        "frequency": "70249"
+    },
+    {
+        "category": "Italian",
+        "frequency": "69158"
+    },
+    {
+        "category": "Burgers",
+        "frequency": "67987"
+    },
+    {
+        "category": "Mexican",
+        "frequency": "67412"
+    },
+    {
+        "category": "Shopping",
+        "frequency": "62159"
+    },
+    {
+        "category": "Arts & Entertainment",
+        "frequency": "53924"
+    },
+    {
+        "category": "Cocktail Bars",
+        "frequency": "52625"
+    },
+    {
+        "category": "Salad",
+        "frequency": "52527"
+    },
+    {
+        "category": "Desserts",
+        "frequency": "50130"
+    },
+    {
+        "category": "Cafes",
+        "frequency": "44870"
+    },
+    {
+        "category": "Specialty Food",
+        "frequency": "43817"
+    },
+    {
+        "category": "Beer",
+        "frequency": "38798"
+    },
+    {
+        "category": "Wine & Spirits",
+        "frequency": "38798"
+    },
+    {
+        "category": "Pubs",
+        "frequency": "37884"
+    },
+    {
+        "category": "Sushi Bars",
+        "frequency": "37140"
+    },
+    {
+        "category": "Steakhouses",
+        "frequency": "36796"
+    },
+    {
+        "category": "Bakeries",
+        "frequency": "36090"
+    },
+    {
+        "category": "Japanese",
+        "frequency": "35874"
+    },
+    {
+        "category": "Chinese",
+        "frequency": "35738"
+    },
+    {
+        "category": "Beauty & Spas",
+        "frequency": "34584"
+    },
+    {
+        "category": "Caterers",
+        "frequency": "33910"
+    },
+    {
+        "category": "Fast Food",
+        "frequency": "32744"
+    },
+    {
+        "category": "Asian Fusion",
+        "frequency": "32523"
+    },
+    {
+        "category": "Wine Bars",
+        "frequency": "32283"
+    },
+    {
+        "category": "Hotels & Travel",
+        "frequency": "32017"
+    },
+    {
+        "category": "Sports Bars",
+        "frequency": "31118"
+    },
+    {
+        "category": "Barbeque",
+        "frequency": "30099"
+    },
+    {
+        "category": "Vegetarian",
+        "frequency": "30051"
+    },
+    {
+        "category": "Venues & Event Spaces",
+        "frequency": "29931"
+    },
+    {
+        "category": "Cajun/Creole",
+        "frequency": "29806"
+    },
+    {
+        "category": "Southern",
+        "frequency": "29142"
+    },
+    {
+        "category": "Diners",
+        "frequency": "27371"
+    },
+    {
+        "category": "Active Life",
+        "frequency": "26714"
+    },
+    {
+        "category": "Ice Cream & Frozen Yogurt",
+        "frequency": "25110"
+    },
+    {
+        "category": "Chicken Wings",
+        "frequency": "24768"
+    },
+    {
+        "category": "Local Flavor",
+        "frequency": "22203"
+    },
+    {
+        "category": "Delis",
+        "frequency": "21976"
+    },
+    {
+        "category": "Grocery",
+        "frequency": "21762"
+    },
+    {
+        "category": "Mediterranean",
+        "frequency": "21740"
+    },
+    {
+        "category": "Automotive",
+        "frequency": "21695"
+    },
+    {
+        "category": "Lounges",
+        "frequency": "21601"
+    },
+    {
+        "category": "Gastropubs",
+        "frequency": "20277"
+    },
+    {
+        "category": "Gluten-Free",
+        "frequency": "20239"
+    },
+    {
+        "category": "Beer Bar",
+        "frequency": "20175"
+    },
+    {
+        "category": "Breweries",
+        "frequency": "19930"
+    },
+    {
+        "category": "Thai",
+        "frequency": "19489"
+    },
+    {
+        "category": "Vegan",
+        "frequency": "18942"
+    },
+    {
+        "category": "Music Venues",
+        "frequency": "18826"
+    },
+    {
+        "category": "Local Services",
+        "frequency": "17957"
+    },
+    {
+        "category": "Soup",
+        "frequency": "17766"
+    },
+    {
+        "category": "Comfort Food",
+        "frequency": "17711"
+    },
+    {
+        "category": "Juice Bars & Smoothies",
+        "frequency": "17499"
+    },
+    {
+        "category": "Hotels",
+        "frequency": "17081"
+    },
+    {
+        "category": "Home Services",
+        "frequency": "16568"
+    },
+    {
+        "category": "Fashion",
+        "frequency": "16223"
+    },
+    {
+        "category": "Health & Medical",
+        "frequency": "16182"
+    },
+    {
+        "category": "Vietnamese",
+        "frequency": "15950"
+    },
+    {
+        "category": "French",
+        "frequency": "14725"
+    },
+    {
+        "category": "Nail Salons",
+        "frequency": "14560"
+    },
+    {
+        "category": "Latin American",
+        "frequency": "14111"
+    },
+    {
+        "category": "Tapas/Small Plates",
+        "frequency": "13143"
+    },
+    {
+        "category": "Home & Garden",
+        "frequency": "12914"
+    },
+    {
+        "category": "Tacos",
+        "frequency": "12889"
+    },
+    {
+        "category": "Tex-Mex",
+        "frequency": "12527"
+    },
+    {
+        "category": "Indian",
+        "frequency": "11869"
+    },
+    {
+        "category": "Greek",
+        "frequency": "11850"
+    },
+    {
+        "category": "Ethnic Food",
+        "frequency": "11491"
+    },
+    {
+        "category": "Auto Repair",
+        "frequency": "11453"
+    },
+    {
+        "category": "Hair Removal",
+        "frequency": "10938"
+    },
+    {
+        "category": "Middle Eastern",
+        "frequency": "10892"
+    },
+    {
+        "category": "Hair Salons",
+        "frequency": "10528"
+    },
+    {
+        "category": "Korean",
+        "frequency": "9911"
+    },
+    {
+        "category": "Noodles",
+        "frequency": "9445"
+    },
+    {
+        "category": "Food Trucks",
+        "frequency": "9159"
+    },
+    {
+        "category": "Donuts",
+        "frequency": "9091"
+    },
+    {
+        "category": "Soul Food",
+        "frequency": "8921"
+    },
+    {
+        "category": "Cheesesteaks",
+        "frequency": "8821"
+    },
+    {
+        "category": "Food Delivery Services",
+        "frequency": "8797"
+    },
+    {
+        "category": "Buffets",
+        "frequency": "8785"
+    },
+    {
+        "category": "Bagels",
+        "frequency": "8761"
+    },
+    {
+        "category": "Waxing",
+        "frequency": "8277"
+    },
+    {
+        "category": "Day Spas",
+        "frequency": "8254"
+    },
+    {
+        "category": "Pets",
+        "frequency": "8072"
+    },
+    {
+        "category": "Hot Dogs",
+        "frequency": "8016"
+    },
+    {
+        "category": "Chicken Shop",
+        "frequency": "7929"
+    },
+    {
+        "category": "Dive Bars",
+        "frequency": "7885"
+    },
+    {
+        "category": "Skin Care",
+        "frequency": "7871"
+    },
+    {
+        "category": "Department Stores",
+        "frequency": "7165"
+    },
+    {
+        "category": "Tapas Bars",
+        "frequency": "7014"
+    },
+    {
+        "category": "Caribbean",
+        "frequency": "6925"
+    },
+    {
+        "category": "Fitness & Instruction",
+        "frequency": "6785"
+    },
+    {
+        "category": "Tours",
+        "frequency": "6674"
+    },
+    {
+        "category": "Massage",
+        "frequency": "6575"
+    },
+    {
+        "category": "Parks",
+        "frequency": "6569"
+    },
+    {
+        "category": "Cinema",
+        "frequency": "6454"
+    },
+    {
+        "category": "Bubble Tea",
+        "frequency": "6451"
+    },
+    {
+        "category": "Museums",
+        "frequency": "6322"
+    },
+    {
+        "category": "Spanish",
+        "frequency": "6175"
+    },
+    {
+        "category": "Car Dealers",
+        "frequency": "6128"
+    },
+    {
+        "category": "Flowers & Gifts",
+        "frequency": "5989"
+    },
+    {
+        "category": "Auto Parts & Supplies",
+        "frequency": "5742"
+    },
+    {
+        "category": "Cuban",
+        "frequency": "5728"
+    },
+    {
+        "category": "Ramen",
+        "frequency": "5695"
+    },
+    {
+        "category": "Party & Event Planning",
+        "frequency": "5469"
+    },
+    {
+        "category": "Health Markets",
+        "frequency": "5375"
+    },
+    {
+        "category": "Public Services & Government",
+        "frequency": "5311"
+    },
+    {
+        "category": "Pet Services",
+        "frequency": "5115"
+    },
+    {
+        "category": "Tires",
+        "frequency": "5057"
+    },
+    {
+        "category": "Beer Gardens",
+        "frequency": "4913"
+    },
+    {
+        "category": "Oil Change Stations",
+        "frequency": "4882"
+    },
+    {
+        "category": "Farmers Market",
+        "frequency": "4811"
+    },
+    {
+        "category": "Meat Shops",
+        "frequency": "4805"
+    },
+    {
+        "category": "Women's Clothing",
+        "frequency": "4794"
+    },
+    {
+        "category": "Professional Services",
+        "frequency": "4648"
+    },
+    {
+        "category": "Food Stands",
+        "frequency": "4624"
+    },
+    {
+        "category": "Wineries",
+        "frequency": "4620"
+    },
+    {
+        "category": "Fruits & Veggies",
+        "frequency": "4615"
+    },
+    {
+        "category": "Dance Clubs",
+        "frequency": "4563"
+    },
+    {
+        "category": "Dim Sum",
+        "frequency": "4558"
+    },
+    {
+        "category": "Drugstores",
+        "frequency": "4542"
+    },
+    {
+        "category": "Sporting Goods",
+        "frequency": "4536"
+    },
+    {
+        "category": "Irish",
+        "frequency": "4479"
+    },
+    {
+        "category": "Electronics",
+        "frequency": "4465"
+    },
+    {
+        "category": "Seafood Markets",
+        "frequency": "4426"
+    },
+    {
+        "category": "Shopping Centers",
+        "frequency": "4332"
+    },
+    {
+        "category": "Doctors",
+        "frequency": "4326"
+    },
+    {
+        "category": "Brewpubs",
+        "frequency": "4287"
+    },
+    {
+        "category": "Gyms",
+        "frequency": "4272"
+    },
+    {
+        "category": "Home Decor",
+        "frequency": "4187"
+    },
+    {
+        "category": "Chocolatiers & Shops",
+        "frequency": "4159"
+    },
+    {
+        "category": "Pakistani",
+        "frequency": "4159"
+    },
+    {
+        "category": "Jazz & Blues",
+        "frequency": "4150"
+    },
+    {
+        "category": "Furniture Stores",
+        "frequency": "4113"
+    },
+    {
+        "category": "Education",
+        "frequency": "4092"
+    },
+    {
+        "category": "Convenience Stores",
+        "frequency": "4077"
+    },
+    {
+        "category": "Eyelash Service",
+        "frequency": "3972"
+    },
+    {
+        "category": "Halal",
+        "frequency": "3914"
+    },
+    {
+        "category": "Arts & Crafts",
+        "frequency": "3907"
+    },
+    {
+        "category": "Coffee Roasteries",
+        "frequency": "3895"
+    },
+    {
+        "category": "Gelato",
+        "frequency": "3751"
+    },
+    {
+        "category": "Performing Arts",
+        "frequency": "3731"
+    },
+    {
+        "category": "Cosmetics & Beauty Supply",
+        "frequency": "3686"
+    },
+    {
+        "category": "German",
+        "frequency": "3677"
+    },
+    {
+        "category": "Cupcakes",
+        "frequency": "3620"
+    },
+    {
+        "category": "Hawaiian",
+        "frequency": "3585"
+    },
+    {
+        "category": "Transportation",
+        "frequency": "3534"
+    },
+    {
+        "category": "Real Estate",
+        "frequency": "3501"
+    },
+    {
+        "category": "Mags",
+        "frequency": "3449"
+    },
+    {
+        "category": "Music & Video",
+        "frequency": "3449"
+    },
+    {
+        "category": "Books",
+        "frequency": "3449"
+    },
+    {
+        "category": "Art Galleries",
+        "frequency": "3429"
+    },
+    {
+        "category": "Veterinarians",
+        "frequency": "3332"
+    },
+    {
+        "category": "Modern European",
+        "frequency": "3325"
+    },
+    {
+        "category": "Landmarks & Historical Buildings",
+        "frequency": "3311"
+    },
+    {
+        "category": "Men's Clothing",
+        "frequency": "3258"
+    },
+    {
+        "category": "Nurseries & Gardening",
+        "frequency": "3215"
+    },
+    {
+        "category": "Pet Groomers",
+        "frequency": "3150"
+    },
+    {
+        "category": "Trainers",
+        "frequency": "3144"
+    },
+    {
+        "category": "Cheese Shops",
+        "frequency": "3140"
+    },
+    {
+        "category": "Candy Stores",
+        "frequency": "3040"
+    },
+    {
+        "category": "Creperies",
+        "frequency": "3014"
+    },
+    {
+        "category": "Szechuan",
+        "frequency": "2990"
+    },
+    {
+        "category": "Accessories",
+        "frequency": "2986"
+    },
+    {
+        "category": "Wraps",
+        "frequency": "2963"
+    },
+    {
+        "category": "Arcades",
+        "frequency": "2943"
+    },
+    {
+        "category": "Appliances",
+        "frequency": "2943"
+    },
+    {
+        "category": "Jewelry",
+        "frequency": "2919"
+    },
+    {
+        "category": "Casinos",
+        "frequency": "2916"
+    },
+    {
+        "category": "Live/Raw Food",
+        "frequency": "2836"
+    },
+    {
+        "category": "Barbers",
+        "frequency": "2836"
+    },
+    {
+        "category": "Poke",
+        "frequency": "2772"
+    },
+    {
+        "category": "Car Wash",
+        "frequency": "2744"
+    },
+    {
+        "category": "Hair Stylists",
+        "frequency": "2701"
+    },
+    {
+        "category": "Fish & Chips",
+        "frequency": "2680"
+    },
+    {
+        "category": "Massage Therapy",
+        "frequency": "2659"
+    },
+    {
+        "category": "IT Services & Computer Repair",
+        "frequency": "2632"
+    },
+    {
+        "category": "Organic Stores",
+        "frequency": "2624"
+    },
+    {
+        "category": "British",
+        "frequency": "2620"
+    },
+    {
+        "category": "Brazilian",
+        "frequency": "2607"
+    },
+    {
+        "category": "Street Vendors",
+        "frequency": "2580"
+    },
+    {
+        "category": "Irish Pub",
+        "frequency": "2576"
+    },
+    {
+        "category": "Pet Stores",
+        "frequency": "2571"
+    },
+    {
+        "category": "Pet Sitting",
+        "frequency": "2553"
+    },
+    {
+        "category": "Makeup Artists",
+        "frequency": "2550"
+    },
+    {
+        "category": "Mobile Phones",
+        "frequency": "2542"
+    },
+    {
+        "category": "Karaoke",
+        "frequency": "2540"
+    },
+    {
+        "category": "Florists",
+        "frequency": "2530"
+    },
+    {
+        "category": "Body Shops",
+        "frequency": "2529"
+    },
+    {
+        "category": "Used",
+        "frequency": "2521"
+    },
+    {
+        "category": "Vintage & Consignment",
+        "frequency": "2521"
+    },
+    {
+        "category": "Shoe Stores",
+        "frequency": "2508"
+    },
+    {
+        "category": "Auto Detailing",
+        "frequency": "2479"
+    },
+    {
+        "category": "Food Court",
+        "frequency": "2478"
+    },
+    {
+        "category": "Smokehouse",
+        "frequency": "2476"
+    },
+    {
+        "category": "Brasseries",
+        "frequency": "2453"
+    },
+    {
+        "category": "Dentists",
+        "frequency": "2452"
+    },
+    {
+        "category": "Resorts",
+        "frequency": "2438"
+    },
+    {
+        "category": "Pasta Shops",
+        "frequency": "2434"
+    },
+    {
+        "category": "Acai Bowls",
+        "frequency": "2409"
+    },
+    {
+        "category": "Tea Rooms",
+        "frequency": "2394"
+    },
+    {
+        "category": "Airports",
+        "frequency": "2370"
+    },
+    {
+        "category": "Gift Shops",
+        "frequency": "2368"
+    },
+    {
+        "category": "New Mexican Cuisine",
+        "frequency": "2349"
+    },
+    {
+        "category": "Yoga",
+        "frequency": "2337"
+    },
+    {
+        "category": "Butcher",
+        "frequency": "2314"
+    },
+    {
+        "category": "Contractors",
+        "frequency": "2277"
+    },
+    {
+        "category": "Canadian (New)",
+        "frequency": "2252"
+    },
+    {
+        "category": "Whiskey Bars",
+        "frequency": "2243"
+    },
+    {
+        "category": "Bookstores",
+        "frequency": "2167"
+    },
+    {
+        "category": "Discount Store",
+        "frequency": "2148"
+    },
+    {
+        "category": "Car Rental",
+        "frequency": "2136"
+    },
+    {
+        "category": "Amusement Parks",
+        "frequency": "2105"
+    },
+    {
+        "category": "Festivals",
+        "frequency": "2076"
+    },
+    {
+        "category": "Medical Centers",
+        "frequency": "2061"
+    },
+    {
+        "category": "Hardware Stores",
+        "frequency": "2045"
+    },
+    {
+        "category": "General Dentistry",
+        "frequency": "2005"
+    },
+    {
+        "category": "Wedding Planning",
+        "frequency": "1951"
+    },
+    {
+        "category": "Wine Tasting Room",
+        "frequency": "1938"
+    },
+    {
+        "category": "Cantonese",
+        "frequency": "1935"
+    },
+    {
+        "category": "Specialty Schools",
+        "frequency": "1894"
+    },
+    {
+        "category": "Bowling",
+        "frequency": "1871"
+    },
+    {
+        "category": "Apartments",
+        "frequency": "1867"
+    },
+    {
+        "category": "Pan Asian",
+        "frequency": "1830"
+    },
+    {
+        "category": "Shaved Ice",
+        "frequency": "1822"
+    },
+    {
+        "category": "Community Service/Non-Profit",
+        "frequency": "1813"
+    },
+    {
+        "category": "Custom Cakes",
+        "frequency": "1807"
+    },
+    {
+        "category": "Mattresses",
+        "frequency": "1800"
+    },
+    {
+        "category": "Gas Stations",
+        "frequency": "1798"
+    },
+    {
+        "category": "Stadiums & Arenas",
+        "frequency": "1771"
+    },
+    {
+        "category": "Tobacco Shops",
+        "frequency": "1755"
+    },
+    {
+        "category": "Plumbing",
+        "frequency": "1752"
+    },
+    {
+        "category": "Patisserie/Cake Shop",
+        "frequency": "1747"
+    },
+    {
+        "category": "Cosmetic Dentists",
+        "frequency": "1728"
+    },
+    {
+        "category": "Heating & Air Conditioning/HVAC",
+        "frequency": "1723"
+    },
+    {
+        "category": "Waffles",
+        "frequency": "1716"
+    },
+    {
+        "category": "International Grocery",
+        "frequency": "1691"
+    },
+    {
+        "category": "Taiwanese",
+        "frequency": "1680"
+    },
+    {
+        "category": "Wholesale Stores",
+        "frequency": "1661"
+    },
+    {
+        "category": "Building Supplies",
+        "frequency": "1649"
+    },
+    {
+        "category": "Thrift Stores",
+        "frequency": "1618"
+    },
+    {
+        "category": "Lebanese",
+        "frequency": "1618"
+    },
+    {
+        "category": "Tanning",
+        "frequency": "1584"
+    },
+    {
+        "category": "Kitchen & Bath",
+        "frequency": "1566"
+    },
+    {
+        "category": "Falafel",
+        "frequency": "1558"
+    },
+    {
+        "category": "Distilleries",
+        "frequency": "1553"
+    },
+    {
+        "category": "Botanical Gardens",
+        "frequency": "1533"
+    },
+    {
+        "category": "Men's Hair Salons",
+        "frequency": "1532"
+    },
+    {
+        "category": "Computers",
+        "frequency": "1529"
+    },
+    {
+        "category": "Hair Extensions",
+        "frequency": "1508"
+    },
+    {
+        "category": "Kosher",
+        "frequency": "1503"
+    },
+    {
+        "category": "Peruvian",
+        "frequency": "1483"
+    },
+    {
+        "category": "Tiki Bars",
+        "frequency": "1438"
+    },
+    {
+        "category": "Turkish",
+        "frequency": "1435"
+    },
+    {
+        "category": "Hot Pot",
+        "frequency": "1434"
+    },
+    {
+        "category": "Eyewear & Opticians",
+        "frequency": "1418"
+    },
+    {
+        "category": "Kebab",
+        "frequency": "1413"
+    },
+    {
+        "category": "Historical Tours",
+        "frequency": "1412"
+    },
+    {
+        "category": "Movers",
+        "frequency": "1411"
+    },
+    {
+        "category": "Optometrists",
+        "frequency": "1399"
+    },
+    {
+        "category": "Financial Services",
+        "frequency": "1397"
+    },
+    {
+        "category": "Appliances & Repair",
+        "frequency": "1393"
+    },
+    {
+        "category": "Zoos",
+        "frequency": "1388"
+    },
+    {
+        "category": "Blow Dry/Out Services",
+        "frequency": "1374"
+    },
+    {
+        "category": "Bikes",
+        "frequency": "1362"
+    },
+    {
+        "category": "Laundry Services",
+        "frequency": "1357"
+    },
+    {
+        "category": "Hospitals",
+        "frequency": "1357"
+    },
+    {
+        "category": "Dry Cleaning & Laundry",
+        "frequency": "1349"
+    },
+    {
+        "category": "Public Markets",
+        "frequency": "1347"
+    },
+    {
+        "category": "Internet Cafes",
+        "frequency": "1327"
+    },
+    {
+        "category": "Auto Glass Services",
+        "frequency": "1323"
+    },
+    {
+        "category": "Basque",
+        "frequency": "1308"
+    },
+    {
+        "category": "Bridal",
+        "frequency": "1297"
+    },
+    {
+        "category": "Medical Spas",
+        "frequency": "1295"
+    },
+    {
+        "category": "Beaches",
+        "frequency": "1294"
+    },
+    {
+        "category": "Shipping Centers",
+        "frequency": "1291"
+    },
+    {
+        "category": "Sports Wear",
+        "frequency": "1266"
+    },
+    {
+        "category": "Ethiopian",
+        "frequency": "1257"
+    },
+    {
+        "category": "Laotian",
+        "frequency": "1254"
+    },
+    {
+        "category": "Toy Stores",
+        "frequency": "1253"
+    },
+    {
+        "category": "Imported Food",
+        "frequency": "1248"
+    },
+    {
+        "category": "Antiques",
+        "frequency": "1241"
+    },
+    {
+        "category": "Art Museums",
+        "frequency": "1231"
+    },
+    {
+        "category": "Belgian",
+        "frequency": "1228"
+    },
+    {
+        "category": "Golf",
+        "frequency": "1227"
+    },
+    {
+        "category": "Sewing & Alterations",
+        "frequency": "1225"
+    },
+    {
+        "category": "Hiking",
+        "frequency": "1223"
+    },
+    {
+        "category": "Nail Technicians",
+        "frequency": "1213"
+    },
+    {
+        "category": "Eyebrow Services",
+        "frequency": "1196"
+    },
+    {
+        "category": "Used Car Dealers",
+        "frequency": "1184"
+    },
+    {
+        "category": "Printing Services",
+        "frequency": "1173"
+    },
+    {
+        "category": "Bed & Breakfast",
+        "frequency": "1164"
+    },
+    {
+        "category": "Filipino",
+        "frequency": "1149"
+    },
+    {
+        "category": "Dinner Theater",
+        "frequency": "1148"
+    },
+    {
+        "category": "Mobile Phone Repair",
+        "frequency": "1142"
+    },
+    {
+        "category": "Tattoo",
+        "frequency": "1140"
+    },
+    {
+        "category": "Gay Bars",
+        "frequency": "1124"
+    },
+    {
+        "category": "Reflexology",
+        "frequency": "1099"
+    },
+    {
+        "category": "Boating",
+        "frequency": "1098"
+    },
+    {
+        "category": "Sports Clubs",
+        "frequency": "1097"
+    },
+    {
+        "category": "Shanghainese",
+        "frequency": "1086"
+    },
+    {
+        "category": "Pet Training",
+        "frequency": "1077"
+    },
+    {
+        "category": "Parking",
+        "frequency": "1073"
+    },
+    {
+        "category": "Urgent Care",
+        "frequency": "1068"
+    },
+    {
+        "category": "Pool Halls",
+        "frequency": "1065"
+    },
+    {
+        "category": "Water Heater Installation/Repair",
+        "frequency": "1053"
+    },
+    {
+        "category": "Malaysian",
+        "frequency": "1045"
+    },
+    {
+        "category": "Adult Entertainment",
+        "frequency": "1042"
+    },
+    {
+        "category": "Comedy Clubs",
+        "frequency": "1037"
+    },
+    {
+        "category": "Kids Activities",
+        "frequency": "1035"
+    },
+    {
+        "category": "African",
+        "frequency": "1031"
+    },
+    {
+        "category": "Home Cleaning",
+        "frequency": "1019"
+    },
+    {
+        "category": "Electronics Repair",
+        "frequency": "1012"
+    },
+    {
+        "category": "Pharmacy",
+        "frequency": "1011"
+    },
+    {
+        "category": "Hobby Shops",
+        "frequency": "1004"
+    },
+    {
+        "category": "Permanent Makeup",
+        "frequency": "1001"
+    },
+    {
+        "category": "Music & DVDs",
+        "frequency": "996"
+    },
+    {
+        "category": "Outdoor Gear",
+        "frequency": "994"
+    },
+    {
+        "category": "Hookah Bars",
+        "frequency": "983"
+    },
+    {
+        "category": "Playgrounds",
+        "frequency": "960"
+    },
+    {
+        "category": "Bike Rentals",
+        "frequency": "951"
+    },
+    {
+        "category": "Laser Hair Removal",
+        "frequency": "921"
+    },
+    {
+        "category": "Argentine",
+        "frequency": "909"
+    },
+    {
+        "category": "Bike Repair/Maintenance",
+        "frequency": "880"
+    },
+    {
+        "category": "Piano Bars",
+        "frequency": "861"
+    },
+    {
+        "category": "Landscaping",
+        "frequency": "861"
+    },
+    {
+        "category": "Recreation Centers",
+        "frequency": "858"
+    },
+    {
+        "category": "Spray Tanning",
+        "frequency": "850"
+    },
+    {
+        "category": "Self Storage",
+        "frequency": "839"
+    },
+    {
+        "category": "Piercing",
+        "frequency": "837"
+    },
+    {
+        "category": "Art Supplies",
+        "frequency": "837"
+    },
+    {
+        "category": "Children's Clothing",
+        "frequency": "834"
+    },
+    {
+        "category": "Iberian",
+        "frequency": "834"
+    },
+    {
+        "category": "Religious Organizations",
+        "frequency": "826"
+    },
+    {
+        "category": "Oral Surgeons",
+        "frequency": "824"
+    },
+    {
+        "category": "Airlines",
+        "frequency": "817"
+    },
+    {
+        "category": "Pretzels",
+        "frequency": "806"
+    },
+    {
+        "category": "Dog Parks",
+        "frequency": "806"
+    },
+    {
+        "category": "Pet Boarding",
+        "frequency": "805"
+    },
+    {
+        "category": "Cards & Stationery",
+        "frequency": "796"
+    },
+    {
+        "category": "Public Transportation",
+        "frequency": "792"
+    },
+    {
+        "category": "Travel Services",
+        "frequency": "785"
+    },
+    {
+        "category": "Internet Service Providers",
+        "frequency": "780"
+    },
+    {
+        "category": "Interior Design",
+        "frequency": "779"
+    },
+    {
+        "category": "Macarons",
+        "frequency": "757"
+    },
+    {
+        "category": "Moroccan",
+        "frequency": "743"
+    },
+    {
+        "category": "Wheel & Rim Repair",
+        "frequency": "742"
+    },
+    {
+        "category": "Aquariums",
+        "frequency": "741"
+    },
+    {
+        "category": "Orthodontists",
+        "frequency": "737"
+    },
+    {
+        "category": "Notaries",
+        "frequency": "730"
+    },
+    {
+        "category": "Walking Tours",
+        "frequency": "730"
+    },
+    {
+        "category": "Empanadas",
+        "frequency": "725"
+    },
+    {
+        "category": "Towing",
+        "frequency": "722"
+    },
+    {
+        "category": "Teppanyaki",
+        "frequency": "720"
+    },
+    {
+        "category": "Airport Shuttles",
+        "frequency": "717"
+    },
+    {
+        "category": "Family Practice",
+        "frequency": "706"
+    },
+    {
+        "category": "Social Clubs",
+        "frequency": "699"
+    },
+    {
+        "category": "Transmission Repair",
+        "frequency": "697"
+    },
+    {
+        "category": "Persian/Iranian",
+        "frequency": "695"
+    },
+    {
+        "category": "Chiropractors",
+        "frequency": "675"
+    },
+    {
+        "category": "Property Management",
+        "frequency": "670"
+    },
+    {
+        "category": "Vinyl Records",
+        "frequency": "665"
+    },
+    {
+        "category": "Outlet Stores",
+        "frequency": "659"
+    },
+    {
+        "category": "Escape Games",
+        "frequency": "656"
+    },
+    {
+        "category": "Photography Stores & Services",
+        "frequency": "652"
+    },
+    {
+        "category": "Carpet Cleaning",
+        "frequency": "650"
+    },
+    {
+        "category": "Real Estate Services",
+        "frequency": "649"
+    },
+    {
+        "category": "Acupuncture",
+        "frequency": "648"
+    },
+    {
+        "category": "Windshield Installation & Repair",
+        "frequency": "644"
+    },
+    {
+        "category": "Izakaya",
+        "frequency": "644"
+    },
+    {
+        "category": "Swimming Pools",
+        "frequency": "638"
+    },
+    {
+        "category": "Mongolian",
+        "frequency": "635"
+    },
+    {
+        "category": "Diagnostic Services",
+        "frequency": "634"
+    },
+    {
+        "category": "Guns & Ammo",
+        "frequency": "632"
+    },
+    {
+        "category": "Art Classes",
+        "frequency": "626"
+    },
+    {
+        "category": "Smog Check Stations",
+        "frequency": "625"
+    },
+    {
+        "category": "Keys & Locksmiths",
+        "frequency": "622"
+    },
+    {
+        "category": "Pediatric Dentists",
+        "frequency": "622"
+    },
+    {
+        "category": "Endodontists",
+        "frequency": "618"
+    },
+    {
+        "category": "Mobile Phone Accessories",
+        "frequency": "610"
+    },
+    {
+        "category": "Eatertainment",
+        "frequency": "609"
+    },
+    {
+        "category": "Souvenir Shops",
+        "frequency": "607"
+    },
+    {
+        "category": "Office Equipment",
+        "frequency": "602"
+    },
+    {
+        "category": "Pop-Up Restaurants",
+        "frequency": "598"
+    },
+    {
+        "category": "Couriers & Delivery Services",
+        "frequency": "598"
+    },
+    {
+        "category": "Farms",
+        "frequency": "590"
+    },
+    {
+        "category": "Pilates",
+        "frequency": "590"
+    },
+    {
+        "category": "Post Offices",
+        "frequency": "586"
+    },
+    {
+        "category": "Flooring",
+        "frequency": "583"
+    },
+    {
+        "category": "Personal Chefs",
+        "frequency": "581"
+    },
+    {
+        "category": "Fondue",
+        "frequency": "581"
+    },
+    {
+        "category": "Do-It-Yourself Food",
+        "frequency": "581"
+    },
+    {
+        "category": "Nutritionists",
+        "frequency": "580"
+    },
+    {
+        "category": "Party Supplies",
+        "frequency": "580"
+    },
+    {
+        "category": "Watches",
+        "frequency": "577"
+    },
+    {
+        "category": "Israeli",
+        "frequency": "575"
+    },
+    {
+        "category": "Jewelry Repair",
+        "frequency": "570"
+    },
+    {
+        "category": "Taxis",
+        "frequency": "569"
+    },
+    {
+        "category": "Packing Services",
+        "frequency": "563"
+    },
+    {
+        "category": "Junk Removal & Hauling",
+        "frequency": "563"
+    },
+    {
+        "category": "Pet Adoption",
+        "frequency": "558"
+    },
+    {
+        "category": "Ophthalmologists",
+        "frequency": "557"
+    },
+    {
+        "category": "Physical Therapy",
+        "frequency": "556"
+    },
+    {
+        "category": "Vitamins & Supplements",
+        "frequency": "556"
+    },
+    {
+        "category": "Pest Control",
+        "frequency": "552"
+    },
+    {
+        "category": "Boat Charters",
+        "frequency": "548"
+    },
+    {
+        "category": "Team Building Activities",
+        "frequency": "547"
+    },
+    {
+        "category": "Banks & Credit Unions",
+        "frequency": "546"
+    },
+    {
+        "category": "Cooking Classes",
+        "frequency": "543"
+    },
+    {
+        "category": "Electricians",
+        "frequency": "542"
+    },
+    {
+        "category": "Gun/Rifle Ranges",
+        "frequency": "534"
+    },
+    {
+        "category": "Puerto Rican",
+        "frequency": "534"
+    },
+    {
+        "category": "Threading Services",
+        "frequency": "526"
+    },
+    {
+        "category": "Skating Rinks",
+        "frequency": "525"
+    },
+    {
+        "category": "Dry Cleaning",
+        "frequency": "522"
+    },
+    {
+        "category": "Head Shops",
+        "frequency": "521"
+    },
+    {
+        "category": "Windows Installation",
+        "frequency": "517"
+    },
+    {
+        "category": "Boot Camps",
+        "frequency": "514"
+    },
+    {
+        "category": "Boat Tours",
+        "frequency": "511"
+    },
+    {
+        "category": "Arabic",
+        "frequency": "509"
+    },
+    {
+        "category": "Colombian",
+        "frequency": "506"
+    },
+    {
+        "category": "Salvadoran",
+        "frequency": "504"
+    },
+    {
+        "category": "Videos & Video Game Rental",
+        "frequency": "504"
+    },
+    {
+        "category": "Shoe Repair",
+        "frequency": "502"
+    },
+    {
+        "category": "Car Stereo Installation",
+        "frequency": "501"
+    },
+    {
+        "category": "Venezuelan",
+        "frequency": "498"
+    },
+    {
+        "category": "Scandinavian",
+        "frequency": "497"
+    },
+    {
+        "category": "Television Service Providers",
+        "frequency": "494"
+    },
+    {
+        "category": "Beverage Store",
+        "frequency": "491"
+    },
+    {
+        "category": "Wine Tours",
+        "frequency": "490"
+    },
+    {
+        "category": "Carpeting",
+        "frequency": "484"
+    },
+    {
+        "category": "Weight Loss Centers",
+        "frequency": "475"
+    },
+    {
+        "category": "Churches",
+        "frequency": "473"
+    },
+    {
+        "category": "Lighting Fixtures & Equipment",
+        "frequency": "473"
+    },
+    {
+        "category": "Professional Sports Teams",
+        "frequency": "472"
+    },
+    {
+        "category": "Air Duct Cleaning",
+        "frequency": "470"
+    },
+    {
+        "category": "Office Cleaning",
+        "frequency": "467"
+    },
+    {
+        "category": "Limos",
+        "frequency": "460"
+    },
+    {
+        "category": "Fishing",
+        "frequency": "456"
+    },
+    {
+        "category": "Afghan",
+        "frequency": "456"
+    },
+    {
+        "category": "Watch Repair",
+        "frequency": "456"
+    },
+    {
+        "category": "Periodontists",
+        "frequency": "455"
+    },
+    {
+        "category": "Comic Books",
+        "frequency": "455"
+    },
+    {
+        "category": "Paint & Sip",
+        "frequency": "452"
+    },
+    {
+        "category": "Telecommunications",
+        "frequency": "452"
+    },
+    {
+        "category": "Russian",
+        "frequency": "449"
+    },
+    {
+        "category": "Obstetricians & Gynecologists",
+        "frequency": "445"
+    },
+    {
+        "category": "Personal Shopping",
+        "frequency": "445"
+    },
+    {
+        "category": "Animal Shelters",
+        "frequency": "445"
+    },
+    {
+        "category": "Colleges & Universities",
+        "frequency": "445"
+    },
+    {
+        "category": "Vape Shops",
+        "frequency": "443"
+    },
+    {
+        "category": "Car Window Tinting",
+        "frequency": "439"
+    },
+    {
+        "category": "Cambodian",
+        "frequency": "435"
+    },
+    {
+        "category": "Speakeasies",
+        "frequency": "435"
+    },
+    {
+        "category": "Shared Office Spaces",
+        "frequency": "433"
+    },
+    {
+        "category": "Baby Gear & Furniture",
+        "frequency": "431"
+    },
+    {
+        "category": "Cycling Classes",
+        "frequency": "424"
+    },
+    {
+        "category": "Child Care & Day Care",
+        "frequency": "423"
+    },
+    {
+        "category": "Mini Golf",
+        "frequency": "422"
+    },
+    {
+        "category": "Summer Camps",
+        "frequency": "421"
+    },
+    {
+        "category": "Mailbox Centers",
+        "frequency": "420"
+    },
+    {
+        "category": "Photographers",
+        "frequency": "418"
+    },
+    {
+        "category": "Formal Wear",
+        "frequency": "416"
+    },
+    {
+        "category": "Herbs & Spices",
+        "frequency": "414"
+    },
+    {
+        "category": "Polish",
+        "frequency": "412"
+    },
+    {
+        "category": "Departments of Motor Vehicles",
+        "frequency": "411"
+    },
+    {
+        "category": "Damage Restoration",
+        "frequency": "410"
+    },
+    {
+        "category": "Costumes",
+        "frequency": "409"
+    },
+    {
+        "category": "Mass Media",
+        "frequency": "406"
+    },
+    {
+        "category": "Beer Tours",
+        "frequency": "406"
+    },
+    {
+        "category": "Auto Loan Providers",
+        "frequency": "405"
+    },
+    {
+        "category": "Amateur Sports Teams",
+        "frequency": "405"
+    },
+    {
+        "category": "Children's Museums",
+        "frequency": "404"
+    },
+    {
+        "category": "Indonesian",
+        "frequency": "402"
+    },
+    {
+        "category": "Cooking Schools",
+        "frequency": "398"
+    },
+    {
+        "category": "Musical Instruments & Teachers",
+        "frequency": "397"
+    },
+    {
+        "category": "Insurance",
+        "frequency": "396"
+    },
+    {
+        "category": "Tree Services",
+        "frequency": "395"
+    },
+    {
+        "category": "Trampoline Parks",
+        "frequency": "389"
+    },
+    {
+        "category": "Armenian",
+        "frequency": "387"
+    },
+    {
+        "category": "Garage Door Services",
+        "frequency": "384"
+    },
+    {
+        "category": "Flea Markets",
+        "frequency": "383"
+    },
+    {
+        "category": "Himalayan/Nepalese",
+        "frequency": "382"
+    },
+    {
+        "category": "Dog Walkers",
+        "frequency": "379"
+    },
+    {
+        "category": "Security Systems",
+        "frequency": "379"
+    },
+    {
+        "category": "Libraries",
+        "frequency": "379"
+    },
+    {
+        "category": "Dermatologists",
+        "frequency": "377"
+    },
+    {
+        "category": "Portuguese",
+        "frequency": "376"
+    },
+    {
+        "category": "Real Estate Agents",
+        "frequency": "372"
+    },
+    {
+        "category": "Champagne Bars",
+        "frequency": "370"
+    },
+    {
+        "category": "Cultural Center",
+        "frequency": "367"
+    },
+    {
+        "category": "Cafeteria",
+        "frequency": "363"
+    },
+    {
+        "category": "Barre Classes",
+        "frequency": "361"
+    },
+    {
+        "category": "Preschools",
+        "frequency": "355"
+    },
+    {
+        "category": "Bistros",
+        "frequency": "355"
+    },
+    {
+        "category": "Cannabis Clinics",
+        "frequency": "353"
+    },
+    {
+        "category": "Laboratory Testing",
+        "frequency": "353"
+    },
+    {
+        "category": "Traditional Chinese Medicine",
+        "frequency": "352"
+    },
+    {
+        "category": "Challenge Courses",
+        "frequency": "350"
+    },
+    {
+        "category": "Outdoor Furniture Stores",
+        "frequency": "349"
+    },
+    {
+        "category": "Auto Customization",
+        "frequency": "349"
+    },
+    {
+        "category": "Hong Kong Style Cafe",
+        "frequency": "348"
+    },
+    {
+        "category": "Floral Designers",
+        "frequency": "348"
+    },
+    {
+        "category": "Motorcycle Dealers",
+        "frequency": "344"
+    },
+    {
+        "category": "Rafting/Kayaking",
+        "frequency": "334"
+    },
+    {
+        "category": "Syrian",
+        "frequency": "333"
+    },
+    {
+        "category": "Yelp Events",
+        "frequency": "331"
+    },
+    {
+        "category": "Internal Medicine",
+        "frequency": "328"
+    },
+    {
+        "category": "Pick Your Own Farms",
+        "frequency": "326"
+    },
+    {
+        "category": "Painters",
+        "frequency": "325"
+    },
+    {
+        "category": "Cosmetic Surgeons",
+        "frequency": "325"
+    },
+    {
+        "category": "Tennis",
+        "frequency": "325"
+    },
+    {
+        "category": "Gardeners",
+        "frequency": "317"
+    },
+    {
+        "category": "Singaporean",
+        "frequency": "316"
+    },
+    {
+        "category": "Interval Training Gyms",
+        "frequency": "313"
+    },
+    {
+        "category": "Fabric Stores",
+        "frequency": "313"
+    },
+    {
+        "category": "Supernatural Readings",
+        "frequency": "312"
+    },
+    {
+        "category": "Tabletop Games",
+        "frequency": "307"
+    },
+    {
+        "category": "Adult Education",
+        "frequency": "306"
+    },
+    {
+        "category": "Lingerie",
+        "frequency": "304"
+    },
+    {
+        "category": "Used Bookstore",
+        "frequency": "302"
+    },
+    {
+        "category": "Shades & Blinds",
+        "frequency": "302"
+    },
+    {
+        "category": "Kombucha",
+        "frequency": "301"
+    },
+    {
+        "category": "Paddleboarding",
+        "frequency": "300"
+    },
+    {
+        "category": "Emergency Rooms",
+        "frequency": "298"
+    },
+    {
+        "category": "Cideries",
+        "frequency": "297"
+    },
+    {
+        "category": "Sports Medicine",
+        "frequency": "295"
+    },
+    {
+        "category": "Roofing",
+        "frequency": "293"
+    },
+    {
+        "category": "Packing Supplies",
+        "frequency": "292"
+    },
+    {
+        "category": "Laser Eye Surgery/Lasik",
+        "frequency": "292"
+    },
+    {
+        "category": "Climbing",
+        "frequency": "289"
+    },
+    {
+        "category": "Art Schools",
+        "frequency": "287"
+    },
+    {
+        "category": "Tiling",
+        "frequency": "287"
+    },
+    {
+        "category": "Candle Stores",
+        "frequency": "285"
+    },
+    {
+        "category": "Home Window Tinting",
+        "frequency": "284"
+    },
+    {
+        "category": "Baseball Fields",
+        "frequency": "283"
+    },
+    {
+        "category": "Diagnostic Imaging",
+        "frequency": "282"
+    },
+    {
+        "category": "Mortgage Brokers",
+        "frequency": "279"
+    },
+    {
+        "category": "Orthopedists",
+        "frequency": "279"
+    },
+    {
+        "category": "Musicians",
+        "frequency": "277"
+    },
+    {
+        "category": "Train Stations",
+        "frequency": "275"
+    },
+    {
+        "category": "Handyman",
+        "frequency": "273"
+    },
+    {
+        "category": "Vacation Rentals",
+        "frequency": "272"
+    },
+    {
+        "category": "Tuscan",
+        "frequency": "271"
+    },
+    {
+        "category": "Recycling Center",
+        "frequency": "270"
+    },
+    {
+        "category": "Door Sales/Installation",
+        "frequency": "270"
+    },
+    {
+        "category": "Water Parks",
+        "frequency": "268"
+    },
+    {
+        "category": "Haunted Houses",
+        "frequency": "266"
+    },
+    {
+        "category": "Glass & Mirrors",
+        "frequency": "265"
+    },
+    {
+        "category": "Motorcycle Repair",
+        "frequency": "264"
+    },
+    {
+        "category": "Cosmetology Schools",
+        "frequency": "264"
+    },
+    {
+        "category": "Signmaking",
+        "frequency": "258"
+    },
+    {
+        "category": "Home Inspectors",
+        "frequency": "258"
+    },
+    {
+        "category": "Cardio Classes",
+        "frequency": "257"
+    },
+    {
+        "category": "Spiritual Shop",
+        "frequency": "257"
+    },
+    {
+        "category": "Dominican",
+        "frequency": "256"
+    },
+    {
+        "category": "Graphic Design",
+        "frequency": "255"
+    },
+    {
+        "category": "Ethnic Grocery",
+        "frequency": "255"
+    },
+    {
+        "category": "Emergency Pet Hospital",
+        "frequency": "255"
+    },
+    {
+        "category": "Bus Tours",
+        "frequency": "252"
+    },
+    {
+        "category": "Data Recovery",
+        "frequency": "251"
+    },
+    {
+        "category": "Elementary Schools",
+        "frequency": "250"
+    },
+    {
+        "category": "Country Clubs",
+        "frequency": "249"
+    },
+    {
+        "category": "Leather Goods",
+        "frequency": "248"
+    },
+    {
+        "category": "Donation Center",
+        "frequency": "248"
+    },
+    {
+        "category": "Rugs",
+        "frequency": "247"
+    },
+    {
+        "category": "Educational Services",
+        "frequency": "247"
+    },
+    {
+        "category": "Window Washing",
+        "frequency": "242"
+    },
+    {
+        "category": "Pediatricians",
+        "frequency": "242"
+    },
+    {
+        "category": "Walk-in Clinics",
+        "frequency": "241"
+    },
+    {
+        "category": "Gutter Services",
+        "frequency": "239"
+    },
+    {
+        "category": "Cannabis Dispensaries",
+        "frequency": "238"
+    },
+    {
+        "category": "Martial Arts",
+        "frequency": "237"
+    },
+    {
+        "category": "Medical Supplies",
+        "frequency": "236"
+    },
+    {
+        "category": "Laundromat",
+        "frequency": "234"
+    },
+    {
+        "category": "Knitting Supplies",
+        "frequency": "233"
+    },
+    {
+        "category": "Reiki",
+        "frequency": "232"
+    },
+    {
+        "category": "Framing",
+        "frequency": "231"
+    },
+    {
+        "category": "Truck Rental",
+        "frequency": "230"
+    },
+    {
+        "category": "Lawn Services",
+        "frequency": "229"
+    },
+    {
+        "category": "Counseling & Mental Health",
+        "frequency": "229"
+    },
+    {
+        "category": "Food Tours",
+        "frequency": "225"
+    },
+    {
+        "category": "Home Organization",
+        "frequency": "225"
+    },
+    {
+        "category": "Tanning Beds",
+        "frequency": "224"
+    },
+    {
+        "category": "Party Equipment Rentals",
+        "frequency": "224"
+    },
+    {
+        "category": "Go Karts",
+        "frequency": "222"
+    },
+    {
+        "category": "Race Tracks",
+        "frequency": "222"
+    },
+    {
+        "category": "Session Photography",
+        "frequency": "221"
+    },
+    {
+        "category": "Water Purification Services",
+        "frequency": "220"
+    },
+    {
+        "category": "Burmese",
+        "frequency": "218"
+    },
+    {
+        "category": "Lawyers",
+        "frequency": "218"
+    },
+    {
+        "category": "Hunting & Fishing Supplies",
+        "frequency": "218"
+    },
+    {
+        "category": "Golf Lessons",
+        "frequency": "217"
+    },
+    {
+        "category": "Day Camps",
+        "frequency": "214"
+    },
+    {
+        "category": "Car Buyers",
+        "frequency": "213"
+    },
+    {
+        "category": "Pressure Washers",
+        "frequency": "212"
+    },
+    {
+        "category": "Party Bus Rentals",
+        "frequency": "209"
+    },
+    {
+        "category": "Home Theatre Installation",
+        "frequency": "209"
+    },
+    {
+        "category": "CSA",
+        "frequency": "208"
+    },
+    {
+        "category": "Indoor Playcentre",
+        "frequency": "207"
+    },
+    {
+        "category": "Scottish",
+        "frequency": "205"
+    },
+    {
+        "category": "RV Dealers",
+        "frequency": "204"
+    },
+    {
+        "category": "Utilities",
+        "frequency": "204"
+    },
+    {
+        "category": "Bespoke Clothing",
+        "frequency": "203"
+    },
+    {
+        "category": "Adult",
+        "frequency": "203"
+    },
+    {
+        "category": "Naturopathic/Holistic",
+        "frequency": "203"
+    },
+    {
+        "category": "Laser Tag",
+        "frequency": "203"
+    },
+    {
+        "category": "Axe Throwing",
+        "frequency": "203"
+    },
+    {
+        "category": "Funeral Services & Cemeteries",
+        "frequency": "201"
+    },
+    {
+        "category": "RV Parks",
+        "frequency": "201"
+    },
+    {
+        "category": "Wholesalers",
+        "frequency": "200"
+    },
+    {
+        "category": "RV Repair",
+        "frequency": "199"
+    },
+    {
+        "category": "Campgrounds",
+        "frequency": "199"
+    },
+    {
+        "category": "Wigs",
+        "frequency": "198"
+    },
+    {
+        "category": "Australian",
+        "frequency": "198"
+    },
+    {
+        "category": "Furniture Reupholstery",
+        "frequency": "196"
+    },
+    {
+        "category": "Teeth Whitening",
+        "frequency": "194"
+    },
+    {
+        "category": "Masonry/Concrete",
+        "frequency": "192"
+    },
+    {
+        "category": "Perfume",
+        "frequency": "192"
+    },
+    {
+        "category": "Swimwear",
+        "frequency": "191"
+    },
+    {
+        "category": "Dance Studios",
+        "frequency": "190"
+    },
+    {
+        "category": "Event Photography",
+        "frequency": "186"
+    },
+    {
+        "category": "Poutineries",
+        "frequency": "184"
+    },
+    {
+        "category": "Bar Crawl",
+        "frequency": "184"
+    },
+    {
+        "category": "Financial Advising",
+        "frequency": "182"
+    },
+    {
+        "category": "Tax Services",
+        "frequency": "182"
+    },
+    {
+        "category": "Delicatessen",
+        "frequency": "182"
+    },
+    {
+        "category": "Planetarium",
+        "frequency": "182"
+    },
+    {
+        "category": "Japanese Curry",
+        "frequency": "178"
+    },
+    {
+        "category": "Siding",
+        "frequency": "177"
+    },
+    {
+        "category": "Landscape Architects",
+        "frequency": "177"
+    },
+    {
+        "category": "Musical Instrument Services",
+        "frequency": "176"
+    },
+    {
+        "category": "Egyptian",
+        "frequency": "176"
+    },
+    {
+        "category": "Leisure Centers",
+        "frequency": "174"
+    },
+    {
+        "category": "Ticket Sales",
+        "frequency": "174"
+    },
+    {
+        "category": "Swimming Lessons/Schools",
+        "frequency": "174"
+    },
+    {
+        "category": "Propane",
+        "frequency": "171"
+    },
+    {
+        "category": "Tattoo Removal",
+        "frequency": "170"
+    },
+    {
+        "category": "Motorcycle Gear",
+        "frequency": "169"
+    },
+    {
+        "category": "Grout Services",
+        "frequency": "168"
+    },
+    {
+        "category": "Bartenders",
+        "frequency": "168"
+    },
+    {
+        "category": "Themed Cafes",
+        "frequency": "167"
+    },
+    {
+        "category": "Popcorn Shops",
+        "frequency": "167"
+    },
+    {
+        "category": "Meditation Centers",
+        "frequency": "166"
+    },
+    {
+        "category": "Roadside Assistance",
+        "frequency": "166"
+    },
+    {
+        "category": "Plus Size Fashion",
+        "frequency": "166"
+    },
+    {
+        "category": "Ukrainian",
+        "frequency": "166"
+    },
+    {
+        "category": "Fitness/Exercise Equipment",
+        "frequency": "164"
+    },
+    {
+        "category": "Battery Stores",
+        "frequency": "163"
+    },
+    {
+        "category": "Pool & Hot Tub Service",
+        "frequency": "163"
+    },
+    {
+        "category": "Hot Tub & Pool",
+        "frequency": "163"
+    },
+    {
+        "category": "Irrigation",
+        "frequency": "163"
+    },
+    {
+        "category": "Rehabilitation Center",
+        "frequency": "163"
+    },
+    {
+        "category": "Paint Stores",
+        "frequency": "160"
+    },
+    {
+        "category": "Sicilian",
+        "frequency": "159"
+    },
+    {
+        "category": "Body Contouring",
+        "frequency": "159"
+    },
+    {
+        "category": "Tasting Classes",
+        "frequency": "159"
+    },
+    {
+        "category": "Septic Services",
+        "frequency": "159"
+    },
+    {
+        "category": "Boxing",
+        "frequency": "156"
+    },
+    {
+        "category": "Insulation Installation",
+        "frequency": "154"
+    },
+    {
+        "category": "University Housing",
+        "frequency": "154"
+    },
+    {
+        "category": "Christmas Trees",
+        "frequency": "154"
+    },
+    {
+        "category": "Kitchen Supplies",
+        "frequency": "154"
+    },
+    {
+        "category": "Fences & Gates",
+        "frequency": "153"
+    },
+    {
+        "category": "Sugaring",
+        "frequency": "152"
+    },
+    {
+        "category": "Bangladeshi",
+        "frequency": "152"
+    },
+    {
+        "category": "Uzbek",
+        "frequency": "150"
+    },
+    {
+        "category": "RV Rental",
+        "frequency": "150"
+    },
+    {
+        "category": "Cigar Bars",
+        "frequency": "150"
+    },
+    {
+        "category": "Horseback Riding",
+        "frequency": "149"
+    },
+    {
+        "category": "Auto Security",
+        "frequency": "149"
+    },
+    {
+        "category": "Newspapers & Magazines",
+        "frequency": "146"
+    },
+    {
+        "category": "Firearm Training",
+        "frequency": "146"
+    },
+    {
+        "category": "Estheticians",
+        "frequency": "145"
+    },
+    {
+        "category": "Gold Buyers",
+        "frequency": "144"
+    },
+    {
+        "category": "Art Tours",
+        "frequency": "143"
+    },
+    {
+        "category": "Screen Printing",
+        "frequency": "143"
+    },
+    {
+        "category": "Saunas",
+        "frequency": "139"
+    },
+    {
+        "category": "Hats",
+        "frequency": "139"
+    },
+    {
+        "category": "Hostels",
+        "frequency": "139"
+    },
+    {
+        "category": "Pumpkin Patches",
+        "frequency": "139"
+    },
+    {
+        "category": "Olive Oil",
+        "frequency": "138"
+    },
+    {
+        "category": "Float Spa",
+        "frequency": "138"
+    },
+    {
+        "category": "Brewing Supplies",
+        "frequency": "137"
+    },
+    {
+        "category": "Horse Racing",
+        "frequency": "135"
+    },
+    {
+        "category": "Cabinetry",
+        "frequency": "135"
+    },
+    {
+        "category": "Mountain Biking",
+        "frequency": "134"
+    },
+    {
+        "category": "Carpet Installation",
+        "frequency": "133"
+    },
+    {
+        "category": "Print Media",
+        "frequency": "133"
+    },
+    {
+        "category": "Video Game Stores",
+        "frequency": "132"
+    },
+    {
+        "category": "Marketing",
+        "frequency": "130"
+    },
+    {
+        "category": "Auto Insurance",
+        "frequency": "130"
+    },
+    {
+        "category": "Investing",
+        "frequency": "130"
+    },
+    {
+        "category": "Employment Agencies",
+        "frequency": "129"
+    },
+    {
+        "category": "International",
+        "frequency": "129"
+    },
+    {
+        "category": "Registration Services",
+        "frequency": "128"
+    },
+    {
+        "category": "Cabaret",
+        "frequency": "128"
+    },
+    {
+        "category": "Pool Cleaners",
+        "frequency": "127"
+    },
+    {
+        "category": "Guest Houses",
+        "frequency": "127"
+    },
+    {
+        "category": "Commercial Real Estate",
+        "frequency": "122"
+    },
+    {
+        "category": "Snow Removal",
+        "frequency": "119"
+    },
+    {
+        "category": "Henna Artists",
+        "frequency": "119"
+    },
+    {
+        "category": "Holiday Decorations",
+        "frequency": "118"
+    },
+    {
+        "category": "Hydro-jetting",
+        "frequency": "118"
+    },
+    {
+        "category": "Airport Lounges",
+        "frequency": "118"
+    },
+    {
+        "category": "Tui Na",
+        "frequency": "118"
+    },
+    {
+        "category": "Surgeons",
+        "frequency": "117"
+    },
+    {
+        "category": "Donairs",
+        "frequency": "115"
+    },
+    {
+        "category": "Strip Clubs",
+        "frequency": "113"
+    },
+    {
+        "category": "Airport Terminals",
+        "frequency": "113"
+    },
+    {
+        "category": "Buddhist Temples",
+        "frequency": "110"
+    },
+    {
+        "category": "Cardiologists",
+        "frequency": "110"
+    },
+    {
+        "category": "Refinishing Services",
+        "frequency": "110"
+    },
+    {
+        "category": "Life Coach",
+        "frequency": "110"
+    },
+    {
+        "category": "DJs",
+        "frequency": "109"
+    },
+    {
+        "category": "Pet Hospice",
+        "frequency": "109"
+    },
+    {
+        "category": "Vehicle Wraps",
+        "frequency": "108"
+    },
+    {
+        "category": "Guitar Stores",
+        "frequency": "108"
+    },
+    {
+        "category": "Customized Merchandise",
+        "frequency": "108"
+    },
+    {
+        "category": "Mortgage Lenders",
+        "frequency": "108"
+    },
+    {
+        "category": "Web Design",
+        "frequency": "108"
+    },
+    {
+        "category": "Radio Stations",
+        "frequency": "107"
+    },
+    {
+        "category": "Community Centers",
+        "frequency": "106"
+    },
+    {
+        "category": "Shutters",
+        "frequency": "106"
+    },
+    {
+        "category": "Unofficial Yelp Events",
+        "frequency": "106"
+    },
+    {
+        "category": "Pancakes",
+        "frequency": "105"
+    },
+    {
+        "category": "Pop-up Shops",
+        "frequency": "105"
+    },
+    {
+        "category": "Home Health Care",
+        "frequency": "105"
+    },
+    {
+        "category": "Countertop Installation",
+        "frequency": "105"
+    },
+    {
+        "category": "Honduran",
+        "frequency": "105"
+    },
+    {
+        "category": "Conveyor Belt Sushi",
+        "frequency": "104"
+    },
+    {
+        "category": "Solar Installation",
+        "frequency": "103"
+    },
+    {
+        "category": "Shaved Snow",
+        "frequency": "101"
+    },
+    {
+        "category": "Screen Printing/T-Shirt Printing",
+        "frequency": "101"
+    },
+    {
+        "category": "Lakes",
+        "frequency": "101"
+    },
+    {
+        "category": "Wildlife Control",
+        "frequency": "100"
+    },
+    {
+        "category": "Special Education",
+        "frequency": "100"
+    },
+    {
+        "category": "Ski Resorts",
+        "frequency": "100"
+    },
+    {
+        "category": "Furniture Assembly",
+        "frequency": "99"
+    },
+    {
+        "category": "Pain Management",
+        "frequency": "97"
+    },
+    {
+        "category": "Pool & Billiards",
+        "frequency": "97"
+    },
+    {
+        "category": "Paint-Your-Own Pottery",
+        "frequency": "96"
+    },
+    {
+        "category": "Home Automation",
+        "frequency": "96"
+    },
+    {
+        "category": "Wedding Chapels",
+        "frequency": "96"
+    },
+    {
+        "category": "Auction Houses",
+        "frequency": "95"
+    },
+    {
+        "category": "Podiatrists",
+        "frequency": "95"
+    },
+    {
+        "category": "Trinidadian",
+        "frequency": "94"
+    },
+    {
+        "category": "Halotherapy",
+        "frequency": "94"
+    },
+    {
+        "category": "Clothing Rental",
+        "frequency": "94"
+    },
+    {
+        "category": "Rock Climbing",
+        "frequency": "93"
+    },
+    {
+        "category": "Disc Golf",
+        "frequency": "93"
+    },
+    {
+        "category": "Dance Schools",
+        "frequency": "93"
+    },
+    {
+        "category": "Orthotics",
+        "frequency": "93"
+    },
+    {
+        "category": "Gunsmith",
+        "frequency": "92"
+    },
+    {
+        "category": "Pet Cremation Services",
+        "frequency": "91"
+    },
+    {
+        "category": "Appraisal Services",
+        "frequency": "91"
+    },
+    {
+        "category": "Drywall Installation & Repair",
+        "frequency": "90"
+    },
+    {
+        "category": "Drive-In Theater",
+        "frequency": "89"
+    },
+    {
+        "category": "Home & Rental Insurance",
+        "frequency": "88"
+    },
+    {
+        "category": "Restaurant Supplies",
+        "frequency": "88"
+    },
+    {
+        "category": "Kids Hair Salons",
+        "frequency": "88"
+    },
+    {
+        "category": "Embroidery & Crochet",
+        "frequency": "88"
+    },
+    {
+        "category": "Bike tours",
+        "frequency": "87"
+    },
+    {
+        "category": "Fireplace Services",
+        "frequency": "86"
+    },
+    {
+        "category": "Ear Nose & Throat",
+        "frequency": "86"
+    },
+    {
+        "category": "Visitor Centers",
+        "frequency": "86"
+    },
+    {
+        "category": "Recording & Rehearsal Studios",
+        "frequency": "85"
+    },
+    {
+        "category": "Shoe Shine",
+        "frequency": "85"
+    },
+    {
+        "category": "Neurologist",
+        "frequency": "85"
+    },
+    {
+        "category": "South African",
+        "frequency": "84"
+    },
+    {
+        "category": "Drive-Thru Bars",
+        "frequency": "82"
+    },
+    {
+        "category": "Photo Booth Rentals",
+        "frequency": "81"
+    },
+    {
+        "category": "Life Insurance",
+        "frequency": "80"
+    },
+    {
+        "category": "Health Retreats",
+        "frequency": "80"
+    },
+    {
+        "category": "Boat Repair",
+        "frequency": "80"
+    },
+    {
+        "category": "Aquarium Services",
+        "frequency": "79"
+    },
+    {
+        "category": "Ziplining",
+        "frequency": "79"
+    },
+    {
+        "category": "Acne Treatment",
+        "frequency": "79"
+    },
+    {
+        "category": "Luggage",
+        "frequency": "78"
+    },
+    {
+        "category": "Vocational & Technical School",
+        "frequency": "78"
+    },
+    {
+        "category": "Serbo Croatian",
+        "frequency": "78"
+    },
+    {
+        "category": "Sunglasses",
+        "frequency": "77"
+    },
+    {
+        "category": "Pawn Shops",
+        "frequency": "77"
+    },
+    {
+        "category": "Psychics",
+        "frequency": "76"
+    },
+    {
+        "category": "Attraction Farms",
+        "frequency": "76"
+    },
+    {
+        "category": "Maternity Wear",
+        "frequency": "75"
+    },
+    {
+        "category": "Diving",
+        "frequency": "74"
+    },
+    {
+        "category": "Nicaraguan",
+        "frequency": "74"
+    },
+    {
+        "category": "Hypnosis/Hypnotherapy",
+        "frequency": "74"
+    },
+    {
+        "category": "Chimney Sweeps",
+        "frequency": "73"
+    },
+    {
+        "category": "Car Inspectors",
+        "frequency": "73"
+    },
+    {
+        "category": "Wine Tasting Classes",
+        "frequency": "72"
+    },
+    {
+        "category": "Boat Dealers",
+        "frequency": "72"
+    },
+    {
+        "category": "Races & Competitions",
+        "frequency": "72"
+    },
+    {
+        "category": "Ski & Snowboard Shops",
+        "frequency": "71"
+    },
+    {
+        "category": "Kickboxing",
+        "frequency": "71"
+    },
+    {
+        "category": "Radiologists",
+        "frequency": "71"
+    },
+    {
+        "category": "Generator Installation/Repair",
+        "frequency": "70"
+    },
+    {
+        "category": "Gymnastics",
+        "frequency": "69"
+    },
+    {
+        "category": "Local Fish Stores",
+        "frequency": "69"
+    },
+    {
+        "category": "Commercial Truck Dealers",
+        "frequency": "68"
+    },
+    {
+        "category": "Religious Items",
+        "frequency": "68"
+    },
+    {
+        "category": "Golf Equipment",
+        "frequency": "68"
+    },
+    {
+        "category": "TV Mounting",
+        "frequency": "68"
+    },
+    {
+        "category": "Uniforms",
+        "frequency": "67"
+    },
+    {
+        "category": "Archery",
+        "frequency": "67"
+    },
+    {
+        "category": "Herbal Shops",
+        "frequency": "66"
+    },
+    {
+        "category": "Excavation Services",
+        "frequency": "66"
+    },
+    {
+        "category": "Personal Injury Law",
+        "frequency": "66"
+    },
+    {
+        "category": "Public Art",
+        "frequency": "65"
+    },
+    {
+        "category": "Occupational Therapy",
+        "frequency": "65"
+    },
+    {
+        "category": "Alternative Medicine",
+        "frequency": "65"
+    },
+    {
+        "category": "Mobile Dent Repair",
+        "frequency": "65"
+    },
+    {
+        "category": "Plastic Surgeons",
+        "frequency": "64"
+    },
+    {
+        "category": "Auto Upholstery",
+        "frequency": "63"
+    },
+    {
+        "category": "Czech",
+        "frequency": "63"
+    },
+    {
+        "category": "Bocce Ball",
+        "frequency": "62"
+    },
+    {
+        "category": "Surfing",
+        "frequency": "61"
+    },
+    {
+        "category": "Knife Sharpening",
+        "frequency": "61"
+    },
+    {
+        "category": "Buses",
+        "frequency": "61"
+    },
+    {
+        "category": "Dumpster Rental",
+        "frequency": "60"
+    },
+    {
+        "category": "Jet Skis",
+        "frequency": "60"
+    },
+    {
+        "category": "Party Bike Rentals",
+        "frequency": "60"
+    },
+    {
+        "category": "Personal Assistants",
+        "frequency": "59"
+    },
+    {
+        "category": "Safe Stores",
+        "frequency": "59"
+    },
+    {
+        "category": "Oncologist",
+        "frequency": "59"
+    },
+    {
+        "category": "Surf Shop",
+        "frequency": "58"
+    },
+    {
+        "category": "Home Network Installation",
+        "frequency": "58"
+    },
+    {
+        "category": "Soccer",
+        "frequency": "58"
+    },
+    {
+        "category": "Advertising",
+        "frequency": "58"
+    },
+    {
+        "category": "Psychologists",
+        "frequency": "58"
+    },
+    {
+        "category": "IV Hydration",
+        "frequency": "57"
+    },
+    {
+        "category": "Gemstones & Minerals",
+        "frequency": "57"
+    },
+    {
+        "category": "Commercial Truck Repair",
+        "frequency": "57"
+    },
+    {
+        "category": "Medical Transportation",
+        "frequency": "56"
+    },
+    {
+        "category": "Stucco Services",
+        "frequency": "55"
+    },
+    {
+        "category": "Magicians",
+        "frequency": "54"
+    },
+    {
+        "category": "Hungarian",
+        "frequency": "54"
+    },
+    {
+        "category": "Allergists",
+        "frequency": "53"
+    },
+    {
+        "category": "Midwives",
+        "frequency": "52"
+    },
+    {
+        "category": "Waterproofing",
+        "frequency": "52"
+    },
+    {
+        "category": "Videographers",
+        "frequency": "52"
+    },
+    {
+        "category": "Trailer Dealers",
+        "frequency": "51"
+    },
+    {
+        "category": "Decks & Railing",
+        "frequency": "51"
+    },
+    {
+        "category": "Meaderies",
+        "frequency": "50"
+    },
+    {
+        "category": "Town Car Service",
+        "frequency": "49"
+    },
+    {
+        "category": "Tutoring Centers",
+        "frequency": "49"
+    },
+    {
+        "category": "Whale Watching Tours",
+        "frequency": "49"
+    },
+    {
+        "category": "Batting Cages",
+        "frequency": "49"
+    },
+    {
+        "category": "Legal Services",
+        "frequency": "49"
+    },
+    {
+        "category": "Grilling Equipment",
+        "frequency": "49"
+    },
+    {
+        "category": "Accountants",
+        "frequency": "49"
+    },
+    {
+        "category": "Divorce & Family Law",
+        "frequency": "48"
+    },
+    {
+        "category": "Courthouses",
+        "frequency": "48"
+    },
+    {
+        "category": "Sardinian",
+        "frequency": "48"
+    },
+    {
+        "category": "Metal Fabricators",
+        "frequency": "48"
+    },
+    {
+        "category": "Honey",
+        "frequency": "47"
+    },
+    {
+        "category": "Haitian",
+        "frequency": "47"
+    },
+    {
+        "category": "Blood & Plasma Donation Centers",
+        "frequency": "47"
+    },
+    {
+        "category": "Driving Schools",
+        "frequency": "47"
+    },
+    {
+        "category": "Balloon Services",
+        "frequency": "47"
+    },
+    {
+        "category": "Skate Shops",
+        "frequency": "46"
+    },
+    {
+        "category": "Retirement Homes",
+        "frequency": "46"
+    },
+    {
+        "category": "Ethical Grocery",
+        "frequency": "46"
+    },
+    {
+        "category": "Car Share Services",
+        "frequency": "46"
+    },
+    {
+        "category": "Environmental Testing",
+        "frequency": "46"
+    },
+    {
+        "category": "Prenatal/Perinatal Care",
+        "frequency": "46"
+    },
+    {
+        "category": "Shredding Services",
+        "frequency": "46"
+    },
+    {
+        "category": "Country Dance Halls",
+        "frequency": "46"
+    },
+    {
+        "category": "Carpenters",
+        "frequency": "46"
+    },
+    {
+        "category": "Piano Services",
+        "frequency": "45"
+    },
+    {
+        "category": "Furniture Repair",
+        "frequency": "45"
+    },
+    {
+        "category": "Livestock Feed & Supply",
+        "frequency": "44"
+    },
+    {
+        "category": "Farming Equipment",
+        "frequency": "44"
+    },
+    {
+        "category": "Hair Loss Centers",
+        "frequency": "44"
+    },
+    {
+        "category": "Observatories",
+        "frequency": "44"
+    },
+    {
+        "category": "Skate Parks",
+        "frequency": "43"
+    },
+    {
+        "category": "Water Delivery",
+        "frequency": "43"
+    },
+    {
+        "category": "Circuit Training Gyms",
+        "frequency": "42"
+    },
+    {
+        "category": "Austrian",
+        "frequency": "42"
+    },
+    {
+        "category": "Fertility",
+        "frequency": "42"
+    },
+    {
+        "category": "LAN Centers",
+        "frequency": "42"
+    },
+    {
+        "category": "Prosthodontists",
+        "frequency": "42"
+    },
+    {
+        "category": "Farm Equipment Repair",
+        "frequency": "41"
+    },
+    {
+        "category": "Private Tutors",
+        "frequency": "41"
+    },
+    {
+        "category": "Fingerprinting",
+        "frequency": "40"
+    },
+    {
+        "category": "Officiants",
+        "frequency": "40"
+    },
+    {
+        "category": "Business Consulting",
+        "frequency": "40"
+    },
+    {
+        "category": "Skiing",
+        "frequency": "40"
+    },
+    {
+        "category": "General Litigation",
+        "frequency": "39"
+    },
+    {
+        "category": "Demolition Services",
+        "frequency": "39"
+    },
+    {
+        "category": "Service Stations",
+        "frequency": "39"
+    },
+    {
+        "category": "Television Stations",
+        "frequency": "38"
+    },
+    {
+        "category": "Rolfing",
+        "frequency": "38"
+    },
+    {
+        "category": "Motorcycle Parts & Supplies",
+        "frequency": "38"
+    },
+    {
+        "category": "Dental Hygienists",
+        "frequency": "38"
+    },
+    {
+        "category": "Brazilian Jiu-jitsu",
+        "frequency": "38"
+    },
+    {
+        "category": "Virtual Reality Centers",
+        "frequency": "37"
+    },
+    {
+        "category": "Medical Cannabis Referrals",
+        "frequency": "37"
+    },
+    {
+        "category": "Marinas",
+        "frequency": "37"
+    },
+    {
+        "category": "Pet Waste Removal",
+        "frequency": "37"
+    },
+    {
+        "category": "Psychiatrists",
+        "frequency": "36"
+    },
+    {
+        "category": "Middle Schools & High Schools",
+        "frequency": "36"
+    },
+    {
+        "category": "Kitchen Incubators",
+        "frequency": "36"
+    },
+    {
+        "category": "Check Cashing/Pay-day Loans",
+        "frequency": "35"
+    },
+    {
+        "category": "Audiologist",
+        "frequency": "35"
+    },
+    {
+        "category": "Pet Insurance",
+        "frequency": "35"
+    },
+    {
+        "category": "Trailer Repair",
+        "frequency": "35"
+    },
+    {
+        "category": "Bankruptcy Law",
+        "frequency": "35"
+    },
+    {
+        "category": "Home Staging",
+        "frequency": "35"
+    },
+    {
+        "category": "Aerial Fitness",
+        "frequency": "34"
+    },
+    {
+        "category": "Lighting Stores",
+        "frequency": "34"
+    },
+    {
+        "category": "Flight Instruction",
+        "frequency": "34"
+    },
+    {
+        "category": "Scuba Diving",
+        "frequency": "34"
+    },
+    {
+        "category": "Cryotherapy",
+        "frequency": "34"
+    },
+    {
+        "category": "Security Services",
+        "frequency": "34"
+    },
+    {
+        "category": "Skydiving",
+        "frequency": "33"
+    },
+    {
+        "category": "Pet Photography",
+        "frequency": "33"
+    },
+    {
+        "category": "Hospice",
+        "frequency": "33"
+    },
+    {
+        "category": "DUI Law",
+        "frequency": "33"
+    },
+    {
+        "category": "Architectural Tours",
+        "frequency": "32"
+    },
+    {
+        "category": "Beer Hall",
+        "frequency": "32"
+    },
+    {
+        "category": "Criminal Defense Law",
+        "frequency": "32"
+    },
+    {
+        "category": "Patio Coverings",
+        "frequency": "32"
+    },
+    {
+        "category": "Estate Planning Law",
+        "frequency": "32"
+    },
+    {
+        "category": "Concierge Medicine",
+        "frequency": "32"
+    },
+    {
+        "category": "Vehicle Shipping",
+        "frequency": "31"
+    },
+    {
+        "category": "Paintball",
+        "frequency": "31"
+    },
+    {
+        "category": "Bird Shops",
+        "frequency": "31"
+    },
+    {
+        "category": "Sleep Specialists",
+        "frequency": "30"
+    },
+    {
+        "category": "Police Departments",
+        "frequency": "29"
+    },
+    {
+        "category": "Clock Repair",
+        "frequency": "29"
+    },
+    {
+        "category": "Psychic Mediums",
+        "frequency": "29"
+    },
+    {
+        "category": "Engraving",
+        "frequency": "29"
+    },
+    {
+        "category": "Video/Film Production",
+        "frequency": "29"
+    },
+    {
+        "category": "Motorcycle Rental",
+        "frequency": "28"
+    },
+    {
+        "category": "Holistic Animal Care",
+        "frequency": "28"
+    },
+    {
+        "category": "Mobility Equipment Sales & Services",
+        "frequency": "28"
+    },
+    {
+        "category": "Trivia Hosts",
+        "frequency": "28"
+    },
+    {
+        "category": "Spine Surgeons",
+        "frequency": "27"
+    },
+    {
+        "category": "Scooter Rentals",
+        "frequency": "27"
+    },
+    {
+        "category": "Opera & Ballet",
+        "frequency": "27"
+    },
+    {
+        "category": "Fire Protection Services",
+        "frequency": "27"
+    },
+    {
+        "category": "Pole Dancing Classes",
+        "frequency": "27"
+    },
+    {
+        "category": "Trusts",
+        "frequency": "27"
+    },
+    {
+        "category": "Wills",
+        "frequency": "27"
+    },
+    {
+        "category": "Hockey Equipment",
+        "frequency": "27"
+    },
+    {
+        "category": "Passport & Visa Services",
+        "frequency": "27"
+    },
+    {
+        "category": "& Probates",
+        "frequency": "27"
+    },
+    {
+        "category": "Motorsport Vehicle Dealers",
+        "frequency": "27"
+    },
+    {
+        "category": "Calabrian",
+        "frequency": "26"
+    },
+    {
+        "category": "Nurse Practitioner",
+        "frequency": "26"
+    },
+    {
+        "category": "Travel Agents",
+        "frequency": "26"
+    },
+    {
+        "category": "Condominiums",
+        "frequency": "26"
+    },
+    {
+        "category": "Club Crawl",
+        "frequency": "26"
+    },
+    {
+        "category": "Workers Compensation Law",
+        "frequency": "26"
+    },
+    {
+        "category": "Pickleball",
+        "frequency": "26"
+    },
+    {
+        "category": "Petting Zoos",
+        "frequency": "25"
+    },
+    {
+        "category": "Massage Schools",
+        "frequency": "25"
+    },
+    {
+        "category": "Hearing Aid Providers",
+        "frequency": "25"
+    },
+    {
+        "category": "Emergency Medicine",
+        "frequency": "25"
+    },
+    {
+        "category": "Career Counseling",
+        "frequency": "25"
+    },
+    {
+        "category": "Gastroenterologist",
+        "frequency": "25"
+    },
+    {
+        "category": "Striptease Dancers",
+        "frequency": "25"
+    },
+    {
+        "category": "Dietitians",
+        "frequency": "24"
+    },
+    {
+        "category": "Architects",
+        "frequency": "24"
+    },
+    {
+        "category": "Glass Blowing",
+        "frequency": "24"
+    },
+    {
+        "category": "Home Energy Auditors",
+        "frequency": "24"
+    },
+    {
+        "category": "Somali",
+        "frequency": "24"
+    },
+    {
+        "category": "Beach Equipment Rentals",
+        "frequency": "24"
+    },
+    {
+        "category": "Coffeeshops",
+        "frequency": "24"
+    },
+    {
+        "category": "Tableware",
+        "frequency": "24"
+    },
+    {
+        "category": "Parenting Classes",
+        "frequency": "24"
+    },
+    {
+        "category": "Trailer Rental",
+        "frequency": "23"
+    },
+    {
+        "category": "Real Estate Photography",
+        "frequency": "23"
+    },
+    {
+        "category": "Face Painting",
+        "frequency": "23"
+    },
+    {
+        "category": "Sports Betting",
+        "frequency": "23"
+    },
+    {
+        "category": "Tubing",
+        "frequency": "23"
+    },
+    {
+        "category": "Parasailing",
+        "frequency": "23"
+    },
+    {
+        "category": "Childbirth Education",
+        "frequency": "23"
+    },
+    {
+        "category": "Holiday Decorating Services",
+        "frequency": "23"
+    },
+    {
+        "category": "Motorsport Vehicle Repairs",
+        "frequency": "23"
+    },
+    {
+        "category": "Business Financing",
+        "frequency": "22"
+    },
+    {
+        "category": "Synagogues",
+        "frequency": "22"
+    },
+    {
+        "category": "Chinese Martial Arts",
+        "frequency": "22"
+    },
+    {
+        "category": "Well Drilling",
+        "frequency": "22"
+    },
+    {
+        "category": "Reptile Shops",
+        "frequency": "22"
+    },
+    {
+        "category": "Foundation Repair",
+        "frequency": "22"
+    },
+    {
+        "category": "Pet Transportation",
+        "frequency": "22"
+    },
+    {
+        "category": "Astrologers",
+        "frequency": "22"
+    },
+    {
+        "category": "Roof Inspectors",
+        "frequency": "22"
+    },
+    {
+        "category": "Ultrasound Imaging Centers",
+        "frequency": "21"
+    },
+    {
+        "category": "Endocrinologists",
+        "frequency": "21"
+    },
+    {
+        "category": "Tai Chi",
+        "frequency": "21"
+    },
+    {
+        "category": "Photography Classes",
+        "frequency": "20"
+    },
+    {
+        "category": "Aestheticians",
+        "frequency": "20"
+    },
+    {
+        "category": "Osteopathic Physicians",
+        "frequency": "20"
+    },
+    {
+        "category": "Firewood",
+        "frequency": "20"
+    },
+    {
+        "category": "Valet Services",
+        "frequency": "19"
+    },
+    {
+        "category": "Hotel bar",
+        "frequency": "19"
+    },
+    {
+        "category": "Kiosk",
+        "frequency": "19"
+    },
+    {
+        "category": "Employment Law",
+        "frequency": "19"
+    },
+    {
+        "category": "Skilled Nursing",
+        "frequency": "19"
+    },
+    {
+        "category": "Cannabis Collective",
+        "frequency": "19"
+    },
+    {
+        "category": "Carousels",
+        "frequency": "18"
+    },
+    {
+        "category": "Wallpapering",
+        "frequency": "18"
+    },
+    {
+        "category": "Horse Boarding",
+        "frequency": "18"
+    },
+    {
+        "category": "Health Coach",
+        "frequency": "17"
+    },
+    {
+        "category": "Cheese Tasting Classes",
+        "frequency": "17"
+    },
+    {
+        "category": "Taxidermy",
+        "frequency": "17"
+    },
+    {
+        "category": "Nanny Services",
+        "frequency": "17"
+    },
+    {
+        "category": "Food Banks",
+        "frequency": "17"
+    },
+    {
+        "category": "Party Characters",
+        "frequency": "17"
+    },
+    {
+        "category": "Outdoor Power Equipment Services",
+        "frequency": "17"
+    },
+    {
+        "category": "Awnings",
+        "frequency": "17"
+    },
+    {
+        "category": "Title Loans",
+        "frequency": "17"
+    },
+    {
+        "category": "Audio/Visual Equipment Rental",
+        "frequency": "17"
+    },
+    {
+        "category": "Self-defense Classes",
+        "frequency": "17"
+    },
+    {
+        "category": "Private Investigation",
+        "frequency": "16"
+    },
+    {
+        "category": "Environmental Abatement",
+        "frequency": "16"
+    },
+    {
+        "category": "Estate Liquidation",
+        "frequency": "16"
+    },
+    {
+        "category": "Lactation Services",
+        "frequency": "16"
+    },
+    {
+        "category": "Urologists",
+        "frequency": "16"
+    },
+    {
+        "category": "Embassy",
+        "frequency": "16"
+    },
+    {
+        "category": "Georgian",
+        "frequency": "16"
+    },
+    {
+        "category": "Diamond Buyers",
+        "frequency": "16"
+    },
+    {
+        "category": "Colonics",
+        "frequency": "16"
+    },
+    {
+        "category": "Health Insurance Offices",
+        "frequency": "16"
+    },
+    {
+        "category": "Basketball Courts",
+        "frequency": "15"
+    },
+    {
+        "category": "Hydroponics",
+        "frequency": "15"
+    },
+    {
+        "category": "Animal Physical Therapy",
+        "frequency": "15"
+    },
+    {
+        "category": "Pet Breeders",
+        "frequency": "15"
+    },
+    {
+        "category": "Surf Schools",
+        "frequency": "15"
+    },
+    {
+        "category": "Real Estate Law",
+        "frequency": "15"
+    },
+    {
+        "category": "Ayurveda",
+        "frequency": "14"
+    },
+    {
+        "category": "Art Space Rentals",
+        "frequency": "14"
+    },
+    {
+        "category": "Reproductive Health Services",
+        "frequency": "14"
+    },
+    {
+        "category": "Golf Equipment Shops",
+        "frequency": "14"
+    },
+    {
+        "category": "Installment Loans",
+        "frequency": "14"
+    },
+    {
+        "category": "Traffic Ticketing Law",
+        "frequency": "14"
+    },
+    {
+        "category": "Bookbinding",
+        "frequency": "14"
+    },
+    {
+        "category": "Boudoir Photography",
+        "frequency": "14"
+    },
+    {
+        "category": "Mobile Home Repair",
+        "frequency": "14"
+    },
+    {
+        "category": "Powder Coating",
+        "frequency": "13"
+    },
+    {
+        "category": "Home Developers",
+        "frequency": "13"
+    },
+    {
+        "category": "Digitizing Services",
+        "frequency": "13"
+    },
+    {
+        "category": "Addiction Medicine",
+        "frequency": "13"
+    },
+    {
+        "category": "Oriental",
+        "frequency": "13"
+    },
+    {
+        "category": "Teacher Supplies",
+        "frequency": "13"
+    },
+    {
+        "category": "Personal Care Services",
+        "frequency": "13"
+    },
+    {
+        "category": "Racing Experience",
+        "frequency": "13"
+    },
+    {
+        "category": "Structural Engineers",
+        "frequency": "13"
+    },
+    {
+        "category": "Trophy Shops",
+        "frequency": "13"
+    },
+    {
+        "category": "Cucina campana",
+        "frequency": "13"
+    },
+    {
+        "category": "Clowns",
+        "frequency": "13"
+    },
+    {
+        "category": "Scavenger Hunts",
+        "frequency": "12"
+    },
+    {
+        "category": "Hainan",
+        "frequency": "12"
+    },
+    {
+        "category": "Aerial Tours",
+        "frequency": "12"
+    },
+    {
+        "category": "Pulmonologist",
+        "frequency": "12"
+    },
+    {
+        "category": "Trains",
+        "frequency": "12"
+    },
+    {
+        "category": "CPR Classes",
+        "frequency": "12"
+    },
+    {
+        "category": "Parent Cafes",
+        "frequency": "12"
+    },
+    {
+        "category": "Speech Therapists",
+        "frequency": "12"
+    },
+    {
+        "category": "Sledding",
+        "frequency": "12"
+    },
+    {
+        "category": "Hydrotherapy",
+        "frequency": "12"
+    },
+    {
+        "category": "Bus Rental",
+        "frequency": "12"
+    },
+    {
+        "category": "Talent Agencies",
+        "frequency": "12"
+    },
+    {
+        "category": "Music Production Services",
+        "frequency": "11"
+    },
+    {
+        "category": "Translation Services",
+        "frequency": "11"
+    },
+    {
+        "category": "Rest Stops",
+        "frequency": "11"
+    },
+    {
+        "category": "Osteopaths",
+        "frequency": "11"
+    },
+    {
+        "category": "Muay Thai",
+        "frequency": "11"
+    },
+    {
+        "category": "Test Preparation",
+        "frequency": "11"
+    },
+    {
+        "category": "Assisted Living Facilities",
+        "frequency": "11"
+    },
+    {
+        "category": "Bike Repair",
+        "frequency": "11"
+    },
+    {
+        "category": "Business Law",
+        "frequency": "11"
+    },
+    {
+        "category": "Bicycles",
+        "frequency": "11"
+    },
+    {
+        "category": "Anesthesiologists",
+        "frequency": "11"
+    },
+    {
+        "category": "Crane Services",
+        "frequency": "11"
+    },
+    {
+        "category": "Preventive Medicine",
+        "frequency": "11"
+    },
+    {
+        "category": "Dance Wear",
+        "frequency": "10"
+    },
+    {
+        "category": "Roman",
+        "frequency": "10"
+    },
+    {
+        "category": "Dumplings",
+        "frequency": "10"
+    },
+    {
+        "category": "High Fidelity Audio Equipment",
+        "frequency": "10"
+    },
+    {
+        "category": "Airsoft",
+        "frequency": "10"
+    },
+    {
+        "category": "Scooter Tours",
+        "frequency": "10"
+    },
+    {
+        "category": "Municipality",
+        "frequency": "10"
+    },
+    {
+        "category": "Behavior Analysts",
+        "frequency": "10"
+    },
+    {
+        "category": "Flowers",
+        "frequency": "10"
+    },
+    {
+        "category": "Sri Lankan",
+        "frequency": "10"
+    },
+    {
+        "category": "Traditional Clothing",
+        "frequency": "9"
+    },
+    {
+        "category": "Bounce House Rentals",
+        "frequency": "9"
+    },
+    {
+        "category": "Senegalese",
+        "frequency": "9"
+    },
+    {
+        "category": "Vascular Medicine",
+        "frequency": "9"
+    },
+    {
+        "category": "General Festivals",
+        "frequency": "9"
+    },
+    {
+        "category": "Commissioned Artists",
+        "frequency": "9"
+    },
+    {
+        "category": "Editorial Services",
+        "frequency": "9"
+    },
+    {
+        "category": "Immigration Law",
+        "frequency": "9"
+    },
+    {
+        "category": "Retina Specialists",
+        "frequency": "8"
+    },
+    {
+        "category": "Artificial Turf",
+        "frequency": "8"
+    },
+    {
+        "category": "Art Restoration",
+        "frequency": "8"
+    },
+    {
+        "category": "Sauna Installation & Repair",
+        "frequency": "8"
+    },
+    {
+        "category": "Bartending Schools",
+        "frequency": "8"
+    },
+    {
+        "category": "Spin Classes",
+        "frequency": "8"
+    },
+    {
+        "category": "Language Schools",
+        "frequency": "8"
+    },
+    {
+        "category": "Rodeo",
+        "frequency": "8"
+    },
+    {
+        "category": "Wildlife Hunting Ranges",
+        "frequency": "8"
+    },
+    {
+        "category": "Religious Schools",
+        "frequency": "8"
+    },
+    {
+        "category": "Tax Law",
+        "frequency": "8"
+    },
+    {
+        "category": "Pedicabs",
+        "frequency": "8"
+    },
+    {
+        "category": "Vermouth Bars",
+        "frequency": "8"
+    },
+    {
+        "category": "Qi Gong",
+        "frequency": "8"
+    },
+    {
+        "category": "Payroll Services",
+        "frequency": "7"
+    },
+    {
+        "category": "Karate",
+        "frequency": "7"
+    },
+    {
+        "category": "Grill Services",
+        "frequency": "7"
+    },
+    {
+        "category": "Community Gardens",
+        "frequency": "7"
+    },
+    {
+        "category": "Prosthetics",
+        "frequency": "7"
+    },
+    {
+        "category": "Homeowner Association",
+        "frequency": "7"
+    },
+    {
+        "category": "Billing Services",
+        "frequency": "7"
+    },
+    {
+        "category": "Piano Stores",
+        "frequency": "7"
+    },
+    {
+        "category": "House Sitters",
+        "frequency": "7"
+    },
+    {
+        "category": "Fireworks",
+        "frequency": "7"
+    },
+    {
+        "category": "Doulas",
+        "frequency": "7"
+    },
+    {
+        "category": "Car Auctions",
+        "frequency": "7"
+    },
+    {
+        "category": "Montessori Schools",
+        "frequency": "6"
+    },
+    {
+        "category": "Hindu Temples",
+        "frequency": "6"
+    },
+    {
+        "category": "Sport Equipment Hire",
+        "frequency": "6"
+    },
+    {
+        "category": "Bookkeepers",
+        "frequency": "6"
+    },
+    {
+        "category": "Solar Panel Cleaning",
+        "frequency": "6"
+    },
+    {
+        "category": "Vacation Rental Agents",
+        "frequency": "6"
+    },
+    {
+        "category": "Snorkeling",
+        "frequency": "6"
+    },
+    {
+        "category": "Carpet Dyeing",
+        "frequency": "6"
+    },
+    {
+        "category": "Safety Equipment",
+        "frequency": "6"
+    },
+    {
+        "category": "Drama Schools",
+        "frequency": "6"
+    },
+    {
+        "category": "Memory Care",
+        "frequency": "5"
+    },
+    {
+        "category": "Matchmakers",
+        "frequency": "5"
+    },
+    {
+        "category": "Parklets",
+        "frequency": "5"
+    },
+    {
+        "category": "Furniture Rental",
+        "frequency": "5"
+    },
+    {
+        "category": "Sailing",
+        "frequency": "5"
+    },
+    {
+        "category": "Nudist",
+        "frequency": "5"
+    },
+    {
+        "category": "Placenta Encapsulations",
+        "frequency": "5"
+    },
+    {
+        "category": "Software Development",
+        "frequency": "5"
+    },
+    {
+        "category": "Mobile Home Dealers",
+        "frequency": "5"
+    },
+    {
+        "category": "Private Schools",
+        "frequency": "5"
+    },
+    {
+        "category": "Oxygen Bars",
+        "frequency": "5"
+    },
+    {
+        "category": "Machine & Tool Rental",
+        "frequency": "5"
+    },
+    {
+        "category": "Hot Air Balloons",
+        "frequency": "5"
+    },
+    {
+        "category": "EV Charging Stations",
+        "frequency": "5"
+    },
+    {
+        "category": "Indoor Landscaping",
+        "frequency": "5"
+    },
+    {
+        "category": "Social Security Law",
+        "frequency": "5"
+    },
+    {
+        "category": "Cremation Services",
+        "frequency": "5"
+    },
+    {
+        "category": "Childproofing",
+        "frequency": "4"
+    },
+    {
+        "category": "Machine Shops",
+        "frequency": "4"
+    },
+    {
+        "category": "ATV Rentals/Tours",
+        "frequency": "4"
+    },
+    {
+        "category": "Medical Law",
+        "frequency": "4"
+    },
+    {
+        "category": "Traffic Schools",
+        "frequency": "4"
+    },
+    {
+        "category": "Process Servers",
+        "frequency": "4"
+    },
+    {
+        "category": "Car Brokers",
+        "frequency": "4"
+    },
+    {
+        "category": "Water Stores",
+        "frequency": "4"
+    },
+    {
+        "category": "Hybrid Car Repair",
+        "frequency": "4"
+    },
+    {
+        "category": "Disability Law",
+        "frequency": "4"
+    },
+    {
+        "category": "Nephrologists",
+        "frequency": "4"
+    },
+    {
+        "category": "Product Design",
+        "frequency": "4"
+    },
+    {
+        "category": "Taekwondo",
+        "frequency": "4"
+    },
+    {
+        "category": "Bus Stations",
+        "frequency": "4"
+    },
+    {
+        "category": "Private Jet Charter",
+        "frequency": "4"
+    },
+    {
+        "category": "Military Surplus",
+        "frequency": "4"
+    },
+    {
+        "category": "Hospitalists",
+        "frequency": "4"
+    },
+    {
+        "category": "Badminton",
+        "frequency": "4"
+    },
+    {
+        "category": "Jails & Prisons",
+        "frequency": "4"
+    },
+    {
+        "category": "Dialysis Clinics",
+        "frequency": "4"
+    },
+    {
+        "category": "Mortuary Services",
+        "frequency": "4"
+    },
+    {
+        "category": "DIY Auto Shop",
+        "frequency": "4"
+    },
+    {
+        "category": "Rheumatologists",
+        "frequency": "4"
+    },
+    {
+        "category": "Hazardous Waste Disposal",
+        "frequency": "4"
+    },
+    {
+        "category": "Boat Parts & Supplies",
+        "frequency": "4"
+    },
+    {
+        "category": "Dive Shops",
+        "frequency": "4"
+    },
+    {
+        "category": "3D Printing",
+        "frequency": "3"
+    },
+    {
+        "category": "Bike Sharing",
+        "frequency": "3"
+    },
+    {
+        "category": "Junkyards",
+        "frequency": "3"
+    },
+    {
+        "category": "Fire Departments",
+        "frequency": "3"
+    },
+    {
+        "category": "Public Relations",
+        "frequency": "3"
+    },
+    {
+        "category": "Debt Relief Services",
+        "frequency": "3"
+    },
+    {
+        "category": "Outdoor Movies",
+        "frequency": "3"
+    },
+    {
+        "category": "Otologists",
+        "frequency": "3"
+    },
+    {
+        "category": "Dart Arenas",
+        "frequency": "3"
+    },
+    {
+        "category": "Fur Clothing",
+        "frequency": "3"
+    },
+    {
+        "category": "Adoption Services",
+        "frequency": "3"
+    },
+    {
+        "category": "Bingo Halls",
+        "frequency": "3"
+    },
+    {
+        "category": "Game Truck Rental",
+        "frequency": "3"
+    },
+    {
+        "category": "Backflow Services",
+        "frequency": "3"
+    },
+    {
+        "category": "Fuzhou",
+        "frequency": "3"
+    },
+    {
+        "category": "Experiences",
+        "frequency": "3"
+    },
+    {
+        "category": "Lice Services",
+        "frequency": "2"
+    },
+    {
+        "category": "Kiteboarding",
+        "frequency": "2"
+    },
+    {
+        "category": "Supper Clubs",
+        "frequency": "2"
+    },
+    {
+        "category": "Animal Assisted Therapy",
+        "frequency": "2"
+    },
+    {
+        "category": "Concept Shops",
+        "frequency": "2"
+    },
+    {
+        "category": "Horse Equipment Shops",
+        "frequency": "2"
+    },
+    {
+        "category": "Eastern European",
+        "frequency": "2"
+    },
+    {
+        "category": "Housing Cooperatives",
+        "frequency": "2"
+    },
+    {
+        "category": "Fuel Docks",
+        "frequency": "2"
+    },
+    {
+        "category": "Sex Therapists",
+        "frequency": "2"
+    },
+    {
+        "category": "Infectious Disease Specialists",
+        "frequency": "2"
+    },
+    {
+        "category": "Sports Psychologists",
+        "frequency": "2"
+    },
+    {
+        "category": "Mediators",
+        "frequency": "2"
+    },
+    {
+        "category": "Free Diving",
+        "frequency": "2"
+    },
+    {
+        "category": "Phlebologists",
+        "frequency": "2"
+    },
+    {
+        "category": "Elevator Services",
+        "frequency": "1"
+    },
+    {
+        "category": "First Aid Classes",
+        "frequency": "1"
+    },
+    {
+        "category": "Golf Cart Rentals",
+        "frequency": "1"
+    },
+    {
+        "category": "Electricity Suppliers",
+        "frequency": "1"
+    },
+    {
+        "category": "Vocal Coach",
+        "frequency": "1"
+    },
+    {
+        "category": "Golf Cart Dealers",
+        "frequency": "1"
+    },
+    {
+        "category": "Land Surveying",
+        "frequency": "1"
+    },
+    {
+        "category": "Senior Centers",
+        "frequency": "1"
+    },
+    {
+        "category": "Drones",
+        "frequency": "1"
+    },
+    {
+        "category": "Immunodermatologists",
+        "frequency": "1"
+    },
+    {
+        "category": "Caricatures",
+        "frequency": "1"
+    },
+    {
+        "category": "Public Adjusters",
+        "frequency": "1"
+    },
+    {
+        "category": "Squash",
+        "frequency": "1"
+    },
+    {
+        "category": "Guamanian",
+        "frequency": "1"
+    },
+    {
+        "category": "Mobile Home Parks",
+        "frequency": "1"
+    },
+    {
+        "category": "Biohazard Cleanup",
+        "frequency": "1"
+    },
+    {
+        "category": "Cheerleading",
+        "frequency": "1"
+    },
+    {
+        "category": "Trade Fairs",
+        "frequency": "1"
+    },
+    {
+        "category": "Duplication Services",
+        "frequency": "1"
+    },
+    {
+        "category": "Apartment Agents",
+        "frequency": "1"
+    },
+    {
+        "category": "Ranches",
+        "frequency": "1"
+    }
+]

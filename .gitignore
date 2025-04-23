@@ -1,6 +1,5 @@
 data/raw_datasets/*
 data/processed_data/yelp_data/*
-data.zip
 *.db
 *.csv
 src/__pycache__/*
@@ -8,3 +7,6 @@ src/__pycache__/*
 src/Result_Evaluation/temp.txt
 src/Result_Evaluation/results.json
 src/Models_Deep_FM/__pycache__/DeepFM.cpython-311.pyc
+*.zip
+/data/processed_data/cluster_data
+src/data_processing/clustered_user_df.pkl
