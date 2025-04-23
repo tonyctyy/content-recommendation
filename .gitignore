@@ -5,3 +5,6 @@ data.zip
 *.csv
 src/__pycache__/*
 *.xlsx
+src/Result_Evaluation/temp.txt
+src/Result_Evaluation/results.json
+src/Models_Deep_FM/__pycache__/DeepFM.cpython-311.pyc
