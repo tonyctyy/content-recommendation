@@ -3,23 +3,23 @@ import pandas as pd
 import pickle
 from tensorflow.keras.models import load_model
 
-save_folder_path = "../../data/processed_data/DeepFM/"
+DeepFM_foler_path = "../../data/processed_data/DeepFM/"
 
 # Load the DeepFM model
-DeepFM_model = load_model(save_folder_path + 'DeepFM.keras')
+DeepFM_model = load_model(DeepFM_foler_path + 'DeepFM.keras')
 
 # Load the saved label encoders
-with open(save_folder_path + 'user_id_encoder.pkl', 'rb') as f:
+with open(DeepFM_foler_path + 'user_id_encoder.pkl', 'rb') as f:
     DeepFM_user_id_encoder = pickle.load(f)
 
-with open(save_folder_path + 'business_id_encoder.pkl', 'rb') as f:
+with open(DeepFM_foler_path + 'business_id_encoder.pkl', 'rb') as f:
     DeepFM_business_id_encoder = pickle.load(f)
 
 # Load the saved scalers
-with open(save_folder_path + 'user_scaler.pkl', 'rb') as f:
+with open(DeepFM_foler_path + 'user_scaler.pkl', 'rb') as f:
     DeepFM_user_scaler = pickle.load(f)
 
-with open(save_folder_path + 'business_scaler.pkl', 'rb') as f:
+with open(DeepFM_foler_path + 'business_scaler.pkl', 'rb') as f:
     DeepFM_business_scaler = pickle.load(f)
 
 def DeepFM_rank_top_k(DeepFM_model, user_id, business_ids, user_info, business_info, user_id_encoder, business_id_encoder, user_scaler, business_scaler, k=1000):

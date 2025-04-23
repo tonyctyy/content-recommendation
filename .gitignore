@@ -1,7 +1,9 @@
 data/raw_datasets/*
 data/processed_data/yelp_data/*
-data.zip
 *.db
 *.csv
 src/__pycache__/*
 *.xlsx
+*.zip
+/data/processed_data/cluster_data
+src/data_processing/clustered_user_df.pkl
