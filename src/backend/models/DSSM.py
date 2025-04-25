@@ -4,30 +4,30 @@ import faiss
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import normalize
 
-DSSM_foler_path = "../../data/processed_data/DSSM/"
+DSSM_folder_path = "../../data/processed_data/DSSM/"
 
 # Load business IDs
-DSSM_business_ids = np.load(DSSM_foler_path + "business_ids.npy")
+DSSM_business_ids = np.load(DSSM_folder_path + "business_ids.npy")
 
 # Load the Faiss index from the file
-DSSM_faiss_index = faiss.read_index(DSSM_foler_path + "faiss_index.bin")
+DSSM_faiss_index = faiss.read_index(DSSM_folder_path + "faiss_index.bin")
 
 # Load the user model
-DSSM_user_model = load_model(DSSM_foler_path + 'user_model.keras')
+DSSM_user_model = load_model(DSSM_folder_path + 'user_model.keras')
 
 # Load the saved label encoders
-with open(DSSM_foler_path + 'user_id_encoder.pkl', 'rb') as f:
+with open(DSSM_folder_path + 'user_id_encoder.pkl', 'rb') as f:
     DSSM_user_id_encoder = pickle.load(f)
 
-with open(DSSM_foler_path + 'business_id_encoder.pkl', 'rb') as f:
+with open(DSSM_folder_path + 'business_id_encoder.pkl', 'rb') as f:
     DSSM_business_id_encoder = pickle.load(f)
 
 # Load the saved scalers
-with open(DSSM_foler_path + 'user_scaler.pkl', 'rb') as f:
+with open(DSSM_folder_path + 'user_scaler.pkl', 'rb') as f:
     DSSM_user_scaler = pickle.load(f)
 
 # Load the saved user continuous features (temporal solution)
-with open(DSSM_foler_path + 'user_continuous_features_scaled.pkl', 'rb') as f:
+with open(DSSM_folder_path + 'user_continuous_features_scaled.pkl', 'rb') as f:
     DSSM_user_continuous_features_scaled = pickle.load(f)
 
 def DSSM_query_top_k(user_id, user_model, faiss_index, business_ids, user_id_encoder, business_id_encoder, user_scaler, user_continuous_features_scaled, k=100):

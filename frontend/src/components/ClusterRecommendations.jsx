@@ -77,14 +77,12 @@ const ClusterRecommendations = ({ userData, API_BASE_URL, k = 100 }) => {
 
   const fetchClusterRecommendations = useCallback(async () => {
     if (!selectedCategories.length) return;
-
     setIsLoading(true);
     try {
       const response = await Axios.post(
-        `${API_BASE_URL}/cluster_recommendations`,
+        `${API_BASE_URL}/Cluster_recommendations`,
         {
           categories: selectedCategories,
-          user_id: userData?.user_id || 'visitor',
           k,
         }
       );
@@ -100,8 +98,21 @@ const ClusterRecommendations = ({ userData, API_BASE_URL, k = 100 }) => {
           { business_ids: businessIdQuery }
         );
 
+        // for each recommended business, check if the category has  2 or more matched categories
+        const filteredRecommendations = recommendations.filter((item) => {
+          const businessId = item[0];
+          const business = businessResponse.data[businessId];
+          const businessCategories = business.categories || [];
+          const matchedCategories = businessCategories.filter((cat) =>
+            selectedCategories.includes(cat)
+          );
+          return matchedCategories.length >= 3;
+        });
+        // shuffle the recommendations
+        const shuffledRecommendations = filteredRecommendations.sort(() => Math.random() - 0.5);
+
         setClusterRec({
-          recommendations,
+          recommendations: shuffledRecommendations,
           businesses: businessResponse.data,
           model: 'Cluster',
         });
@@ -122,7 +133,7 @@ const ClusterRecommendations = ({ userData, API_BASE_URL, k = 100 }) => {
   useEffect(() => {
     let timerId;
 
-    if (selectedCategories.length >= 4) {
+    if (selectedCategories.length === 5) {
       timerId = setTimeout(fetchClusterRecommendations, 2000);
     }
 
@@ -139,7 +150,7 @@ const ClusterRecommendations = ({ userData, API_BASE_URL, k = 100 }) => {
         Users Similar to You are Interested in
       </Typography>
       <Typography variant="subtitle1" sx={{ mb: -3 }}>
-        Select up to 5 categories you're interested in:
+        Select 5 categories you're interested in:
       </Typography>
 
       <Box
@@ -155,7 +166,7 @@ const ClusterRecommendations = ({ userData, API_BASE_URL, k = 100 }) => {
             flexDirection: 'column',
           }}
         >
-          <FormControl component="fieldset" sx={{ mb: 2 }}>
+          <FormControl component="fieldset" sx={{ mb: - 2 }}>
             <FormGroup>
               <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} 
                 sx={{ 
@@ -198,6 +209,7 @@ const ClusterRecommendations = ({ userData, API_BASE_URL, k = 100 }) => {
             display: 'flex',
             flexDirection: 'column',
             gap: 3,
+            mt: -2,
           }}
         >
           {dropdownCategories.length > 0 && (
@@ -224,13 +236,13 @@ const ClusterRecommendations = ({ userData, API_BASE_URL, k = 100 }) => {
         </Box>
       </Box>
 
-      {isLoading && (
+      {isLoading && selectedCategories.length === 5 && (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
           <CircularProgress />
         </Box>
       )}
 
-      {clusterRec?.recommendations?.length > 0 && (
+      {!isLoading && selectedCategories.length === 5 && clusterRec?.recommendations?.length > 0 && (
         <BusinessCardCarousel
           recommendations={clusterRec.recommendations}
           businesses={clusterRec.businesses}

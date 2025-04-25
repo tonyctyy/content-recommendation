@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from models.ItemCF import ItemCF_predict_user_interests
+from models.ItemCF import ItemCF_predict_user_interests, ItemCF_predict_cluster_interests
 from models.UserCF import UserCF_predict_user_interests
 from models.DSSM import *
 from models.DeepFM import *
@@ -77,9 +77,19 @@ def get_DeepFM_recommendations():
         # use DeepFM to rank the businesses
         recommended_businesses = DeepFM_rank_top_k(DeepFM_model, user_id, business_ids, user_info, business_info, DeepFM_user_id_encoder, DeepFM_business_id_encoder, DeepFM_user_scaler, DeepFM_business_scaler, k=100)
 
-        return jsonify({"user_id": user_id, "recommendations": recommended_businesses, "users": user_info}), 200
+        recommended_business_ids = [business_id for business_id, _ in recommended_businesses]
+        business_infos = {business_id: business_info[business_id] for business_id in recommended_business_ids if business_id in business_info}
+
+        return jsonify({"user_id": user_id, "recommendations": recommended_businesses, "users": user_info, "businesses":business_infos}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+def get_Cluster_recommendations():
+    data = request.get_json()
+    categories = data.get('categories')
+    k = data.get('k', 10)
+    ItemCF_recommendations = ItemCF_predict_cluster_interests(categories, k)
+    return jsonify({'recommendations': ItemCF_recommendations}), 200 
 
 def get_business_info():
     data = request.get_json()

@@ -10,9 +10,6 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function BusinessCardCarousel({ recommendations, businesses, model }) {
-  // Shuffle the recommendations array
-  recommendations = recommendations.sort(() => Math.random() - 0.5);
-
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const isLarge = useMediaQuery(theme.breakpoints.up('lg'));

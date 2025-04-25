@@ -1,11 +1,5 @@
-import sqlite3
 import pickle
-
-# Database connection function
-def get_db_connection():
-    db_path = '../../data/processed_data/yelp_UserCF.db'
-    conn = sqlite3.connect(db_path)
-    return conn
+from .utils import get_db_connection, get_user_businesses
 
 def retrieve_user_user_mapping(conn):
     cursor = conn.cursor()
@@ -13,11 +7,6 @@ def retrieve_user_user_mapping(conn):
     cursor.execute('''SELECT user_id, user_idx FROM user_mapping''')
     user_mapping = {row[0]: row[1] for row in cursor.fetchall()}
     return user_mapping
-
-def get_user_businesses(user_id, conn):
-    cursor = conn.cursor()
-    cursor.execute('''SELECT business_id, stars_review FROM user_item_index WHERE user_id = ?''', (user_id,))
-    return cursor.fetchall()
 
 def get_top_k_similar_users(user_id, user_mapping, k, conn):
     cursor = conn.cursor()
@@ -35,7 +24,8 @@ def get_top_k_similar_users(user_id, user_mapping, k, conn):
     return similar_users
 
 def UserCF_predict_user_interests(user_id, k):
-    conn = get_db_connection()
+    db_path = '../../data/processed_data/yelp_UserCF.db'
+    conn = get_db_connection(db_path)
     user_mapping = retrieve_user_user_mapping(conn)
     # Get top-k similar users
     similar_users = get_top_k_similar_users(user_id, user_mapping, k, conn)  # More similar users
