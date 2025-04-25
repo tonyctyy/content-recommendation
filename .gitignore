@@ -5,15 +5,6 @@ data.zip
 *.csv
 src/__pycache__/*
 *.xlsx
+*.pyc
 src/Result_Evaluation/temp.txt
 src/Result_Evaluation/results.json
-src/Models_Deep_FM/__pycache__/DeepFM.cpython-311.pyc
-src/Result_Evaluation/GPT_evaluation/user_results/08CXQlc71bRpi8niNyFueQ
-src/Result_Evaluation/GPT_evaluation/user_results/08frwTJwLdJPM0gWDlRLdg
-src/Result_Evaluation/GPT_evaluation/user_results/08FzsE7dBXHSqU77H0-Odg
-src/Result_Evaluation/GPT_evaluation/user_results/08aghuhoTvCwFd4miecxCQ
-src/Result_Evaluation/GPT_evaluation/user_results/08L79P89GRdD6VpjzHeCsA
-src/Result_Evaluation/GPT_evaluation/user_results/08LioS7B84KsW5DmVOG_EQ
-src/Result_Evaluation/GPT_evaluation/user_results/08m1pM5keN0lx84c5Jyquw
-src/Result_Evaluation/GPT_evaluation/user_results/08V34sb6sPwdN97RzRXCNg
-src/Result_Evaluation/GPT_evaluation/user_results/08wIbJCYDZoYdbkDAMAb3w
