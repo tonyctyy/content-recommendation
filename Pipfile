@@ -18,6 +18,8 @@ flask-cors = "*"
 python-geohash = "*"
 joblib = "*"
 vadersentiment = "*"
+hdbscan = "*"
+openpyxl = "*"
 
 [dev-packages]
 ipykernel = "*"

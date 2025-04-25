@@ -1,48 +1,51 @@
-import * as React from 'react';
-import { Card, CardContent, Typography, Box, Grid, Chip, Divider } from '@mui/material';
-import { styled } from '@mui/material/styles';
+// components/UserInfoCard.jsx
+import React from 'react';
+import {
+  Box,
+  CardContent,
+  Chip,
+  Divider,
+  Grid,
+  Typography,
+} from '@mui/material';
 
-// Reuse a card style similar to the business card but without forcing full height
-const StyledUserCard = styled(Card)(({ theme }) => ({
-  borderRadius: 12,
-  boxShadow: theme.shadows[2],
-  // Removed height: '100%' so that the card adjusts to its content.
-  transition: 'transform 0.3s ease',
-  '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: theme.shadows[4],
-  }
-}));
+import { AppCard } from '../components/shared/SharedComponents';
 
-// Helper function to compute membership duration
+// Helper to compute membership duration
 const getMembershipDuration = (joinDate) => {
   if (!joinDate) return 'N/A';
+
   const join = new Date(joinDate);
   const now = new Date();
   let years = now.getFullYear() - join.getFullYear();
   let months = now.getMonth() - join.getMonth();
+
   if (months < 0) {
     years -= 1;
     months += 12;
   }
+
   return `${years} yrs ${months} mos`;
 };
 
 export default function UserInfoCard({ user }) {
   return (
-    <StyledUserCard sx={{ width: '100%', textAlign: 'center', p: 2 }}>
-      <CardContent>
-        {/* Centered Name & User ID */}
+    <AppCard sx={{ width: '100%', textAlign: 'center' }}>
+      <CardContent sx={{ p: 2 }}>
+        {/* Name & ID */}
         <Typography variant="h5" fontWeight="bold">
           {user.name || 'N/A'}
         </Typography>
-        <Typography variant="body2" sx={{ fontStyle: 'italic', color: 'gray' }}>
+        <Typography
+          variant="body2"
+          sx={{ fontStyle: 'italic', color: 'text.secondary' }}
+        >
           {user.user_id || 'N/A'}
         </Typography>
 
-        {/* User Details: Each row as its own grid container */}
+        {/* Ratings, Join Date, Fans */}
         <Grid container spacing={2} sx={{ mt: 2, textAlign: 'left' }}>
-          {/* Row for Average Rating */}
+          {/* Average Rating */}
           <Grid container item xs={12} spacing={1} alignItems="center">
             <Grid item xs={5}>
               <Typography variant="body2">
@@ -50,19 +53,22 @@ export default function UserInfoCard({ user }) {
               </Typography>
             </Grid>
             <Grid item xs={7}>
-            <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
+              <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
                 <Typography variant="body2">
-                    {user.average_stars !== null ? `${user.average_stars.toFixed(2)} ★` : 'N/A'}
+                  {user.average_stars != null
+                    ? `${user.average_stars.toFixed(2)} ★`
+                    : 'N/A'}
                 </Typography>
-                {user.review_count && (
-                    <Typography variant="caption" sx={{ ml: 1 }}>
+                {user.review_count != null && (
+                  <Typography variant="caption" sx={{ ml: 1 }}>
                     ({user.review_count} reviews)
-                    </Typography>
+                  </Typography>
                 )}
-            </Box>
+              </Box>
             </Grid>
           </Grid>
-          {/* Row for Member Since */}
+
+          {/* Member Since */}
           <Grid container item xs={12} spacing={1} alignItems="center">
             <Grid item xs={5}>
               <Typography variant="body2">
@@ -70,21 +76,22 @@ export default function UserInfoCard({ user }) {
               </Typography>
             </Grid>
             <Grid item xs={7}>
-            <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
-
-              <Typography variant="body2">
-                {user.yelping_since ? new Date(user.yelping_since).toLocaleDateString() : 'N/A'}
-              </Typography>
-              {user.yelping_since && (
-                <Typography variant="caption" sx={{ ml: 1 }}>
-                  ({getMembershipDuration(user.yelping_since)})
+              <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
+                <Typography variant="body2">
+                  {user.yelping_since
+                    ? new Date(user.yelping_since).toLocaleDateString()
+                    : 'N/A'}
                 </Typography>
-              )}
-            </Box>
-
+                {user.yelping_since && (
+                  <Typography variant="caption" sx={{ ml: 1 }}>
+                    ({getMembershipDuration(user.yelping_since)})
+                  </Typography>
+                )}
+              </Box>
             </Grid>
           </Grid>
-          {/* Row for Fans */}
+
+          {/* Fans */}
           <Grid container item xs={12} spacing={1} alignItems="center">
             <Grid item xs={5}>
               <Typography variant="body2">
@@ -93,7 +100,7 @@ export default function UserInfoCard({ user }) {
             </Grid>
             <Grid item xs={7}>
               <Typography variant="body2">
-                {user.fans !== null ? user.fans : 'N/A'}
+                {user.fans != null ? user.fans : 'N/A'}
               </Typography>
             </Grid>
           </Grid>
@@ -101,7 +108,30 @@ export default function UserInfoCard({ user }) {
 
         <Divider sx={{ my: 2 }} />
 
-        {/* Votes Section */}
+        {/* Interested Categories */}
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          <strong>Interested Categories:</strong>
+        </Typography>
+        {user.categories?.length > 0 ? (
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center' }}>
+            {user.categories.map((category, idx) => (
+              <Chip
+                key={idx}
+                label={category}
+                size="small"
+                sx={{ backgroundColor: 'theme.palette.action.hover' }}
+              />
+            ))}
+          </Box>
+        ) : (
+          <Typography variant="body2" sx={{ textAlign: 'center', mt: 1 }}>
+            No categories available.
+          </Typography>
+        )}
+
+        <Divider sx={{ my: 2 }} />
+
+        {/* Votes */}
         <Typography variant="body2" sx={{ mb: 1 }}>
           <strong>Votes:</strong>
         </Typography>
@@ -122,20 +152,20 @@ export default function UserInfoCard({ user }) {
 
         <Divider sx={{ my: 2 }} />
 
-        {/* Compliments Section */}
+        {/* Compliments */}
         {user.compliments && Object.keys(user.compliments).length > 0 && (
           <>
             <Typography variant="body2" sx={{ mb: 1 }}>
               <strong>Compliments:</strong>
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center' }}>
-              {Object.entries(user.compliments).map(([key, value]) => 
+              {Object.entries(user.compliments).map(([key, value]) =>
                 value > 0 ? (
-                  <Chip 
-                    key={key} 
-                    label={`${key}: ${value}`} 
-                    size="small" 
-                    sx={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }} 
+                  <Chip
+                    key={key}
+                    label={`${key}: ${value}`}
+                    size="small"
+                    sx={{ backgroundColor: 'theme.palette.action.hover' }}
                   />
                 ) : null
               )}
@@ -143,6 +173,6 @@ export default function UserInfoCard({ user }) {
           </>
         )}
       </CardContent>
-    </StyledUserCard>
+    </AppCard>
   );
 }
