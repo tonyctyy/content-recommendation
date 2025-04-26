@@ -28,7 +28,7 @@ const FinalRecommendation = ({ userData, API_BASE_URL, model, k = 100 }) => {
         response = await fetch('/popular_businesses.json');
         const records = await response.json();
         const recommendations = records.slice(0, k).map((record) => [record.business_id, record.popularity]);
-        data = { recommendations };  
+        data = { recommendations };
       }
 
       if (data.recommendations?.length){

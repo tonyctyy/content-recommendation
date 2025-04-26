@@ -49,7 +49,7 @@ def ItemCF_predict_cluster_interests(categories, k=100):
     db_path = '../../data/processed_data/yelp_ClusterItemCF.db'
     conn = get_db_connection(db_path)
     business_mapping = retrieve_business_mapping(conn)
-    cluster_businesses = get_cluster_businesses(cluster, conn)
+    cluster_businesses = get_cluster_businesses(conn, '''SELECT business_id, score FROM cluster_item_index WHERE cluster = ?''', cluster)
     recommended_businesses = {}
     for business_id, _ in cluster_businesses:
         similar_businesses = get_top_k_similar_businesses(business_id, k, conn, business_mapping)

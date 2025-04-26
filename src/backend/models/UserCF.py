@@ -1,5 +1,5 @@
 import pickle
-from .utils import get_db_connection, get_user_businesses
+from .utils import get_db_connection, get_user_businesses, find_cluster_id, get_cluster_mapping, get_cluster_businesses
 
 def retrieve_user_user_mapping(conn):
     cursor = conn.cursor()
@@ -22,6 +22,21 @@ def get_top_k_similar_users(user_id, user_mapping, k, conn):
     idx_to_user = {v: k for k, v in user_mapping.items()}  # Reverse mapping
     similar_users = [(idx_to_user.get(idx, "Unknown"), score) for idx, score in top_k]
     return similar_users
+
+def get_top_k_similar_clusters(cluster_id, cluster_mapping, k, conn):
+    if cluster_id is None or cluster_id not in cluster_mapping:
+        return []
+    cursor = conn.cursor()
+    cursor.execute('SELECT similarity_vector FROM cluster_cluster_similarity WHERE cluster_id = ?', (str(cluster_id),))
+    result = cursor.fetchone()
+    if result is None:
+        return []
+    similarity_vector = pickle.loads(result[0])
+    indices, data = similarity_vector
+    top_k = sorted(zip(indices, data), key=lambda x: -x[1])[:k]
+    idx_to_cluster = {v: str(k) for k, v in cluster_mapping.items()}  # Ensure cluster_id is string
+    similar_clusters = [(idx_to_cluster.get(idx, "Unknown"), score) for idx, score in top_k]
+    return similar_clusters
 
 def UserCF_predict_user_interests(user_id, k):
     db_path = '../../data/processed_data/yelp_UserCF.db'
@@ -46,3 +61,23 @@ def UserCF_predict_user_interests(user_id, k):
     recommended_businesses = sorted(recommended_businesses.items(), key=lambda x: -x[1])   
     conn.close()
     return recommended_businesses[:k]
+
+def UserCF_predict_cluster_interests(categories, k_clusters=10, k_items=500):
+    cluster_id = find_cluster_id(categories)
+    # convert cluster to string
+    cluster_id = str(cluster_id)
+    db_path = '../../data/processed_data/yelp_ClusterUserCF.db'
+    conn = get_db_connection(db_path)
+    cluster_mapping = get_cluster_mapping(conn)
+    similar_clusters = get_top_k_similar_clusters(cluster_id, cluster_mapping, k_clusters, conn)
+
+    recommended_businesses = {}
+    for similar_cluster_id, similarity_score in similar_clusters:
+        similar_cluster_businesses = get_cluster_businesses(conn, '''SELECT business_id, stars_review FROM cluster_item_index WHERE cluster_id = ?''', similar_cluster_id)
+        for business_id, score in similar_cluster_businesses:
+            if business_id in recommended_businesses:
+                recommended_businesses[business_id] += score * similarity_score
+            else:
+                recommended_businesses[business_id] = score * similarity_score
+    recommended_businesses = sorted(recommended_businesses.items(), key=lambda x: -x[1])
+    return recommended_businesses[:k_items]
