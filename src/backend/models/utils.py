@@ -15,10 +15,16 @@ def get_user_businesses(user_id, conn):
     cursor.execute('''SELECT business_id, stars_review FROM user_item_index WHERE user_id = ?''', (user_id,))
     return cursor.fetchall()
 
-def get_cluster_businesses(cluster, conn):
+def get_cluster_businesses(conn, msg, cluster):
     cursor = conn.cursor()
-    cursor.execute('''SELECT business_id, score FROM cluster_item_index WHERE cluster = ?''', (cluster,))
+    cursor.execute(msg, (cluster,))
     return cursor.fetchall()
+
+# Retrieval Functions
+def get_cluster_mapping(conn):
+    cursor = conn.cursor()
+    cursor.execute('SELECT cluster_id, cluster_idx FROM cluster_mapping')
+    return {str(row[0]): row[1] for row in cursor.fetchall()}  # Ensure cluster_id is string
 
 def find_nearest_neighbor(encoded_try_list: np.ndarray, clustered_user_df: pd.DataFrame):
     # Ensure the clustered_user_df has a 'user_id' column and encoded category columns.

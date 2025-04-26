@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from models.ItemCF import ItemCF_predict_user_interests, ItemCF_predict_cluster_interests
-from models.UserCF import UserCF_predict_user_interests
+from models.UserCF import UserCF_predict_user_interests, UserCF_predict_cluster_interests
 from models.DSSM import *
 from models.DeepFM import *
 from cluster import *
@@ -89,7 +89,15 @@ def get_Cluster_recommendations():
     categories = data.get('categories')
     k = data.get('k', 10)
     ItemCF_recommendations = ItemCF_predict_cluster_interests(categories, k)
-    return jsonify({'recommendations': ItemCF_recommendations}), 200 
+    UserCF_recommendations = UserCF_predict_cluster_interests(categories)
+
+    ItemCF_business_ids = set([business_id for business_id, _ in ItemCF_recommendations])
+    UserCF_business_ids = set([business_id for business_id, _ in UserCF_recommendations])
+    UserCF_business_ids = UserCF_business_ids - ItemCF_business_ids
+    UserCF_recommendations = [(business_id, score) for business_id, score in UserCF_recommendations if business_id in UserCF_business_ids]
+    # combine the two recommendations
+    recommendations = ItemCF_recommendations + UserCF_recommendations
+    return jsonify({'recommendations': recommendations}), 200 
 
 def get_business_info():
     data = request.get_json()
