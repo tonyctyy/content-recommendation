@@ -12,3 +12,4 @@ src/Models_Deep_FM/__pycache__/DeepFM.cpython-311.pyc
 src/data_processing/clustered_user_df.pkl
 src/Models_Cluster/__pycache__/cluster_utils.cpython-311.pyc
 src/Models_Cluster/cluster_data/clustered_user_df.pkl
+src/Models_Item_CF/evaluation_metrics_comparison.png
