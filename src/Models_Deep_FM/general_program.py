@@ -99,6 +99,16 @@ tip_df = yelp_data['tip']
 # Preprocess categories data
 categories_df = yelp_data['business_categories']
 
+# read the categories frequency from csv, first row is the header
+categories_freq_df = pd.read_csv('./overall_category_freq.csv', header=0)
+
+# map the categories to their frequency
+categories_freq_dict = dict(zip(categories_freq_df['category'], categories_freq_df['count']))
+categories_df['count'] = categories_df['category'].map(categories_freq_dict)
+
+# for each business, get the top 5 categories based on frequency and filter out the rest
+categories_df = categories_df.sort_values(by='count', ascending=False).groupby('business_id').head(MAX_CATEGORY_LENGTH)
+
 # Flatten all categories into a single list to fit the encoder
 unique_categories = categories_df['category'].unique()
 
