@@ -1,7 +1,7 @@
 data/raw_datasets/*
 data/processed_data/yelp_data/*
 *.db
-*.csv
+# *.csv
 src/__pycache__/*
 *.xlsx
 src/Result_Evaluation/temp.txt
